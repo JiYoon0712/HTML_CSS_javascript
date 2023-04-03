@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+.box{
+	width: 900px;
+}
+
+</head>
+<body>
+<div>
+	<div style="background: black; float:left;"></div>
+</div>
+</body>
+</html>

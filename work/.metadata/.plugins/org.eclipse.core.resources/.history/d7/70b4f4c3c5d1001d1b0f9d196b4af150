@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3>block과 inline 태그</h3>
+
+<h3>블록태그</h3>
+
+<p> 블록 </p>
+<hr>
+
+<h3>인라인태그</h3>
+<span>인라인</span>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+/*외부 css 파일*/
+div { 
+	font-size : 14px;
+	font-weight : 700;
+ }
+  
+ .web { 
+ 	color: tomato;
+ } 

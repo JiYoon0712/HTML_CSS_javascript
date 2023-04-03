@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+.box{
+	width: 900px;
+}
+</head>
+<body>
+<div>
+	<div style="background: yellow; float:left;">A</div>
+</div>
+</body>
+</html>

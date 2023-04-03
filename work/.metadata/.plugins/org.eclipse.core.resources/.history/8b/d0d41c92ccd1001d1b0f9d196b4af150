@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+<h3>특수문자</h3>
+<p>
+	&lt;br&gt; : 라인을 넘긴다.
+</p>
+<p>
+  html은					공백을 많이 띄워도 한 칸만 떨어지고
+  엔터를 눌러도 라인이 벌어지지 않음<br>
+  따라서 공백은 &므ㅔ;nbsp;으로 띄울 수 있다.
+</p> 
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;스프링
+</p>
+ 
+ 
+</body>
+</html>

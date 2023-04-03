@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> <!-- 기본 : IOS-8859_1 (영문코드. 반드시 UTF-8 명시) -->
+<meta name="keyword" content="html, css, javascript, tag"> <!--  검색 엔진에게 제공되는 키워드 -->
+<title>첫번째 예제</title>
+</head>
+<body>
+	
+<h3>meta 태그</h3>
+	
+</body>
+</html>

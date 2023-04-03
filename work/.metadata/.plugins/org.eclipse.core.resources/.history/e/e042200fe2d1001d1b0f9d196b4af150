@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3>div : margin</h3>
+
+<div style="background:red; width:300px; height:50px"></div>
+<div style="background:blue; width:300px; height:50px; margin:20px"></div>
+<div style="background:green; width:300px; height:50px"></div>
+<div style="background:gray; width:300px; height:50px"></div>
+<hr>
+
+<div style="background:tomato; width:300px; height:50px"></div>
+
+</body>
+</html>

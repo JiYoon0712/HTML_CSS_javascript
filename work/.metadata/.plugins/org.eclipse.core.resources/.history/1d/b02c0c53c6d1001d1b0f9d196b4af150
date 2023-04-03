@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3>block과 inline 태그</h3>
+
+<h3>블록태그</h3>
+
+<p style="background: yellow;"> 블록 1 </p><p style="background: tomato;"> 블록 2 </p>
+<p style="width:300px; background: gray;"> 블록 1 </p>
+<hr>
+
+<h3>인라인태그</h3>
+<span style="background: red;">인라인</span><span style="background: green;">인라인2</span>
+<span style="background: tomato;">인라인태그</span>
+<span style="width:300px; background: black; color:white;">오라클</span>
+	<!-- 인라인 태그 폭은 content 폭과 동일 -->
+	<!-- 인라인 태그에서 width, height는 무시 -->
+	<!-- 인라인 태그에서 margin, padding은 좌우 간격만 적용 -->
+	<!-- 인라인 태그에서 공백, 엔터는 4px정도의 여백이 생김 -->
+</body>
+</html>

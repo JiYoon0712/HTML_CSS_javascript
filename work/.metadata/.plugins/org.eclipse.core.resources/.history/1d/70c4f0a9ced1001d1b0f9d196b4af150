@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+.box{
+	border: 3px solid gray;
+	width: 500px;
+	height: 100px;
+	overflow: auto;
+}
+
+.box2{
+	border: 3px solid blue;
+	width: 450px;
+	padding: 25px;
+	text-align: center;
+	font-weight: 700;
+}
+
+</style>
+
+</head>
+<body>
+
+<h3> 공통 속성 </h3>
+<!-- 속성 : 요소의 시작태그에 사용하여 명령어를 구체화 하는 역할을 한다. -->
+
+<p>상자에 마우스를 올려 보세요.</p>
+<div title="안녕..." style="width:300px; height:50px; background: yellow;"></div>
+<hr>
+
+<p>contenteditable : 내용 입력 여부 지정</p>
+<div class = "box"></div>
+<hr>
+<div class = "box" contenteditable="true"></div>
+<hr>
+
+<p>data-* : 개발자가 임의의 속성을 html에 추가할 때 사용</p>
+<ul>
+	<li data-subject="java">자바</li>
+	<li data-subject="spring">스프링</li>
+	<li data-subject="oracle">오라클</li>
+</ul>
+<hr>
+
+<p>draggable : 드래그 여부 지정</p>
+<div class="box2" draggable="true">드래그 예제</div>
+
+</body>
+</html>

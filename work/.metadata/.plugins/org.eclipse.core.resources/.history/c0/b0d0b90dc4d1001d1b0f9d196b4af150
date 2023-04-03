@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3>기본 태그</h3>
+
+<pre>
+	- p 태그 : 문단 태그, 블록 태그, br태그를 두번 설정
+	- br 태그 : 줄 바꿈
+	- hr 태그 : 수평선
+</pre>
+
+</body>
+</html>

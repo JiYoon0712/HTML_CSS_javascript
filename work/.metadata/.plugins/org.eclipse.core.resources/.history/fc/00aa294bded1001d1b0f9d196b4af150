@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+ /* embedded style shhhe */
+ 
+ /* 태그 선택자 */
+ div { color : blue; font-weight:bold;}
+ p { font-size : 14px; }
+ 
+ 
+ /*id 선택자*/
+#java { background: yellow; }
+ 
+ /* class 선택자 */
+ .web { color: tomato;} 
+</style>
+
+</head>
+<body>
+
+<h3>간단한 css 예</h3>
+
+<div>과목 - 프로그래밍</div>
+<p id = "java">자바</p><!-- id는 유일해야 하며, id라는 값으로 id를 부여하면 안된다.-->
+<p style="font-size: 20px">스프링</p><!-- inline style -->
+<hr>
+
+<div>과목-웹 프로그래밍</div>
+<p class ="web">HTML</p>
+<p class = "web">CSS</p>
+<p class = "web">javascript</p>
+
+
+
+</body>
+</html>

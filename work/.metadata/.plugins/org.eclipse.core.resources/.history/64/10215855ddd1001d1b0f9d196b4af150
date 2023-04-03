@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type= "text/css">
+/* embeded style sheet */
+
+/* 태그 선택자 */
+div { color : blue; font-weight: bold; }
+
+/* id 선택자 */
+#java {backgound : yellow;}
+
+/* class 선택자 */
+.web{ color:tamato }
+</style>
+</head>
+<body>
+
+<h3>간단한 css 예 </h3>
+<p id = "java">자바</p>
+<p style="font-size: 20px;">스프링</p>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+*{
+	margin : 0;
+}
+</style>
+
+</head>
+<body>
+			<!-- (margin: a b => a는 위아래 b는 왼오) -->
+<h3 style="margin:20px auto; width:200px;">div : margin</h3>
+
+<div style="background:red; width:300px; height:50px"></div>
+<div style="background:blue; width:300px; height:50px; margin:20px"></div>
+<div style="background:green; width:300px; height:50px"></div>
+<div style="background:gray; width:300px; height:50px"></div>
+<hr>
+
+<!-- 위아래 여백은 20이고, 왼쪽 오른쪽은 auto 이므로 수평 가운데 정렬 -->
+<div style="background:tomato; width:300px; height:50px; margin:20px auto"></div>
+
+</body>
+</html>

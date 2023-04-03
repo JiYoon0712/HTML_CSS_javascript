@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3> 포멧팅 관련 태그 </h3>
+
+<p>address : 저자, 연락처 정보 태그</p>
+<address>저자 : 배고파</address>
+<hr>
+
+<p> b : 진하게 </p>
+<b>진하게 한잔</b>
+<hr>
+
+<p> em : 이탤릭. i태그와 동일 </p>
+<em>이탤릭</em>
+<hr>
+
+<p> i : 이탤릭 </p>
+<i>이탤릭</i>
+<hr>
+
+</body>
+</html>
