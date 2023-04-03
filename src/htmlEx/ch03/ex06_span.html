@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3>span 태그</h3>
+
+<!-- 인라인 태그 뒤에 공백, 엔터, 탭이 있으면 4px 정도의 공백이 생김 -->
+<span style="background: gray;">HTML</span>
+<span style="background: gold;">CSS</span>
+<span style="background: fuchsia;">HTML</span>
+<br><br>
+
+<!-- (공백 x) -->
+<span style="background: gray;">HTML</span><span style="background: gold;">CSS</span><span style="background: fuchsia;">HTML</span>
+<br><br>
+
+<!-- display:block; - 인라인 요소를 블록 요소로 지정 -->
+<span style="background: gray; width:400px; display:block;">HTML</span>
+<span style="background: gold; width:400px;	display:block;">CSS</span>
+<br><br>
+
+<!-- display:inline-block; - 요소를 인라인 요소로 배치하면서 내용에는 블록 레벨 속성 사용 -->
+<span style="background: gray; width:200px; display:inline-block;">HTML</span>
+<span style="background: gold; width:200px;	display:inline-block;">CSS</span>
+<br><br>
+
+<div style="background: gray; width:200px; display:inline-block;">HTML</div>
+<div style="background: gold; width:200px;	display:inline-block;">CSS</div>
+<br><br>
+
+<!-- display:inline; - 블록 요소를 인라인 요소로 지정, width는 무시 -->
+<div style="background: gray; width:200px; display:inline;">HTML</div>
+<div style="background: gold; width:200px;	display:inline;">CSS</div>
+<br><br>
+
+</body>
+</html>
