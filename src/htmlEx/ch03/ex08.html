@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* {margin : 0; padding:0}
+
+body {
+	font-family: 맑은 고딕;
+	font-size: 14px;
+}
+
+header,main,footer { width: 1100px; margin : 0 auto; }
+
+header {
+	background: lightblue;
+	margin-top:30px;
+	padding:20px;
+}
+
+/* 블록태그에서 width를 지정하지 않으면 width는 부모의 width 이다. */
+nav {
+	border: 1px solid #777;
+	padding : 30px;
+	text-align: center;
+}
+
+main {
+	background: #eee;
+	min-height: 500px;	/*(최소임. 알아서 늘어남.)*/
+	padding: 20px;
+}
+
+/* main 아래 모든 자손 태그인 article 태그 */
+main article{
+	background: #fff;
+	margin-top: 10px;
+	padding: 20px;
+}
+
+main aside{
+	border: 1px solid #333;
+	padding: 20px;
+	margin-top: 10px;
+	height: 140px;
+}
+
+footer {
+	background: #ffebff;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+/* footer 바로 아래 자식 태그인 p 태그 */
+footer > p {
+	padding: 30px;
+	text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+	<nav>메뉴 입니다.</nav>
+</header>
+
+<main>
+	<h2> 메인 화면 입니다.</h2>
+	<section style="float:left; width: 65%;">
+		<article>
+			<h3>header 태그</h3>
+			<p>머릿글 태그, 소개 등을 설정</p>
+		</article>
+		
+		<article>
+			<h3>nav 태그</h3>
+			<p>외부 페이지로 연결하는 링크의 모임. 일반적으로 메뉴를 구현</p>
+		</article>
+	</section>
+	
+	
+	<aside style="float:right; width: 30%;">
+		<h3>aside 태그</h3>
+		<p>사이드바 태그</p>
+	</aside>
+	
+	<article style="clear:both;">
+		<h3>main 태그</h3>
+		<p>해당 문서의 주 콘텐츠 정의</p>
+	</article>
+	
+	<article>
+		<h3>section 태그</h3>
+		<p>문서의 섹션을 정의</p>
+	</article>
+	
+	<article>
+		<h3>article 태그</h3>
+		<p>문서,페이지, 애플리케이션을 포함하며, 그 자체로 독자적으로 완성할 수 있는 내용을 담고 있음</p>
+	</article>
+	
+	<article>
+		<h3>div 태그</h3>
+		<p>여러 태그를 묶을때 사용</p>
+	</article>
+</main>
+
+<footer>
+	<p>푸터입니다.</p>
+</footer>
+
+
+</body>
+</html>

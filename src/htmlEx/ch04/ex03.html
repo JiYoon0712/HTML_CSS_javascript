@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- border-collapse : 선의 표시 방법 지정. collapse: 테두리를 하나로 합침 -->
+<table border="1" style="width:700px; border-collapse: collapse; margin:20px auto;">
+	<tr>
+		<th>학번</th>
+		<th>이름</th>
+		<th>국어</th>
+		<th>영어</th>
+		<th>수학</th>
+		<th>총점</th>
+		<th>평균</th>
+	</tr>
+	<tr>
+		<td>1111</td>
+		<td>김자바</td>
+		<td>100</td>
+		<td>100</td>
+		<td>100</td>
+		<td>300</td>
+		<td>100</td>
+	</tr>
+	<tr>
+		<td>2222</td>
+		<td>이자바</td>
+		<td>90</td>
+		<td>90</td>
+		<td>90</td>
+		<td>270</td>
+		<td>90</td>
+	</tr>
+	<tr>
+		<td>3333</td>
+		<td>다자바</td>
+		<td>80</td>
+		<td>80</td>
+		<td>80</td>
+		<td>240</td>
+		<td>80</td>
+	</tr>
+</table>
+<hr>
+
+
+
+
+<table border="1" style="width:700px; border-collapse: collapse; margin:20px auto;">
+	<tr style="background:lightgray">
+		<th rowspan="2">책이름</th>
+		<th rowspan="2">수량</th>
+		<th colspan="2">단가</th>
+		<th rowspan="2">가격</th>
+	</tr>
+	
+	<tr style="background:lightgray">
+		<th>정가</th>
+		<th>세일가</th>
+	</tr>
+	
+	<tr align="center">
+		<td>html</td>
+		<td>10</td>
+		<td>10,000</td>
+		<td>8,000</td>
+		<td>80,000</td>
+	</tr>
+	
+	<tr align="center">
+		<td>CSS</td>
+		<td>5</td>
+		<td>9,000</td>
+		<td>-</td>
+		<td>45,000</td>
+	</tr>
+	
+	<tr align="center" style="background:#dcefff">
+		<td>합계</td>
+		<td colspan="4">125,000</td>
+	</tr>
+</table>
+
+<table border="1" style="width:700px; border-collapse: collapse; margin:20px auto;">
+	<tr align="center">
+		<td rowspan="2">A</td>
+		<td colspan="3">B</td>
+		<td>C</td>
+	</tr>
+	
+	<tr align="center">
+		<td>D</td>
+		<td>E</td>
+		<td>F</td>
+		<td>G</td>
+	</tr>
+	
+	<tr align="center">
+		<td>H</td>
+		<td>I</td>
+		<td>J</td>
+		<td rowspan="3">K</td>
+		<td>L</td>
+	</tr>
+	
+	<tr align="center">
+		<td>M</td>
+		<td>N</td>
+		<td>O</td>
+		<td>P</td>
+	</tr>
+	
+	<tr align="center">
+		<td rowspan="2" colspan="2">Q</td>
+		<td>R</td>
+		<td>S</td>
+	</tr>
+	
+	<tr align="center">
+		<td>T</td>
+		<td>U</td>
+		<td>V</td>
+	</tr>
+
+</table>
+
+</body>
+</html>

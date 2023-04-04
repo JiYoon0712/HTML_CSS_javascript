@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+.table td{
+   border-top: 3px solid red;
+   border-bottom: 3px solid red;
+   border-left: 3px solid blue;
+   border-right: 3px solid blue;
+   width: 120px;
+   height: 35px;
+   text-align: center;
+}
+
+/* border-spacing : 인접한 표 셀의 테두리 간격 지정 */
+.tb1{border-spacing: 0;}
+.tb2{border-spacing: 10px;}
+
+</style>
+
+</head>
+<body>
+
+<h3>table 태그</h3>
+
+<table style="width: 360px; text-align: center;" border="1">
+   <tr  height="35">
+      <td>A</td>
+      <td>B</td>
+      <td>C</td>
+   </tr>
+   <tr height="35">
+      <td>D</td>
+      <td>E</td>
+      <td>F</td>
+   </tr>
+</table>
+<hr>
+
+
+<table class="table">
+   <tr>
+      <td>A</td>
+      <td>B</td>
+      <td>C</td>
+   </tr>
+   <tr>
+      <td>D</td>
+      <td>E</td>
+      <td>F</td>
+   </tr>
+</table>
+<hr>
+
+<table class="table tb1">
+   <tr>
+      <td>A</td>
+      <td>B</td>
+      <td>C</td>
+   </tr>
+   <tr>
+      <td>D</td>
+      <td>E</td>
+      <td>F</td>
+   </tr>
+</table>
+<hr>
+
+							<!-- (선 1개) -->
+<table class="table tb1" style="border-collapse: collapse">
+   <tr>
+      <td>A</td>
+      <td>B</td>
+      <td>C</td>
+   </tr>
+   <tr>
+      <td>D</td>
+      <td>E</td>
+      <td>F</td>
+   </tr>
+</table>
+<hr>
+
+<table class="table tb2">
+   <tr>
+      <td>A</td>
+      <td>B</td>
+      <td>C</td>
+   </tr>
+   <tr>
+      <td>D</td>
+      <td>E</td>
+      <td>F</td>
+   </tr>
+</table>
+<hr>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!-- 2023-04-04 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3>vertical-align</h3>
+
+<p> vertical-align : inline 또는 table-cell 박스에서 수직 정렬 방식 지정 </p>
+
+<div>
+	<div style = "background:yellow; width:100px; display:inline-block; height:100px;">
+		A
+	</div>
+	<div style = "background:lightblue; width:100px; display:inline-block; height:100px;">
+		B<br>B
+	</div>
+	<div style = "background:green; width:100px; display:inline-block; height:100px;">
+		C<br>C<br>C
+	</div>
+	<div style = "background:tomato; width:100px; display:inline-block; height:100px;">
+		D
+	</div>
+</div>
+<hr>
+
+<div style="background: gray">
+	<div style = "background:yellow; width:100px; display:inline-block; height:100px; vertical-align: top">
+		A
+	</div>																		<!-- (baseline : 기준선)  -->
+	<div style = "background:lightblue; width:100px; display:inline-block; height:100px; vertical-align:baseline">
+		B<br>B
+	</div>
+	<div style = "background:green; width:100px; display:inline-block; height:100px; vertical-align:middle">
+		C<br>C<br>C
+	</div>
+	<div style = "background:tomato; width:100px; display:inline-block; height:100px; vertical-align:bottom">
+		D
+	</div>
+</div>
+<hr>
+
+<div style="background: gray">
+	<div style = "background:yellow; width:100px; display:inline-block; height:100px; vertical-align: top">
+		A
+	</div>																
+	<div style = "background:lightblue; width:100px; display:inline-block; height:100px; vertical-align:top">
+		B<br>B
+	</div>
+	<div style = "background:green; width:100px; display:inline-block; height:100px; vertical-align:top">
+		C<br>C<br>C
+	</div>
+	<div style = "background:tomato; width:100px; display:inline-block; height:100px; vertical-align:top">
+		D
+	</div>
+</div>
+</body>
+</html>

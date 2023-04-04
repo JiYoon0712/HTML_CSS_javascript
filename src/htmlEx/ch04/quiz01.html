@@ -1,0 +1,86 @@
+<!-- board_list가 강사님 답안 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+* { padding:0; margin:0; }
+body{
+	font-family: 맑은 고딕, 나눔고딕, 돋움, sans-serif;
+	font-size: 14px;
+	color: #222;
+}
+
+.body-container{ 
+	width: 700px;
+	margin: 30px auto;
+}
+
+.body-container .title{
+	font-size: 16px; font-weight: 700; padding: 13px 0;
+}
+.body-container .number{
+	text-align: center;
+}
+
+
+.table { width:100%; border-spacing:0; border-collapse: collapse; }
+.table th, .table td { padding-top : 10px; padding-bottom:10px; }
+
+.table-border thead > tr { border-top: 2px solid #4169E1; border-bottom: 1px solid #000066; }
+.table-border tbody > tr { border-bottom: 1px solid #000066; }
+
+.table-list thead > tr {background: #4169E1; color:white;}
+.table-list td, .table-list th{ text-align:center; }
+.table-list td:nth-child(5n+2){ text-align: left; padding-left:40px }
+.th-list { width: 70px; padding:10px; }
+.th-date { width: 90px; }
+
+</style>
+
+</head>
+<body>
+
+<div class="body-container">
+	<div class="title">
+		<h3>| 게시판</h3>
+	</div>
+	
+	<table class = "table table-border table-list">
+		<thead>
+			<tr>
+				<th class="th-list">번호</th>
+				<th class="th-title">제목</th>
+				<th class="th-list">작성자</th>
+				<th class="th-date">작성일</th>
+				<th class="th-list">조회수</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<td>2</td>
+				<td>제목2...</td>
+				<td>스프링</td>
+				<td>2015-10-10</td>
+				<td>10</td>
+			</tr>
+			
+			<tr>
+				<td>1</td>
+				<td>제목1...</td>
+				<td>홍길동</td>
+				<td>2015-10-10</td>
+				<td>5</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class = "page-navigation">
+	<br> <h3>1 2</h3>
+	</div>
+</div>
+
+</body>
+</html>

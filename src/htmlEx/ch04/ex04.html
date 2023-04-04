@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>성적처리</title>
+</head>
+<body>
+
+<table border="1" style="border-collapse: collapse; width:700px; margin:20px auto">
+<!-- (<caption> : 제목을 줄 때 사용 ,자동 가운데 정렬)-->
+<!-- (<thead> <tbody> <tfoot> : 데이터를 중간에 끼워넣을때 좀 더 편리함) -->
+	<caption>성적처리</caption>
+	<col style="background: #e4e4e4;">
+	<col style="background: palegreen">
+	<col span="3" style="background: lightblue">
+	<col span="2" style="background: yellow">
+	<thead>
+		<tr>
+			<th>학번</th>
+			<th>이름</th>
+			<th>국어</th>
+			<th>영어</th>
+			<th>수학</th>
+			<th>총점</th>
+			<th>평균</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr>
+			<td>1111</td>
+			<td>김자바</td>
+			<td>100</td>
+			<td>100</td>
+			<td>100</td>
+			<td>300</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>2222</td>
+			<td>이자바</td>
+			<td>90</td>
+			<td>90</td>
+			<td>90</td>
+			<td>270</td>
+			<td>90</td>
+		</tr>
+		<tr>
+			<td>3333</td>
+			<td>다자바</td>
+			<td>80</td>
+			<td>80</td>
+			<td>80</td>
+			<td>240</td>
+			<td>80</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">총점</td>
+			<td>270</td>
+			<td>270</td>
+			<td>270</td>
+			<td>810</td>
+			<td>90</td>
+		</tr>
+	</tfoot>
+</table>
+<hr>
+
+<table border="1" style="border-collapse: collapse; width:700px; margin:20px auto">
+	<caption>성적처리</caption>
+	<colgroup>
+		<col width="19%" style="background:lightblue;">
+		<col width="24%" style="background: #eee;">	<!-- text-align 속성은 적용 안됨 -->
+		<col width="19%" style="background: #eee;">
+		<col width="19%" style="background: #eee;">
+		<col width="19%" style="background: #eee;">
+	</colgroup>
+	<thead>
+		<tr height="35">
+			<th>학번</th>
+			<th>이름</th>
+			<th>국어</th>
+			<th>영어</th>
+			<th>수학</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr>
+			<td>1111</td>
+			<td>김자바</td>
+			<td>100</td>
+			<td>100</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>2222</td>
+			<td>이자바</td>
+			<td>90</td>
+			<td>90</td>
+			<td>90</td>
+		</tr>
+		<tr>
+			<td>3333</td>
+			<td>다자바</td>
+			<td>80</td>
+			<td>80</td>
+			<td>80</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+</body>
+</html>
