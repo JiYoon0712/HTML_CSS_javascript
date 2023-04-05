@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="join.css" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+
+
+
+<style type="text/css">
+
+</style>
+</head>
+<body>
+
+<div class="body-container">
+	<div class="body-container2">
+	<h3><i class="fa-solid fa-users fa-bounce" style="color: #f29987;"></i>&nbsp;회원가입</h3>
+	
+	<form name="joinForm" method="post">
+		<ul>
+			<li><label>아이디</label></li>
+			<li><input type="text" name="id" required="required" maxlength="10" pattern="[A-Za-z0-9]+"
+				 placeholder="아이디를 입력하세요." class="id"></li>
+				 
+			<li><label>패스워드</label></li>
+			<li><input type="password" name="pwd" required="required" 
+				placeholder="비밀번호를 입력하세요." class="pwd"></li>
+			<li>패스워드 확인</li>
+			<li><input type="password" name="pwdcheck" required="required" 
+				placeholder="같은 비밀번호를 입력하세요." class="pwd"></li>
+			
+			<li>이름</li>
+			<li><input type="text" name="name" required="required" 
+			 	 placeholder="이름을 입력하세요."></li>
+			</ul>
+			
+			<br><hr><br>
+			
+			<ul>
+			<li><i class="fa-solid fa-cake-candles" style="color: #88a6cf;"></i> 생년월일</li>
+			<li><input type="date" name="birth" class="birth"></li>
+			
+			<li><i class="fa-solid fa-envelope" style="color: #88a6cf;"></i> 이메일</li>
+			<li>
+			<input name="email" class="email">
+			<span>@</span>
+			<select name ="emailback">
+				<option value="" selected="selected" disabled>email</option>
+	            <option value="naver.com" id="naver.com">naver.com</option>
+	            <option value="hanmail.net" id="hanmail.net">hanmail.net</option>
+	            <option value="gmail.com" id="gmail.com">gmail.com</option>
+	            <option value="nate.com" id="nate.com">nate.com</option>
+	            <option value="directly" id="textEmail">직접 입력하기</option>
+			</select>
+			</li>
+			
+			<li><i class="fa-solid fa-pen-to-square" style="color: #88a6cf;"></i> 메모</li>
+			<li><textarea rows="5" cols="62" name="memo"></textarea></li>
+			</ul>
+			
+			<p style="text-align: center;">
+				<label>약관동의
+					<input type="checkbox" 
+						onchange="form.sendButton.disabled = ! checked"
+						checked="checked">
+				</label>
+			</p>
+			
+			<p style="text-align: center">
+				<button type="submit" name="sendButton">회원가입</button>	
+				<button type="reset">다시입력</button>	
+			</p>
+	</form>
+</div>
+</div>
+
+</body>
+</html>
