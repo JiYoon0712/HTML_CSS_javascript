@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+p { color:blue; }
+p { color:red; }
+
+/* 여기 순서 중요. (나중에 오는게 우선순위 높음) */
+.red { color:red; }
+.blue { color:blue; }
+</style>
+
+</head>
+<body>
+
+<h3> Cascading Order </h3>
+
+<p>선언 순서-RED</p>
+<p class="blue red">선언 순서-BLUE</p>
+
+</body>
+</html>

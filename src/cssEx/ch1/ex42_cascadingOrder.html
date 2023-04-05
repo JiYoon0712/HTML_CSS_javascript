@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+/* !important > 인라인 > 아이디 > 클래스 > 태그 > 전체선택자 */
+p { color:red !important; }
+#p-blue { color:blue; }
+
+div { color:orange; }
+.box { color:green; }
+div.box { color:black; }
+.box2 { color:gold; }
+</style>
+
+</head>
+<body>
+
+<h3> Cascading Order </h3>
+
+<p id="p-blue">red-명시도 예</p>
+
+<pre class="box">green-명시도 예</pre>
+<div class="box">black-명시도 예</div>
+<div class="box2">gold-명시도 예</div>
+
+</body>
+</html>
