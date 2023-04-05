@@ -1,0 +1,185 @@
+<!-- (quiz01 고치셈. 이게 강사님 코드) -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+
+<style type="text/css">
+* { padding: 0; margin: 0; }
+*, *::after, *::before { box-sizing: border-box; } 
+
+body {
+	font-family:"Malgun Gothic", "맑은 고딕", NanumGothic, 나눔고딕, 돋움, sans-serif;
+	font-size: 14px;
+	color: #222;
+}
+
+a { color: #222; text-decoration: none; cursor: pointer; }
+a:active, a:hover { color: #f28011; text-decoration: underline; }
+
+/* form-control */
+.btn {
+	color: #333;
+	border: 1px solid #999;
+	background-color: #fff;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-weight: 500;
+	cursor:pointer;
+	font-size: 14px;
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;	
+	vertical-align: baseline;
+}
+
+.btn:active, .btn:focus, .btn:hover {
+	background-color: #f8f9fa;
+	color:#333;
+}
+.btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: default;
+	opacity: .65;
+}
+
+.form-control {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 5px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-control[readonly] { background-color:#f8f9fa; }
+
+textarea.form-control { height: 170px; resize : none; }
+
+.form-select {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 4px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-select[readonly] { background-color:#f8f9fa; }
+
+textarea:focus, input:focus { outline: none; }
+input[type=checkbox], input[type=radio] { vertical-align: middle; }
+
+.board { width: 700px; margin: 30px auto; }
+
+.title { width:100%; font-size: 16px; font-weight: bold; padding: 13px 0; }
+
+.board-list ul { clear:both; list-style: none; }
+
+.board-list ul:first-child li {
+	color: #787878; background: #f8f9fa; font-weight: 600; border-top: 2px solid #212529; }
+
+.board-list li {
+	float: left; text-align: center; padding: 10px 0; border-bottom: 1px solid #ced4da; }
+
+.board-list ul .num { width: 50px; }
+.board-list ul .subject { 
+	width: 410px; text-align: left; padding-left: 10px;
+	text-overflow:ellipsis; white-space: nowrap; overflow:hidden; }
+	/* nowrap : 노랩은 여러 공백을 하나의 공백으로 표시하고, 영역을 넘어가는 내용은 줄 바꿈 하지 않고 한 줄로 표시 */	
+
+.board-list ul .name { width:95px; }
+.board-list ul .date { width: 85px; }
+.board-list ul .hit { width: 60px; }
+
+.board-list ul:first-child .subject { text-align: center; }
+
+.board-footer {   padding: 15px 0; }
+.board-footer .left-footer { float: left; width: 20%; text-align: left; }
+.board-footer .center-footer { float: left; width: 60%; text-align: center; }
+.board-footer .right-footer { float: left; width: 20%; text-align: right; }
+
+.page-navigation { clear:both; padding: 20px 0; text-align: center; }
+
+.paginate { text-align: center;; font-size: 14px; }
+.paginate a {
+	border: 1px solid #ccc;
+	color: #000;  font-weight: 600;  text-decoration: none;
+	padding: 3px 7px; margin-left: 3px; vertical-align: middle; }
+.paginate a:hover, .paginate a:active { color: #6771ff; }
+.paginate span {
+	border: 1px solid #e26d86;
+	color: #cb3536; font-weight: 600; text-decoration: none;
+	padding: 3px 7px; margin-left: 3px; vertical-align: middle; }
+.paginate :first-child { margin-left: 0; }
+</style>
+
+</head>
+<body>
+
+<div class="board">
+	<div class="title">
+		<h3><i class="fa-regular fa-clipboard"></i> 게시판</h3>
+	</div>
+	
+	<div class="board-list">
+		<ul>
+			<li class="num">번호</li>
+			<li class="subject">제목</li>
+			<li class="name">작성자</li>
+			<li class="date">작성일</li>
+			<li class="hit">조회수</li>
+		</ul>
+
+		<ul>
+			<li class="num">3</li>
+			<li class="subject"><a href="#">HTML 강좌입니다.</a></li>
+			<li class="name">프론트</li>
+			<li class="date">2022-03-21</li>
+			<li class="hit">5</li>
+		</ul>
+		<ul>
+			<li class="num">2</li>
+			<li class="subject"><a href="#">CSS 강좌입니다.</a></li>
+			<li class="name">디자인</li>
+			<li class="date">2022-03-21</li>
+			<li class="hit">5</li>
+		</ul>
+		<ul>
+			<li class="num">1</li>
+			<li class="subject"><a href="#">자바스크립트 강좌 입니다.</a></li>
+			<li class="name">다자바</li>
+			<li class="date">2022-03-21</li>
+			<li class="hit">5</li>
+		</ul>
+	</div>
+	
+	<div class="page-navigation">
+		<div class="paginate">
+			<span>1</span>
+			<a href="#">2</a>
+			<a href="#">3</a>
+		</div>
+	</div>
+	
+	<div class="board-footer">
+		<div class="left-footer">
+			<button type="button" class="btn">새로고침</button>
+		</div>
+		<div class="center-footer">
+			<form action="">
+				<select name="condition" class="form-select">
+					<option value="all">제목+내용</option>
+					<option value="name">작성자</option>
+					<option value="subject">제목</option>
+					<option value="content">내용</option>
+					<option value="reg_date">등록일</option>
+				</select>
+				<input type="text" name="keyword" class="form-control">
+				<button type="button" class="btn">검색</button>
+			</form>
+		</div>
+		<div class="right-footer">
+			<button type="button" class="btn">등록하기</button>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

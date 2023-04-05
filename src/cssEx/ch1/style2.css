@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.box {
+	width: 500px;
+	height: 100px;
+	margin: 30px;
+	border: 3px dotted gray;
+	line-height: 100px;
+	text-align: center;	
+}

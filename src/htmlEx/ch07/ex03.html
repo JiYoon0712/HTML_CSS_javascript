@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3>기타 form 태그</h3>
+
+<form>
+	<p>
+		<label>좋아하는 색상 :
+			<input type="color" name="color" value="#FFFF00">
+		</label>
+	</p>
+	
+	<p>
+		<label>숫자 :
+			<input type="number" name="num1" min="0.0" max="10.0" step="0.5" value="0.0">
+		</label>
+	</p>
+	
+	<p>
+		<label>범위 1 :
+			<input type="range" name="num2" min="0" max="100" value="0"
+			  onchange="form.rangeValue.value= this.value">
+			<input type="text" name="rangeValue" value="0" readonly="readonly">
+		</label>
+	</p>
+	
+	<p>
+		<label>범위 2 :
+			<input type="range" name="num3" min="10" max="100" step="10">
+		</label>
+	</p>
+</form>
+
+</body>
+</html>

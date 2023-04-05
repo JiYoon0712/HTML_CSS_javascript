@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+body { font-size: 14px; }
+
+div { 
+	font-size: 1.2em;	/* 14 * 1.2 = 16.8px */ 
+	
+	font-weight: bold;
+	padding: 2em;
+	text-align: center;
+}
+
+.box1 { background: red; }
+.box2 { background: green; }
+.box3 { background: blue; }
+
+</style>
+
+</head>
+<body>
+
+<h3> 단위(Units) : em </h3>
+<p>중첩된 자식 요소에 em을 지정하면 모든 자식 요소의 사이즈에 영향을 미치기 때문에 주의</p>
+
+<div class='box1'>
+	Font size: 1.2em = 14px * 1.2 = 16.8px
+	<div class='box2'>
+		Font size: 1.2em = 16.8px * 1.2 = 20.16px
+		<div class='box3'>
+			Font size: 1.2em = 20.16px * 1.2 = 24.192px
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

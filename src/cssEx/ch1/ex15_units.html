@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+html { font-size: 14px; /* font-size를 지정하지 않으면 16px */ }
+
+div{ 
+	font-size: 1.2rem;	/* html font-size : 14 * 1.2 = 16.8px */
+	font-weight: bold;
+	padding: 2em;
+	text-align: center;
+}
+
+.box1 { background: red; }
+.box2 { background: green; }
+.box3 { background: yellow; }
+
+</style>
+
+</head>
+<body>
+
+<h3> 단위(Units) : rem </h3>
+<p>최상위 요소(html)의 사이즈를 기준으로 삼는다. rem의 r은 root를 의미</p>
+
+<div class='box1'>
+	Font size: 1.2rem = 14px * 1.2 = 16.8px
+	<div class='box2'>
+		Font size: 1.2rem = 14px * 1.2 = 16.8px
+		<div class='box3'>
+			Font size: 1.2rem = 14px * 1.2 = 16.8px
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

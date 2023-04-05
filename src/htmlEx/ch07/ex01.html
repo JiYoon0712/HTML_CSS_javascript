@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+<style type="text/css">
+.body-container{
+	width: 700px;
+	margin: 20px auto;
+	padding: 15px;
+}
+
+.body-container fieldset{
+	padding: 7px 7px;
+}
+
+.body-container p {
+	line-height: 220%
+}
+</style>
+
+<script type="text/javascript">
+function send(){
+	const f = document.myForm;	<!-- (document : body안) -->
+	let s;
+	
+	s = f.id.value;
+	s += ", " + f.pwd.value;
+	s += ", " + f.name.value;
+	
+	alert(s);
+}
+
+
+</script>
+</head>
+<body>
+
+<div class="body-container">
+	<h3>폼 관련 태그</h3>
+	
+						<!-- (현재 서버가 없기 떄문에 자바스크립트에 send 만들어서 사용) -->
+	<form name="myForm" action="javascript:send();" method="post">
+		<fieldset>	<!-- (fieldset : 테두리 둘러짐. 묶어줌) -->
+			<legend>필수입력</legend>
+			<p>
+				<label>아이디 : 
+					<!-- required 속성 : submit 버튼을 누를때만 적용 -->  <!-- (text는 한줄짜리 입력) -->
+					<input type="text" name="id" required="required" 	
+					maxlength="10" pattern="[A-Za-z0-9]+"
+					placeholder="아이디 입력하세요.">	
+								<!-- (공백도 입력되기에 조건 달아주기.) -->
+				</label>
+			</p>
+			<p>
+				<label> 패스워드 : 
+					<input type="password" name="pwd" required="required">
+				</label>
+			</p>
+			<p>
+				<label> 이름 : 
+					<input type="text" name="name" required="required">
+				</label>
+			</p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>성별</legend>
+			<label>	<!-- (value :  서버로 전송되는 값) -->
+				<input type="radio" name="gender" value="M">남자
+				<input type="radio" name="gender" value="F" checked="checked">여자
+			</label>
+		</fieldset>
+		
+		<fieldset>
+			<legend>선택사항</legend>
+			<p>
+				<label>전화번호:
+						<input type="tel" name = "tel"> <!-- type: "text"로 사용 가능 -->
+				</label>
+			</p>
+			
+			<p>
+				<label>이메일:
+						<input type="email" name = "email"> <!-- type: "text"로 사용 가능 -->
+				</label>
+			</p>
+			
+			<p>
+				<label>생년월일:
+						<input type="date" name = "birth">
+				</label>
+			</p>
+			
+			<p>
+				<label>근무시작시간:
+						<input type="time" name = "stime">
+				</label>
+			</p>
+			
+			<p>
+				<label>나이:
+						<input type="number" name = "age" min="0" max="300">
+				</label>
+			</p>
+			
+			<p>
+            <label>학력 : 
+               <input type="text" name="hak" list="haks">
+               <datalist id="haks">
+                  <option>대학원졸</option>
+                  <option>대졸</option>
+                  <option>고졸</option>
+                  <option>기타</option>
+               </datalist>
+            </label>
+         </p>
+			
+			<p>
+				<label>출신도 :
+						<select name = "city">
+							<option value="">::선택 ::</option>
+							<option value="서울" selected="selected">서울시</option>
+							<option value="인천">인천시</option>
+							<option value="경기도">경기도</option>
+							<option value="기타">기타지역</option>
+						</select>	
+				</label>
+			</p>
+			
+			<p>
+			<!-- (컨트롤키 누르고 여러개 선택하면 여러개 전송) -->
+            <label>좋아하는 과목 : 
+               <select name = "subject" multiple="multiple" style="height: 100px">
+							<option>자바</option>
+							<option>스프링</option>
+							<option>오라클</option>
+							<option>HTML/CSS/JS</option>
+							<option>리액트</option>
+						</select>
+            </label>
+         </p>
+         
+         <p>
+         	<label>취미 : 
+         		<input type="checkbox" name="hobby" value="낮잠">낮잠자기
+         		<input type="checkbox" name="hobby" value="음악">음악듣기
+         		<input type="checkbox" name="hobby" value="게임">게임하기
+         		<input type="checkbox" name="hobby" value="등산">내려올산에왜가
+         		<input type="checkbox" name="hobby" value="영화">영화감상
+         	</label>
+         </p>
+         
+         <p>
+         	<!-- (textarea : 여러 줄 입력) -->
+         	<label>메모 : 
+         		<textarea rows="3" cols="60" name="memo"></textarea>
+         	</label>
+         </p>
+         
+		</fieldset>
+		
+		<p style="text-align: center;">
+			<label>약관동의
+				<input type="checkbox" 
+					onchange="form.sendButton.disabled = ! checked"
+					checked="checked" >
+			</label>
+		</p>
+		
+		<p style="text-align: center;">
+			<!-- submit 버튼과 reset 버튼은 form 태그에서만 유효하다. -->
+			<button type="submit" name="sendButton">회원가입</button>	<!-- submit : action의 서버 주소로 form 요소를 전송 -->
+			<button type="reset">다시입력</button>		<!-- reset : 초기화 -->
+			<button type="button">가입취소</button>	
+		</p>
+		
+	</form>
+	
+	
+</div>
+
+</body>
+</html>

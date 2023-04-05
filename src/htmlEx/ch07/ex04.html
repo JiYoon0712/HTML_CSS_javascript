@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3>file 관련 태그</h3>
+
+<form enctype="multipart/form-data" method="post">
+<p>
+	<label>파일 : 
+		<input type="file" name="selectFile">
+	</label>
+</p>
+
+<p>
+	<!-- accept 속성 : 파일의 타입에 대한 파일의 종류를 필터링 -->
+	<label>사진 : 
+		<input type="file" name="photo"
+		accept="image/png, image/jpg, image/gif, image/jpeg">
+	</label>
+</p>
+
+<p>
+	<label>이미지(여러개) : 
+		<input type="file" name="image" multiple="multiple"
+		accept="image/*">
+	</label>
+</p>
+
+</form>
+
+</body>
+</html>

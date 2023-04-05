@@ -1,0 +1,71 @@
+<!-- (boardlist 강사님 코드) -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* { padding:0; margin:0; box-sizing:border-box; }
+
+.board{
+	width:700px; margin:30px auto;
+}
+
+.board ul {
+	padding:0; clear:both;
+}
+
+.board ul>li{
+	list-style : none;
+	float:left;
+	width: 120px;
+	padding: 7px 5px;
+	border-bottom: 1px solid #333;
+	text-align: center;
+}
+
+.board ul:first-child li{
+   	background: #4169E1;
+   	color:white;
+}
+
+.num { width:  60px; color:  #787878; }
+.subject { color:  #787878; }
+.name { width:  100px; color:  #787878; }
+.date { width:  100px; color:  #787878; }
+.hit { width:  70px; color:  #787878; }
+
+
+
+</style>
+</head>
+<body>
+<div class="board board-list">
+	<ul> 
+		<li class="num">번호</li>
+		<li class="subject">제목</li>
+		<li class="name">작성자</li>
+		<li class="date">작성일</li>
+		<li class="hit">조회수</li>
+	</ul>
+	
+	<ul> 
+		<li>2</li>
+		<li>제목2..</li>
+		<li>스프링</li>
+		<li>2015-10-10</li>
+		<li>10</li>
+	</ul>
+	
+	<ul> 
+		<li>1</li>
+		<li>제목1..</li>
+		<li>홍길동</li>
+		<li>2015-10-10</li>
+		<li>5</li>
+	</ul>
+</div>
+
+
+</body>
+</html>

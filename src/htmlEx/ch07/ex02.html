@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+function send() {
+	const f = document.myForm;
+	
+	let s = f.input1.value;
+	
+	alert(s);
+}
+</script>
+
+</head>
+<body>
+
+<h3>form 관련 태그 및 주요 속성</h3>
+
+<form name = "myForm" action="javascript:send();" method="post">
+	<p>
+		<!-- value 속성 : 초기값 -->
+		value 속성 : <input type="text" name="input1" value="10">
+	</p>
+	
+	<p>
+		<!-- readonly 속성 : 값을 변경할 수 없고 서버로 전송된다. -->
+		readonly 속성 : <input type="text" name="input2" value="20" readonly="readonly">
+	</p>
+
+	<p> 
+		<!-- disabled 속성 : 값을 서버로 전송하지 않는다. -->
+		disabled 속성 : <input type="text" name="input3" value="30" disabled="disabled">
+	</p>
+	<p>
+		<!-- type="text"와 유사하지만 화면에 보이지않는다. -->
+		<!-- 화면에 표시하지 않지만 서버로 전송해야 하는 경우에 사용한다. -->
+		<!-- (기본키 같은 것 보낼때) -->
+		<input type="hidden" name="num" value="40">
+	</p>
+	<p>
+		<!-- image 버튼, submit 버튼은 서버로 전송할 수 있는 기능을 가지고 있다. -->
+		<!-- image 버튼, submit 버튼, reset 버튼은 form 태그 안에 있어야 적용된다. -->
+		<input type="image" src ="btn_submit.gif" style="vertical-align: top;"> <!-- ( style="vertical-align: top;" 으로 맞춰줘야 모양 어긋남 해결 ) -->
+		<button type="submit" style="vertical-align: top;">등록하기</button>
+		<button style="vertical-align: top;">등록하기</button> 			<!-- (타입 명시하지 않아도 submit 버튼임) -->
+		<input type="submit" style="vertical-align: top;" value="등록하기"> 
+
+		<!-- 일반 버튼은 서버로 전송할 수 있는 기능이 없다. -->
+		<button type="button" style="vertical-align: top;">일반버튼</button>
+	</p>
+</form>
+
+</body>
+</html>
