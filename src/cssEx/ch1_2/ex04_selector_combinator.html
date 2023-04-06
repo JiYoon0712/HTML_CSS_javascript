@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+/* 인접 형제(+) */
+label + span { background: yellow; }
+
+/* 형제 결합자(~) */
+label ~ span { color: blue; font-weight: bold; }
+
+/* 자식 결합자( > ) */
+.subject > label { color: tomato; font-weight: bold; }
+
+/* 자손(후손) 결합자(공백) */
+.subject label { background: #ccc; }
+
+</style>
+
+</head>
+<body>
+
+<h3>Selector : 결합자(Combinator)</h3>
+
+<div class="box">
+	<div class="subject">
+		<label>프로그래밍</label>
+		<span>자바</span>
+		<span>C언어</span>
+		<span>코틀린</span>
+		<p>
+			<label>데이터베이스</label>
+			<span>오라클</span>
+			<span>mysql</span>
+			<span>빅데이터</span>
+		</p>
+	</div>
+	<div class="subject">
+		<label>웹</label>
+		<span>HTML</span>
+		<span>CSS</span>
+		<span>javascript</span>
+		<p>
+			<label>웹프로그램</label>
+			<span>JSP</span>
+			<span>PHP</span>
+			<span>ASP.NET</span>
+		</p>
+	</div>
+</div>
+
+</body>
+</html>

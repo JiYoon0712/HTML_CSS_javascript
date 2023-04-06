@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	margin: 30px;
+	border:2px dotted gray;
+
+	overflow: hidden;	/* div 태그의 크기를 마우스로 변경 가능하도록 하기 위해 (hidden : 내용이 넘치면 보이지 않게) */
+}	
+
+.ta {  
+	width: 150px; height: 150px; padding: 10px; margin:50px;
+}
+
+.b { resize : both; }
+.h { resize : horizontal; }
+.v { resize : vertical; }
+.n { resize: none; }
+
+</style>
+
+</head>
+<body>
+
+<h3>resize : 요소의 크기를 조정할 수 있는지 여부와 방향을 결정</h3>
+
+<div class="box"><h3>default</h3></div>
+<div class="box b"><h3>both</h3></div>
+<div class="box h"><h3>horizontal</h3></div>
+<div class="box v"><h3>vertical</h3></div>
+
+<textarea class="ta">default</textarea>
+<textarea class="ta n">none</textarea>
+
+</body>
+</html>

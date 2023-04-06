@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	margin: 30px;
+	background: blue;
+	line-height: 150px;
+	text-align: center;
+	font-weight:bold;
+	color:#fff;
+
+	opacity: 0.5;
+}
+
+.img {
+	width: 150px; height: 150px; padding: 10px; margin: 50px;
+	display: block;
+	opacity: 0.5;
+}
+
+.box:hover, img:hover { opacity:1.0; }
+ 
+.box1 {
+	height: 150px; width: 150px; position: relative; opacity: 0.5; /* (position 사용해야 겹쳐짐.) */
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="box">마우스</div>
+<img src="../img/img1.png" class="img">
+
+<div class="box1" style="background: red;"></div>
+<div class="box1" style="left:50px; top:-100px; background: blue;"></div>
+<!-- (left: 현재위치에서 왼쪽으로 50px이동, top:현재위치에서 위쪽으로 -100px이동) -->
+
+</body>
+</html>

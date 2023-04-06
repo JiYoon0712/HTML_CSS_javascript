@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+a:link { color: orange; }		/* 방문하지 않은 링크 */
+a:visited { color:green; }		/* 방문한 링크 */
+a:hover { font-weight: bold; }	/* 마우스를 올려 놓을때 */
+a:active { color:blue; }		/* 클릭한 상태 */
+
+/* 포커스를 받았을 때 */
+input[type=text]:focus, input[type=password]:focus {
+	border:1px solid red;
+	outline:none;	/* (크롬은 자체적으로 가지고있는 아웃라인을 없애줘야지 border가보임) */
+}
+
+</style>
+
+</head>
+<body>
+
+<h3>가상 클래스(Pseudo-classes) : 링크 셀렉터(Link pseudo-classes) </h3>
+
+<div>
+	<a href="#">링크</a> |
+	<a href="https://google.com">구글</a>
+</div>
+<div>
+	<p> <input type="text"> </p>
+	<p> <input type="password"> </p>
+	<p> <input type="button" value="확인"> </p>
+</div>
+
+</body>
+</html>

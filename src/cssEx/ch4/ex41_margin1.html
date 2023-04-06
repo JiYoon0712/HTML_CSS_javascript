@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	width: 200px;
+	border:2px dotted gray;
+}
+
+.h { height: 100px; }
+.m { margin: 20px; }
+.p { padding:1px; }
+.b { border: 1px solid rgba(0,0,0,0); }
+
+.orange { background: #f60; }
+.yellow { background: #ff0; }
+.green { background: #0c0; }
+
+
+</style>
+</head>
+<body>
+
+<h3>마진 겹침(마진 상쇄) 현상</h3>
+<pre>
+ - top 및 bottom 마진은 가장 큰 한 마진으로 결합(combine, 상쇄(collapsed))된다.
+ - 마진 겹침은 어떤 두 개 이상 블록 요소의 상하 마진이 겹칠 때 어느 한 쪽의 값만 적용
+ - 마진 겹침은 인접한 두 박스가 온전한 block-level 요소일 경우에 발생한다.
+ - 마진 값이 0이더라도 겹칩은 적용된다.
+ - 좌우 마진은 겹치더라도 상쇄되지 않는다.
+ - 마진 겹침이 일어나는 경우
+   인접 형제의 상하 마진이 겹칠 때, 빈 요소(height가 0인경우)의 상하 마진이 겹칠 때, 부모 박스와 첫 번째(마지막) 자식 박스의 상단(하단) 마진이 겹칠 때
+ - 마진 겹침은 인접한 두 박스가 온전한 block-level 요소일 경우에만 적용
+ - 마진 겹침을 막으려면 부모 박스 상단(하단)에 padding 또는 border 값을 주어 벽을 만들어주는 것이 안전
+</pre>
+
+<!-- 좌우는 모두 margin이 적용되지만 상하는 한번만 margin이 적용 됨 -->
+<div class="box">
+	<div class="orange m">
+		<div class="yellow m">
+			<div class="green m h">A</div>
+		</div>
+	</div>
+</div>
+<hr>
+
+<!-- padding으로 문제 해결 -->
+<div class="box">
+	<div class="orange m p">
+		<div class="yellow m p">
+			<div  class="green m h p">B</div>
+		</div>
+	</div>
+</div>
+<hr>
+
+<!-- border로 문제 해결 -->
+<div class="box">
+	<div class="orange m b">
+		<div class="yellow m b">
+			<div  class="green m h b">C</div>
+		</div>
+	</div>
+</div>
+<hr>
+
+<!-- display: inline-block; 으로 문제 해결 -->
+<div class="box" style="display: inline-block;">	<!-- (인라인태그 width 부모상속 안됨.) -->
+	<div class="orange m" style="display: inline-block;">
+		<div class="yellow m" style="display: inline-block;">
+			<div  class="green m h" style="display: inline-block;">D</div>
+		</div>
+	</div>
+</div>
+<hr>
+
+</body>
+</html>

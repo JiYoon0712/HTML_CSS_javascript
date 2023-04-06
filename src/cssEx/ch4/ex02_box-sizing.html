@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	width: 400px;
+	height: 100px;
+	padding: 20px;
+	margin: 30px;
+	border:10px dotted gray;
+	text-align: center;
+}
+
+.content-box { box-sizing: content-box; }
+.border-box { box-sizing: border-box; }
+
+</style>
+
+</head>
+<body>
+
+<h3>box-sizing : 요소의 너비와 높이를 계산하는 방법을 지정.</h3>
+
+<!-- 총 너비 : width + padding 좌, 우 + margin 좌, 우 + border 좌, 우   -->
+<!-- 총 너비 : 400 + 20 + 20 + 30 + 30 + 10 + 10  -->
+<!-- 내용 폭 : width(400) -->
+<div class="box content-box">content-box(기본)</div>
+
+
+<!-- 총 너비 : width(padding과 border 포함) + margin 좌, 우   -->
+<!-- 총 너비 : 400 + 30 + 30  -->
+<!-- 내용 폭 : width(400) - padding 좌, 우(40) - border 좌, 우(20) = 340 -->
+<div class="box border-box">border-box</div>
+
+</body>
+</html>

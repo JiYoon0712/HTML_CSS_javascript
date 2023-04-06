@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	width: 100px;
+	height: 50px;
+	border:3px dotted gray;
+}
+
+.m1 { margin-bottom: 30px; }
+
+/* (상쇄. 큰 쪽으로 적용.) */
+.m2 { margin-bottom: 15px; }
+.m3 { margin-top: 15px; }
+
+
+</style>
+</head>
+<body>
+
+<h3>마진 겹칩(마진 상쇄) 현상</h3>
+
+<div class="box m1"></div>
+<div class="box"></div>
+<hr>
+
+<!-- 이런 경우에는 첫번째 margin-bottom을 조정하거나, inline-block으로 설정 한다.  -->
+<div class="box m2"></div>
+<div class="box m3"></div>
+<hr>
+
+</body>
+</html>

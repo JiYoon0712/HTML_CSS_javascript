@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+input:enabled + span { color:blue; }
+input:disabled { color:tomato; }
+input:checked + span { color:red; }
+
+</style>
+
+</head>
+<body>
+
+<h3>가상 클래스(Pseudo-classes) : UI 요소 상태 셀렉터 </h3>
+
+<div>
+	<p> <input type="text" value="default"> <span>default</span> </p>
+	<p> <input type="text" readonly="readonly" value="readonly"> <span>readonly</span> </p>
+	<p> <input type="text" disabled="disabled" value="disabled"> <span>disabled</span></p>
+	<p> <input type="checkbox"> <span>선택1</span> </p>
+	<p> <input type="checkbox" checked="checked"> <span>선택2</span> </p>
+	<p> <input type="button" value="확인"> </p>
+</div>
+
+</body>
+</html>

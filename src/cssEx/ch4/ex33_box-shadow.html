@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	margin: 30px;
+	border:2px dotted gray;
+	background: yellow;
+}
+
+.bs1 { box-shadow: 10px 10px 10px tomato; }
+.bs2 { box-shadow: 0 0 20px tomato; }
+.bs3 { box-shadow: 0 0 10px tomato inset; }
+
+
+</style>
+
+</head>
+<body>
+
+<h3>box-shadow : 요소의 테두리를 감싼 그림자 효과를 추가한다.</h3>
+
+<div class="box bs1">수평,수직,흐림정보</div>
+<div class="box bs2">수평과수직 모두 0이면 그림자가 요소 바로 뒤쪽에 위치</div>
+<div class="box bs3">안쪽 그림자(inset)</div>
+
+</body>
+</html>

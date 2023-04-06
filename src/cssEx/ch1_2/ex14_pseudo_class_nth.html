@@ -1,0 +1,69 @@
+<!-- (css는 범위를 좁게 주는 것이 좋다.) -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+ul { list-style: none; padding:0; }
+
+/* nth-child에서 위치는 1부터 시작 */
+ul > li:nth-child(1) { font-weight: bold; } 	/*(ul >를 기재하지 않아도 이 경우에는 똑같이 나옴.)*/
+/* ul > li:first-child { font-weight: bold; } */
+/* ul :first-child { font-weight: bold; } */
+
+/* 홀수번째 요소. n은 0부터 대입하여 계산, 짝수번째는 2n */
+ul > li:nth-child(2n+1) { color: tomato; }
+
+ul > :nth-last-child(3n) { background: yellow; } /* (뒤부터 시작. 몽고디비가 1이라고 생각) */
+
+div > p:nth-child(n+5):nth-child(-n+7) { background: #eee; }
+		/* 5~7번까지(h4도 포함) */
+
+/*p:first-child { color:red; }*/
+  /* p 부모의 자식중 첫번째 자식인 p, h4도 자식으로 포함되어 색상이 변하지 않음 */
+
+/* p가 아닌 요소는 자식에서 제외 */
+p:first-of-type { color:red; }		
+  /* p 부모의 자식중 첫번째 자식인 p, h4는 제외 */
+p:last-of-type { color:blue; }		
+		
+div > p:nth-of-type(n+4):nth-of-type(-n+6) { color:green; }		
+		/* 4~6번까지(h4를 제외하고 계산. 즉, p 태그만 가지고 계산) */
+		/* (p 기재 안하면 타입별로 4~6번째 범위 해당되는 태그 효과 ) */
+
+p:nth-of-type(2) { text-decoration: underline; }
+p:nth-last-of-type(2) { text-decoration: overline; }
+</style>
+
+</head>
+<body>
+
+<h3> 구조 가상 클래스 </h3>
+<ul>
+	<li>자바</li>
+	<li>오라클</li>
+	<li>스프링</li>
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>javascript</li>
+	<li>node.js</li>
+	<li>코틀린</li>
+	<li>하둡</li>
+	<li>몽고디비</li>
+</ul>
+<hr>
+
+<div>
+	<h4>프로그래밍</h4>
+	<p>자바</p>
+	<p>오라클</p>
+	<p>스프링</p>
+	<p>HTML</p>
+	<p>CSS</p>
+	<p>javascript</p>
+	<p>node.js</p>
+</div>
+
+</body>
+</html>

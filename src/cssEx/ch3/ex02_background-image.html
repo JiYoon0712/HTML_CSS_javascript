@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box{
+	width: 300px;
+	height: 300px;
+	padding: 10px;
+	margin: 30px;
+	border: 2px dotted gray; 
+}
+
+.bg1 { background : url("../img/bg1.png") no-repeat; }
+.bg2 { background : url("../img/bg1.png") no-repeat, url("../img/bg2.png"); }
+.bg3 { background : url("../img/bg3.png") no-repeat left top,
+					url("../img/bg3.png") no-repeat right top,
+					url("../img/bg3.png") no-repeat left bottom,
+					url("../img/bg3.png") no-repeat right bottom; }
+
+</style>
+
+</head>
+<body>
+
+<h3>background</h3>
+
+<div class="box bg1">배경이미지</div>
+<div class="box bg2">여러개의 배경이미지를 설정한 경우 먼저 설정한 이미지가 전면에 배치</div>
+<div class="box bg3">여러개의 배경이미지</div>
+
+
+</body>
+</html>

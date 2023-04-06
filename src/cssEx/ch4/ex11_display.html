@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	margin: 30px;
+	border:2px dotted #999;
+	background: yellow;
+}
+
+.block { display: block; }
+.inline-block { display: inline-block; }
+
+
+</style>
+
+</head>
+<body>
+
+<h3>display : 요소를 블록과 인 라인 요소 중 어느 쪽으로 처리 할 지와 함께, 자식 요소를 배치할 때 사용할 레이아웃을 설정</h3>
+
+<div>인라인 요소는 요소의 width, height 속성은 무시되며, padding은 반영되고, margin은 좌우 간격만 반영이 되고 상하 간격은 반영이 되지 않는다.</div>
+<div>
+	<span class="box">inline</span>
+	<span class="box">inline</span>	
+</div>
+
+<div>inline-block : 요소를 한 줄에 배치하면서 블록 요소 처럼 width, height, margin과 padding등을 지정</div>
+<div>
+	<span class="box inline-block">inline-block</span>
+	<span class="box inline-block">inline-block</span>	
+</div>
+
+<div> block 특성을 가지는 요소(block 레벨 요소)로 지정</div>
+<div>
+	<span class="box block">block</span>
+	<span class="box block">block</span>	
+</div>
+
+</body>
+</html>

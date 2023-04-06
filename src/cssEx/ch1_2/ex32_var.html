@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.two { --test:10px; }
+.three { --test:2em; }
+
+.text { font-size: var(--test); }
+
+.box {
+	--p:50;
+	
+	/*width:var(--p)px;*/	/* 정확한 결과가 나오지 않음. 숫자와 단위 사이에 무의미한 공백이 추가됨 */
+	
+	width: calc(var(--p)*1px);	/* calc() 함수를 이용한 속성값으로 계산 */
+	height : calc(var(--p)*1px);
+	background: green;
+}
+</style>
+</head>
+<body>
+
+<h3>사용자 지정 변수</h3>
+
+<div class="one">
+	A(default)
+	<div class="two text">
+		B(10px);
+		<div class="three text">C(2em)</div>
+		<div class="four text">D(10px)</div>
+		<!-- (four는 정의되지 않아서 부모인 two의 값을 물려받아 10px) -->
+	</div>
+</div>
+
+<hr>
+<div class="box">
+</div>
+
+</body>
+</html>

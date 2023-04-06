@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 구조 가상 클래스 */
+p:first-child { color:red; } /* p의 부모 자식중 p가 첫번째인 경우 >> (h3이랑 p랑 자리 바꿀 경우, 기존 red의 p는 적용되지 않음) */
+p:last-child { color:blue; } /* p의 부모 자식중 p가 마지막인 경우 */
+
+div :first-child { background: yellow; } /* div의 첫번째 자식(div와 :first-child 사이 공백 필요) */
+
+
+</style>
+
+</head>
+<body>
+
+<p> body의 첫번째 자식 p 태그 - 글자색 : red </p>
+<h3> body의 두번째 자식 h3 태그 </h3>
+<p> body의 세번째 자식 p 태그 - 글자색 : 기본값(black)</p>
+
+<div>
+	<p> div의 첫번째 자식 p 태그 - 글자색 : red  </p>
+	<p> div의 두번째 자식 p 태그 - 글자색 : 기본값(black)  </p>
+	<p> div의 마지막 자식 p 태그 - 글자색 : blue  </p>
+</div>
+<hr>
+
+<div>
+	<p> JAVA  </p>
+	<p> ORACLE  </p>
+	<p> HTML  </p>
+</div>
+
+</body>
+</html>

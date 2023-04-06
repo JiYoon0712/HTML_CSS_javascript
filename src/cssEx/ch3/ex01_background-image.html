@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box{
+	width: 300px;
+	height: 300px;
+	padding: 10px;
+	margin: 30px;
+	border: 2px dotted gray; 
+}
+
+.bg1 { background-image : url("../img/bg1.png"); }
+.bg2 { background-image : url("../img/bg1.png"); background-repeat: repeat-x;}
+.bg3 { background-image : url("../img/bg1.png"); background-repeat: no-repeat; }
+.bg4 { background-image : url("../img/bg1.png"); background-repeat: no-repeat; background-position: right center; }
+
+</style>
+
+</head>
+<body>
+
+<h3>background-image</h3>
+
+<div class="box bg1">배경이미지가 적으면 기본적으로 반복한다.</div>
+<div class="box bg2">x 축 반복</div>
+<div class="box bg3">반복하지 않으면 좌측 최상단</div>
+<div class="box bg4">반복하지 않고 오른쪽 중앙</div>
+
+</body>
+</html>

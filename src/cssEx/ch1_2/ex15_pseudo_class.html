@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div label { display:block; }
+form input { outline:none; }
+
+form input:not([type=password]) { border: 1px solid blue; }
+form input[type=password] { border: 1px solid red;}
+
+form input:valid { background: #d4f4fa; }	/* 적합성에 성공한 경우 */
+form input:invalid { background: #ffd9ec; } /* 적합성에 실패한 경우 */
+
+
+</style>
+
+<script type="text/javascript">
+function send() {
+	alert("ok ^^^");
+}
+</script>
+
+</head>
+<body>
+
+<h3> 부정, 정합성 체크 셀렉터 </h3>
+<div>
+<form action="javascript:send();">
+	<label>아이디 : <input type="text" required="required"> </label>
+	<label>패스워드 :
+		<input type="password" pattern="[a-zA-Z0-9]{4,8}" required="required">
+		<span>특수문자를 포함하지 않는 4~8자의 영문자 또는 숫자</span>
+	</label>
+	<label>이름 : <input type="text" required="required"> </label>
+	<label>핸드폰 번호 : 
+		<input type="tel" pattern="^\d{3}-\d{3,4}-\d{4}$" required="required">
+	</label>
+	<p><button type="submit">확인</button></p>
+</form>	
+</div>
+
+</body>
+</html>

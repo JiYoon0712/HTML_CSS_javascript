@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.default {
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	margin: 30px;
+	border: 3px dotted gray;
+}
+
+.box {
+	width: 150px; /* width가 지정되어 있어야 한다. */
+	height: 150px;
+	padding: 10px;
+	margin: 30px;
+	border: 3px dotted gray;
+	
+	white-space: nowrap;	/* 자동 줄바꿈 방지 */
+	overflow: hidden;	/* visible 이외의 값 */
+	/* (width가 있어야 함.) */
+}
+
+.clip{ text-overflow: clip; }
+.ellipsis{ text-overflow: ellipsis; }
+
+</style>
+
+</head>
+<body>
+
+<h3>text-overflow : white-space:nowrap; 로 지정, 영역을 넘치는 텍스트를 처리하는 방법을 지정</h3>
+
+  <div class="default">
+    <h3>default</h3>
+    java spring oracle html css javascript servlet jsp
+  </div>
+  <div class="box clip">
+    <h3>clip</h3>
+    java spring oracle html css javascript servlet jsp
+  </div>
+  <div class="box ellipsis">
+    <h3>ellipsis</h3>
+    java spring oracle html css javascript servlet jsp
+  </div>
+
+</body>
+</html>

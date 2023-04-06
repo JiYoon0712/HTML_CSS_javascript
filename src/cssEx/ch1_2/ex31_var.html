@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+:root {
+	--div-color: blue;	/* 사용자 정의 속성(변수) 정의. 변수는 -- 로 시작 */
+				/* :root는 루트를 나타내며 :root에 선언하면 어디에서나 접근 가능 */
+}
+
+div { 
+	color:var(--div-color); /* var() 함수로 사용자 변수 접근 */
+}
+	
+	
+</style>
+</head>
+<body>
+
+<h3>사용자 지정 CSS 속성(변수)</h3>
+
+<div>
+	사용자 지정 CSS 속성 변수 예제입니다.
+</div>
+
+</body>
+</html>

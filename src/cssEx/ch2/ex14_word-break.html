@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	margin: 30px;
+	border: 3px dotted gray;
+}
+
+.word-wrap { word-wrap : break-word; }
+.word-break { word-break: break-all; }
+
+</style>
+
+</head>
+
+<body>
+
+<h3>word-break : 한 단어의 길이가 길어서 부모 영역을 벗어난 텍스트의 처리 방법을 정의</h3>
+<p>
+    word-wrap 속성 단어를 어느 정도는 고려하여 개행(., - 등을 고려)<br>
+    word-break: break-all;는 단어를 고려하지 않고 부모 영역에 맞추어 강제 개행
+</p>
+
+<div class="box ">
+javascriptjavascriptjavascript
+https://www.test.com/study/sample
+</div>
+
+<div class="box word-wrap">
+javascriptjavascriptjavascript
+https://www.test.com/study/sample
+</div>
+
+<div class="box  word-break">
+javascriptjavascriptjavascript
+https://www.test.com/study/sample
+</div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	margin: 30px;
+	border: 3px dotted gray;
+}
+
+.normal { white-space: normal; }
+.nowrap { white-space: nowrap; }	/* 여러 공백을 하나의 공백으로, 영역 넘으면 줄 바꾸지 않음, 줄바꿈은 br */
+.pre { white-space: pre; }			/* 여러 공백은 있는 그대로 표시, 영역 넘으면 줄바꾸지 않음, 줄바꿈은 br, 엔터 */
+.pre-wrap { white-space: pre-wrap; }/* 여러 공백은 공백을 그대로 표시, 영역 넘으면 줄바꿈 일어남, 줄바꿈은 br과 엔터로 일어남 */ 
+.pre-line { white-space: pre-line; }/* 여러 공백을 하나의 공백으로, 영역 넘으면 줄바꿈 일어남, 줄바꿈은 br과 엔터로 일어남 */
+
+</style>
+
+</head>
+<body>
+
+<h3>white-space : 해당 요소의 공백 처리 방법을 결정한다.</h3>
+
+<div class="box normal">
+    <b>normal</b>
+    javascript     html      css
+    java     spring
+    oracle    mysql 
+</div>
+
+<div class="box nowrap">
+    <b>nowrap</b>
+    javascript     html      css
+    java     spring
+    oracle    mysql 
+</div>
+
+<div class="box pre">
+    <b>pre</b>
+    javascript     html      css
+    java     spring
+    oracle    mysql 
+</div>
+
+<div class="box pre-wrap">
+    <b>pre-wrap</b>
+    javascript     html      css
+    java     spring
+    oracle    mysql 
+</div>
+
+<div class="box pre-line">
+    <b>pre-line</b>
+    javascript     html      css
+    java     spring
+    oracle    mysql 
+</div>
+</body>
+</html>

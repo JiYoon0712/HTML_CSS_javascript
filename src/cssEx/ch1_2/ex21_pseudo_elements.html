@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.subject > p::first-line { color: blue; }	/* 첫줄 */
+.subject > p::first-letter { color: red; } /* 첫글자 */
+
+.city > p::before { content: "※ "; }
+.city > p::after { content: " !!!"; color:blue; font-weight: bold; }
+</style>
+
+</head>
+<body>
+
+<h3>가상 요소(Pseudo-elements)</h3>
+
+<div class="subject">
+  <p>프로그래밍<br>자바</p>
+  <p>프레임워크<br>스프링</p>
+  <p>데이터베이스<br>오라클</p>
+  <p>웹프로그래밍<br>서블릿</p>
+</div>
+<hr>
+
+<div>
+	<p>:before, :after</p>
+	<p>
+		어떤 엘리먼트의 앞(before)과 뒤(after)에 내용을 삽입하기 위해 사용된다.
+		content 속성이 있어야만 유효하다.
+	</p>
+</div>
+<div class="city">
+	<p>서울</p>
+	<p>경기</p>
+	<p>인천</p>
+</div>
+
+</body>
+</html>

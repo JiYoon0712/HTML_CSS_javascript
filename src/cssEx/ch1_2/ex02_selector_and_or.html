@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box { color: tomato; }
+
+/* AND 연산자 */
+div.box { width: 300px; height: 50px; border: 3px dashed gray; }
+
+/* OR 연산자 */
+label, span { color: blue; font-weight: bold; }
+
+</style>
+
+</head>
+<body>
+
+<h3>다중 조건 선택자</h3>
+
+<p class="box">
+    AND 연산 선택자 :모든 조건을 만족하는 요소 선택. 선택자끼리 띄어쓰기 없이 붙여 쓴다. 
+</p>
+<br>
+<div class="box"></div>
+<br>
+<div><p class="box">예제</p></div>
+<hr>
+
+<p>
+    선택자(Selector) 목록(OR 연산) : 선택자 목록(,)은 일치하는 모든 요소를 선택 
+</p>
+<div>
+	<p>과목</p>
+	<label>웹</label>
+	<span>HTML</span>
+	<span>CSS</span>
+	<span>자바스크립트</span>
+</div>
+
+</body>
+</html>

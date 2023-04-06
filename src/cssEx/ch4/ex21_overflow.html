@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	margin: 50px;
+	border:2px dotted gray;
+}
+
+.visible { overflow: visible; }
+.hidden { overflow:hidden; }
+.scroll { overflow: scroll; }
+.auto { overflow:auto; } 	/* (auto는 내용이 넘치면 스크롤바가 생기고, 그렇지 않으면 스크롤이 생기지 않는다.) */
+
+
+</style>
+
+</head>
+<body>
+
+<h3>overflow : 요소의 박스에 콘텐츠가 넘칠 때 표현방법을 지정</h3>
+
+<div class="box">
+    <h3>default</h3>
+    html css javascript jquery node.js react vue.js java oracle mysql bigdata maven spring spring-security mybatis 
+</div>
+
+<div class="box visible">
+    <h3>visible</h3>
+    html css javascript jquery node.js react vue.js java oracle mysql bigdata maven spring spring-security mybatis 
+</div>
+
+<div class="box hidden">
+    <h3>hidden</h3>
+    html css javascript jquery node.js react vue.js java oracle mysql bigdata maven spring spring-security mybatis 
+</div>
+
+<div class="box scroll">
+    <h3>scroll</h3>
+    html css javascript jquery node.js react vue.js java oracle mysql bigdata maven spring spring-security mybatis 
+</div>
+
+<div class="box auto">
+    <h3>auto</h3>
+    html css javascript jquery node.js react vue.js java oracle mysql bigdata maven spring spring-security mybatis 
+</div>
+
+</body>
+</html>
