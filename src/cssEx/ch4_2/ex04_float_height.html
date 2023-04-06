@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	background: red;
+}
+
+.box > span {
+	float:left;
+	color:#fff;
+	text-align: center;
+	padding: 15px 15px;
+}
+
+.box::after {
+	content:''; display: block; clear:both;
+}
+
+</style>
+
+</head>
+<body>
+
+<h3>블록태그와 인라인태그</h3>
+
+<!-- 개발자 도구로 보면 span은 패딩이 적용되어 있지만 div의 높이는 늘어나지 않음 -->
+<div style="background: gray;">
+	<span style="padding:15px; background: green;">A</span>
+	<span style="padding:15px;">B</span>
+	<span style="padding:15px;">C</span>
+</div>
+
+<hr>
+
+<div style="background: yellow; line-height: 50px;">
+	<span style="padding:15px;">A</span>
+	<span style="padding:15px;">B</span>
+	<span style="padding:15px;">C</span>
+</div>
+<hr>
+
+<!-- div의 높이를 주지 않아도 div의 높이가 늘어남 -->
+<div style="background: green; ">
+	<span style="padding:15px; float:left;">A</span>
+	<span style="padding:15px; float:left;">B</span>
+	<span style="padding:15px; float:left;">C</span>
+	<div style="clear:both;"></div>	<!-- ( 반드시 div 속에 있어야 함. div 밖에 있으면 x ) -->
+</div>
+<hr>
+
+<div class="box">
+	<span>A</span>
+	<span>B</span>
+	<span>C</span>
+</div>
+<hr>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* { box-sizing: border-box; }
+.p-box { margin-top: 20px; }
+.box {
+	width: 50px; height: 50px; padding:10px;
+	border: 3px dotted gray;
+	text-align: center;
+}
+
+.left { float:left; }
+
+/* (clear:both) */
+.clear::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+</style>
+
+</head>
+<body>
+
+<h3>float 해제</h3>
+
+<div class="p-box">
+	<div class="box left">A</div>
+	<div class="box left">B</div>
+</div>
+
+<div class="p-box">
+	<div class="box left">C</div>
+	<div class="box left">D</div>
+</div>
+<div style="clear: both;"></div>
+<hr>
+
+<p> 부모에 강제로 height 속성을 주면 float 속성이 해제. 반응형시 자동 높이 불가. </p>
+<div class="p-box" style="height: 55px;">	<!-- ( height 속성 지우면 엉망진창 ) -->
+	<div class="box left">A</div>
+	<div class="box left">B</div>
+</div>
+
+<div class="p-box" style="height: 55px;">
+	<div class="box left">C</div>
+	<div class="box left">D</div>
+</div>
+<hr>
+
+<p> clear:both;는 margin-top이 적용되지 않는다. </p>	
+<div class="p-box">
+	<div class="box left">A</div>
+	<div class="box left">B</div>
+</div>
+
+<div class="p-box" style="clear:both; margin-top: 20px;">
+	<div class="box left">C</div>
+	<div class="box left">D</div>
+</div>
+<div style="clear: both;"></div>
+<hr>
+
+<p> float된 요소의 부모태그에 overflow:hidden으로 float 해제 </p>
+<div class="p-box" style="overflow: hidden;">
+	<div class="box left">A</div>
+	<div class="box left">B</div>
+</div>
+
+<div class="p-box" style="overflow: hidden;">
+	<div class="box left">C</div>
+	<div class="box left">D</div>
+</div>
+<hr>
+
+<p> float된 요소의 부모태그에 가상요소를 만들고 해당 요소에 clear:both를 지정(권장) </p>
+<div class="p-box clear">
+	<div class="box left">A</div>
+	<div class="box left">B</div>
+</div>
+
+<div class="p-box clear" style="margin-top: 20px;">
+	<div class="box left">C</div>
+	<div class="box left">D</div>
+</div>
+<hr>
+
+</body>
+</html>
