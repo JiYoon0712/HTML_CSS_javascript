@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* { box-sizing: border-box; }
+
+.container {
+  width: 600px;
+  height: 600px;
+  margin: 50px;
+  background-color: #fff;
+  border: 10px solid #eee;
+  border-radius:10px;
+
+  display: grid;
+  grid-template: repeat(3, auto) / repeat(2, auto);	/* (행은 3개 : 높이는 자동으로) / (열은 2개 : 높이는 자동으로) */
+  /* grid-template: repeat(3,200px) / repeat(2,100px); */
+  gap:10px;	/* 행과 열의 gap */
+}
+
+.item {
+   font-weight: 900;
+   font-size: 25px;
+   border: 1px solid #333;
+   border-radius: 3px;
+   padding: 10px;
+}
+
+.item1 { background : rgb(255, 100, 70); }
+.item2 { background : rgb(255, 165, 0); }
+.item3 { background : rgb(50, 205, 50); }
+.item4 { background : rgb(255, 105, 180); }
+.item5 { background : rgb(30, 145, 255); }
+.item6 { background : rgb(170, 170, 170); }
+
+</style>
+
+</head>
+<body>
+
+<h3>Grid Layout</h3>
+<p>
+  grid-template : grid-template-rows, grid-template-columns, grid-template-areas의 단축 속성<br>
+  gap : 그리드 라인(행/열) 사이 간격(Gutter)을 조정
+</p>
+
+<div class="container">
+  <div class="item item1">1</div>
+  <div class="item item2">2</div>
+  <div class="item item3">3</div>
+  <div class="item item4">4</div>
+  <div class="item item5">5</div>
+  <div class="item item6">6</div>
+</div>
+
+</body>
+</html>

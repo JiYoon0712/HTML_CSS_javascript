@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.flex-container{
+	width: 200px; 
+	padding: 10px; margin: 20px;
+	border: 3px dotted gray;
+	
+	display: flex;
+}
+
+.box { 
+	width: 60px; height: 100%;
+	text-align: center;
+	padding : 10px;
+	border: 1px solid blue;
+} 
+
+.nowrap { flex-wrap: nowrap; }
+.wrap { flex-wrap: wrap; }
+</style>
+
+</head>
+<body>
+
+<h3>flex-wrap : flex-item 요소들이 강제로 한 줄에 배치되게 할 것인지, 또는 가능한 영역 내에서 벗어나지 않고 여러 행으로 나누어 표현 할 것인지 결정 </h3>
+
+<p>기본값</p>
+<div class="flex-container ">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+</div>
+<div class="flex-container ">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+	<div class="box">D</div>
+	<div class="box">E</div>
+	<div class="box">F</div>
+	<div class="box">G</div>
+	<div class="box">H</div>
+	<div class="box">I</div>
+</div>
+
+<p>flex-wrap: nowrap. 기본. 한줄로 배치</p>
+<div class="flex-container nowrap">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+	<div class="box">D</div>
+	<div class="box">E</div>
+	<div class="box">F</div>
+	<div class="box">G</div>
+	<div class="box">H</div>
+	<div class="box">I</div>
+</div>
+<div class="flex-container nowrap">
+	<div class="box">ITEM  A</div>
+	<div class="box">ITEM  B</div>
+	<div class="box">ITEM  C</div>
+	<div class="box">ITEM  D</div>
+	<div class="box">ITEM  E</div>
+	<div class="box">ITEM  F</div>
+</div>
+
+<p>flex-wrap:wrap</p>
+<div class="flex-container wrap">
+	<div class="box">ITEM A</div>
+	<div class="box">ITEM B</div>
+	<div class="box">ITEM C</div>
+	<div class="box">ITEM D</div>
+	<div class="box">ITEM E</div>
+	<div class="box">ITEM F</div>
+</div>
+
+</body>
+</html>

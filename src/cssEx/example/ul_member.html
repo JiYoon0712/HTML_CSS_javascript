@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+
+<style type="text/css">
+* { padding: 0; margin: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+
+body {
+	font-family:"Malgun Gothic", "맑은 고딕", NanumGothic, 나눔고딕, 돋움, sans-serif;
+	font-size: 14px;
+	color: #222;
+}
+
+a { color: #222; text-decoration: none; cursor: pointer; }
+a:active, a:hover { color: #f28011; text-decoration: underline; }
+
+/* form-control */
+.btn {
+	color: #333;
+	border: 1px solid #999;
+	background-color: #fff;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-weight: 500;
+	cursor:pointer;
+	font-size: 14px;
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.btn:active, .btn:focus, .btn:hover {
+	background-color: #f8f9fa;
+	color:#333;
+}
+.btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: default;
+	opacity: .65;
+}
+
+.form-control {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 5px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-control[readonly] { background-color:#f8f9fa; }
+
+textarea.form-control { height: 170px; resize : none; }
+
+.form-select {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 4px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-select[readonly] { background-color:#f8f9fa; }
+
+textarea:focus, input:focus { outline: none; }
+input[type=checkbox], input[type=radio] { vertical-align: middle; }
+
+/* container */
+.container { width: 600px; margin: 30px auto 25px; }
+
+.title { width:100%; font-size: 16px; font-weight: bold; padding: 13px 0; }
+
+.form-body ul { display: flex; list-style: none; }
+
+.form-body ul li {
+	height: 43px; line-height: 43px; border-bottom:1px solid #ced4da;
+}
+
+.form-body ul:first-child li { border-top:2px solid #212529; }
+
+.col-title { width: 120px; background: #f8f9fa; padding-left:15px; }
+
+.col-input { width: 480px; padding-left:10px; }
+
+.form-footer { width:100%; padding:10px 0; text-align:center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="title">
+	   <h3><i class="fa-solid fa-user-plus"></i> 회원 가입</h3>
+	</div>
+	
+	<form name="memberForm" method="post">	
+	<div class="form-body">
+		<ul>
+			<li class="col-title">아이디</li>
+			<li class="col-input">
+				<input type="text" name="userId" id="userId"  maxlength="10" class="form-control" style="width: 50%;">
+			</li>
+		</ul>
+	
+		<ul>
+			<li class="col-title">패스워드</li>
+			<li class="col-input">
+				<input type="password" name="userPwd" class="form-control" maxlength="10" style="width: 50%;">
+			</li>
+		</ul>
+
+		<ul>
+			<li class="col-title">패스워드 확인</li>
+			<li class="col-input">
+				<input type="password" name="userPwd1" class="form-control" maxlength="10" style="width: 50%;">
+			</li>
+		</ul>
+			
+		<ul>
+			<li class="col-title">이 름</li>
+			<li class="col-input">
+				<input type="text" name="userName" maxlength="10" class="form-control" style="width: 50%;">
+			</li>
+		</ul>
+			
+		<ul>
+			<li class="col-title">생년월일</li>
+			<li class="col-input">
+				<input type="date" name="birth" class="form-control" style="width: 50%;">
+			</li>
+			</ul>
+
+		<ul>
+			<li class="col-title">이메일</li>
+			<li class="col-input">
+				<select name="selectEmail" class="form-select">
+					<option value="">선 택</option>
+					<option value="naver.com">네이버 메일</option>
+					<option value="hanmail.net">한 메일</option>
+					<option value="gmail.com">지 메일</option>
+					<option value="hotmail.com">핫 메일</option>
+					<option value="direct">직접입력</option>
+				</select>
+				<input type="text" name="email1" maxlength="30" class="form-control" style="width: 33%;"> @ 
+				<input type="text" name="email2" maxlength="30" class="form-control" readonly="readonly" style="width: 33%;">
+			</li>
+		</ul>
+
+		<ul>
+			<li class="col-title">전화번호</li>
+			<li class="col-input">
+				<select name="tel1" class="form-select">
+					<option value="">선 택</option>
+					<option value="010">010</option>
+					<option value="02">02</option>
+					<option value="031">031</option>
+					<option value="032">032</option>
+					<option value="033">033</option>
+					<option value="041">041</option>
+					<option value="042">042</option>
+					<option value="043">043</option>
+					<option value="044">044</option>
+					<option value="051">051</option>
+					<option value="052">052</option>
+					<option value="053">053</option>
+					<option value="054">054</option>
+					<option value="055">055</option>
+					<option value="061">061</option>
+					<option value="062">062</option>
+					<option value="063">063</option>
+					<option value="064">064</option>
+					<option value="070">070</option>
+				</select>
+				<input type="text" name="tel2" maxlength="4" class="form-control" style="width: 33%;"> -
+				<input type="text" name="tel3" maxlength="4" class="form-control" style="width: 33%;">
+			</li>
+		</ul>
+			
+		<ul>
+			<li class="col-title">우편번호</li>
+			<li class="col-input">
+				<input type="text" name="zip" size="25" maxlength="7" class="form-control" readonly="readonly" style="width: 50%;">
+				<button type="button" class="btn">우편번호검색</button>
+			</li>
+		</ul>
+			
+		<ul>
+			<li class="col-title" style="border: none; height: 37px; line-height: 35px; padding-top: 2px;">주 소</li>
+			<li class="col-input" style="border: none; height: 37px; line-height: 35px; padding-top: 2px;">
+				<input type="text" name="addr1" maxlength="50" class="form-control" readonly="readonly" style="width: 95%;">
+			</li>
+		</ul>
+		<ul>
+			<li class="col-title" style="height: 37px; line-height: 35px; padding-bottom: 2px;">&nbsp;</li>
+			<li class="col-input" style="height: 37px; line-height: 35px; padding-bottom: 2px;">
+				<input type="text" name="addr2" maxlength="50" class="form-control" style="width: 95%;">
+			</li>
+		</ul>
+			
+		<ul>
+			<li class="col-title">직 업</li>
+			<li class="col-input">
+				<input type="text" name="job" maxlength="10" class="form-control" style="width: 50%;">
+			</li>
+		</ul>
+	</div>
+	
+	<div class="form-footer">
+		<button type="button" class="btn"> 회원가입 </button>
+		<button type="reset" class="btn"> 다시입력 </button>
+		<button type="button" class="btn"> 가입취소 </button>
+	</div>	
+	</form>
+</div>	
+
+</body>
+</html>

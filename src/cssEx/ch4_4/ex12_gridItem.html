@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* { box-sizing: border-box; }
+
+.container {
+  width: 800px; 	/* (없애면 화면 크기대로 맞춰서 바뀜 > auto-fill) */
+  margin: 50px;
+  padding: 20px;
+  background-color: #e3fafc;
+  border: 1px solid #99e9f2;
+  
+  display: grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px, 1fr)) ;
+  	/* auto-fill : 행열의 개수를 행열 크기에 맞게 자동으로 조정 */
+  	/* minmax : 행열의 최소/최대크기 */
+  
+  grid-auto-rows:minmax(100px,auto);
+  grid-auto-flow: dense;	/* 배치중 나중에 크기가 적은 아이템이 존재할 경우 그리드 앞부분의 남는 영역에 자동으로 배치 */
+  /* 없애보고 6의 위치를 보면 확인 가능 */  /* (순서 지키지 않고, 맞는 자리 맞춰서 들어감. 5,6번 확인) */
+  grid-gap: 40px;
+}
+
+.container > .item {
+  border: 1px solid #3bc9db;
+  border-radius: 3px;
+  background-color: #99e9f2;
+  font-size:250%;
+  color: #fff;
+
+   display: flex;
+   align-items: center;
+   justify-content: center
+}
+
+.container > .item:nth-child(1) {
+	grid-row-end: span 2;
+}
+
+.container > .item:nth-child(2) {
+	grid-row-end: span 3;
+}
+
+.container > .item:nth-child(4) {
+	grid-row-end: span 3;
+}
+
+.container > .item:nth-child(5) {
+	grid-column-end: span 2;
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+<h3>Grid Layout</h3>
+
+<div class="container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* { box-sizing: border-box; }
+
+.container {
+  width: 600px;
+  height: 600px;
+  margin: 50px;
+  background-color: #fff;
+  border: 10px solid #eee;
+  border-radius:10px;
+  
+  display: grid;
+  grid-template-rows: repeat(3,1fr);	/* fr: 사용 가능한 공간에 대한 비율. 1/3씩 3번 배치 */
+  grid-template-columns: repeat(3,1fr); 
+  grid-auto-flow: row dense; 			/* 각 행을 축에 따라 차례로 배치. 빈 영역 채움 */
+  /*grid-auto-flow: column dense;*/		/* (각 열을 축에 따라 순서대로 배치) */
+}
+
+.item {
+   font-weight: 900;
+   font-size: 25px;
+   border: 1px solid #333; 
+   border-radius: 3px;
+   padding: 10px;
+   
+   display:flex;
+   align-items: center; 
+   justify-content: center;
+}
+
+.item:nth-child(2){
+	grid-column: span 3;
+}
+
+
+.item1 { background : rgb(255, 100, 70); }
+.item2 { background : rgb(255, 165, 0); }
+.item3 { background : rgb(50, 205, 50); }
+.item4 { background : rgb(255, 105, 180); }
+.item5 { background : rgb(30, 145, 255); }
+.item6 { background : rgb(170, 170, 170); }
+
+</style>
+
+</head>
+<body>
+
+<h3>Grid Layout</h3>
+<p>
+  grid-auto-flow 속성 : 그리드에 명시적으로 배치(레이아웃) 되지 않은 아이템이 있을 경우, 자동 배치 알고리즘이 실행되어 자동으로 배치 되도록 설정<br>
+  속성값 : grid-auto-flow: row || row dense || dense<br>
+</p>
+
+<div class="container">
+  <div class="item item1">1</div>
+  <div class="item item2">2</div>
+  <div class="item item3">3</div>
+  <div class="item item4">4</div>
+  <div class="item item5">5</div>
+  <div class="item item6">6</div>
+</div>
+
+</body>
+</html>

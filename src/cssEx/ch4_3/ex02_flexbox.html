@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.flex-container{
+	width: 350px; 
+	padding: 10px; margin: 20px;
+	border: 3px dotted gray;
+	
+	display: flex;
+}
+
+.box { 
+	width: 80px; height: 50px; line-height: 50px;
+	text-align: center;
+	margin : 5px;
+	border: 1px solid blue;
+} 
+
+.row { flex-direction: row; }						/* (가로 : A B C ) */
+.row-reverse { flex-direction: row-reverse; }		/* (가로 - 오른쪽부터 왼쪽으로 :  C B A) */
+.column { flex-direction:column; }					/* (세로) */
+.column-reverse{ flex-direction:column-reverse; }	/* (세로 - 아래부터 위로) */
+</style>
+
+</head>
+<body>
+
+<h3>flex-direction : 아이템의 주축 방향 설정</h3>
+
+<p>기본값</p>
+<div class="flex-container ">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+</div>
+<hr>
+
+<p>flex-direction: row</p>
+<div class="flex-container row">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+</div>
+
+<p>flex-direction: row-reverse</p>
+<div class="flex-container row-reverse">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+</div>
+
+<p>flex-direction: column</p>
+<div class="flex-container column">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+</div>
+
+<p>flex-direction: column-reverse</p>
+<div class="flex-container column-reverse">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+</div>
+
+</body>
+</html>

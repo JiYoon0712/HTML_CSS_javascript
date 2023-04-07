@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+* {
+	margin: 0; padding: 0;
+}
+
+body {
+	font-family: 맑은 고딕, 굴림;
+	font-size: 14px;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	
+	color: white;
+	background: darkblue;
+}
+
+header>nav>ul {
+	list-style: none;
+	
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+}
+
+header>nav>ul>li>a {
+	display: block;
+	text-decoration: none;
+	padding: 10px 20px;
+	color: white;
+	font-weight: 700;
+}
+header>nav>ul>li>a:hover {
+	background: #0033ff;
+	font-weight: 700;
+}
+
+main{
+	padding-top: 40px; /* 가려진 컨텐츠 보이게 하기 */
+	min-height: 1500px;
+}
+
+footer {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+	<nav>
+		<ul>
+			<li><a href="#">홈</a></li>
+			<li><a href="#">Menu 1</a></li>
+			<li><a href="#">Menu 2</a></li> 
+		</ul>
+	</nav>
+</header>
+
+<main>
+	<h3> 메뉴바를 화면 상단에 고정 - display: flex  </h3>
+	<p> main 영역 </p>
+	<p> main 영역 </p>
+	<p> main 영역 </p>
+	<p> main 영역 </p>
+	<p> main 영역 </p>
+	<p> main 영역 </p>
+	<p> main 영역 </p>
+</main>
+
+<footer>
+	<p> footer 영역 </p>
+</footer>
+
+</body>
+</html>

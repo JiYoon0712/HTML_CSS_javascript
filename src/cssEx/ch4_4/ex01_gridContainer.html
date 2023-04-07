@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* { box-sizing: border-box; }
+
+.container {
+  width: 600px;
+  height: 600px;
+  margin: 50px;
+  background-color: #fff;
+  border: 10px solid #eee;
+  border-radius:10px;
+  
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+
+.item {
+   	font-weight: 900;
+   	font-size: 25px;
+   	border: 1px solid #333;
+   	border-radius: 3px;
+
+	display: flex;
+	align-items: center; 		/* (세로 가운데 = 수직 가운데) */
+	justify-content: center;	/* (가로 가운데 = 수평 가운데) */
+}
+
+.item1 { background : rgb(255, 100, 70); }
+.item2 { background : rgb(255, 165, 0); }
+.item3 { background : rgb(50, 205, 50); }
+.item4 { background : rgb(255, 105, 180); }
+.item5 { background : rgb(30, 145, 255); }
+.item6 { background : rgb(170, 170, 170); }
+
+</style>
+
+</head>
+<body>
+
+<h3>Grid Layout</h3>
+<p>
+   grid-template-rows/grid-template-columns : 명시적 행/열(Track)의 크기를 정의
+</p>
+
+<div class="container">
+  <div class="item item1">1</div>
+  <div class="item item2">2</div>
+  <div class="item item3">3</div>
+  <div class="item item4">4</div>
+  <div class="item item5">5</div>
+  <div class="item item6">6</div>
+</div>
+
+</body>
+</html>

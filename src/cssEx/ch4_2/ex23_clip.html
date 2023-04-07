@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box {
+	width: 300px; height: 200px; padding: 10px; margin:30px;
+	border: 2px dotted gray;
+	float: left;
+}
+
+.img {
+	position: absolute;
+	top: 80px; left: 420px;
+	clip:rect(20px, 300px, 220px, 20px); /* top, right, bottom, left*/
+}
+
+
+</style>
+
+</head>
+<body>
+
+<h3>clip : 요소의 어느 부분이 보이는지를 정의한다. position이 absolute, fixed 만 가능</h3>
+
+<div class="box"><img src="../img/img2.png" width="300" height="200"></div>
+<div class="box"><img src="../img/img2.png" class="img"></div>
+
+</body>
+</html>

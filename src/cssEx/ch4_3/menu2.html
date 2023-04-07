@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+header {
+	height: 55px; padding: 1rem; color: #fff;
+	background: darkblue; font-weight: 700;
+	
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	right:0;	/* 화면 채우게, right:0 또는 width:100% */
+	
+	display : flex;
+	align-items: center;
+	justify-content: space-between; 
+}
+
+body {
+	padding-top: 60px;
+}
+
+nav > span {
+	cursor: pointer; padding: 10px;
+}
+
+main {
+	min-height: 1100px;
+}
+
+footer {
+	height: 50px; line-height: 50px; text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+  <h1>스터디</h1>
+  <nav>
+    <span>Menu1</span>
+    <span>Menu2</span>
+    <span>Menu3</span>
+  </nav>
+</header>
+
+<main>
+  <h3> 메뉴바를 화면 상단에 고정 </h3>
+  <p> 
+      메인 영역의 윗 부분이 헤더 영역의 뒤로 들어가서 일부 컨텐츠가 보이지 않으므로
+    body 엘리먼트의 상단에 메뉴바 높이 만큼 패딩(padding)을 준다.
+  </p>
+  <p>main 영역</p>
+  <p>main 영역</p>
+  <p>main 영역</p>
+  <p>main 영역</p>
+  <p>main 영역</p>
+  <p>main 영역</p>
+</main>
+
+<footer>
+  <p>footer 영역</p>
+</footer>
+
+</body>
+</html>

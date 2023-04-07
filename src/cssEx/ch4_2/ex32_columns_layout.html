@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.container { 	
+	width: 800px; margin: 50px; padding: 50px;
+	border: 1px solid #99e9f2;
+	background: #eee;
+	
+	columns: 3 250px;	/* (3 : 줄 개수) */
+	column-gap: 1rem;
+}
+
+.container > .item {
+	border: 1px solid blue;
+	border-radius: 3px;
+	background: #99e9f2;
+	font-size: 250%;
+	color: #fff;
+	padding: 5px;
+	text-align: center;
+	
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.container > .item:last-of-type {
+	margin-bottom : 0;
+}
+</style>
+
+</head>
+<body>
+
+<h3>masonry layout - 메이슨리(석조) 레이아웃: 단으로 구현 </h3>
+<p> 상자의 순서는 열 아래로 내려감</p>
+
+<div class="container">
+  <div class="item">1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1</div>
+  <div class="item">2<br>2<br>2<br>2<br>2<br>2</div>
+  <div class="item">3<br>3<br>3<br>3</div>
+  <div class="item">4<br>4<br>4<br>4<br>4<br>4<br>4<br>4</div>
+  <div class="item">5<br>5<br>5<br>5<br>5<br>5<br>5<br>5<br>5<br>5<br>5<br>5<br>5<br>5</div>
+  <div class="item">6<br>6<br>6<br>6</div>
+  <div class="item">7<br>7<br>7<br>7<br>7<br>7</div>
+</div>
+
+</body>
+</html>

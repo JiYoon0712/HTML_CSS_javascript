@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.flex-container{
+	width: 350px; 
+	padding: 10px; margin: 20px;
+	border: 3px dotted gray;
+}
+
+.box { 
+	width: 80px; height: 50px; line-height: 50px;
+	text-align: center;
+	margin : 5px;
+	border: 1px solid blue;
+}
+
+.flex { display: flex; }
+
+.inline-flex{ display: inline-flex; }
+
+</style>
+
+</head>
+<body>
+
+<h3>flex</h3>
+
+<p>플렉스 레이아웃이 적용되지 않은 경우</p>
+<div class="flex-container ">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+</div>
+<hr>
+
+<p>display: flex, flex-container를 수직으로 쌓는다.</p>
+<div class="flex-container flex">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+</div>
+<div class="flex-container flex">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+</div>
+<hr>
+
+<p>display: inline-flex, flex-container를 수평으로 쌓는다.</p>
+<div class="flex-container inline-flex">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+</div>
+<div class="flex-container inline-flex">
+	<div class="box">A</div>
+	<div class="box">B</div>
+	<div class="box">C</div>
+</div>
+<hr>
+
+</body>
+</html>

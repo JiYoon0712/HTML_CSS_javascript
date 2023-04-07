@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+  font: bold 16px/50px "Open Sans";
+  color: white;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  margin-bottom: 10px;
+  transition: width 2s;
+}
+
+div:hover { width: 300px; }
+
+div:nth-child(1) { transition-timing-function: ease; }
+div:nth-child(2) { transition-timing-function: linear; }
+div:nth-child(3) { transition-timing-function: ease-in; }
+div:nth-child(4) { transition-timing-function: ease-out; }
+div:nth-child(5) { transition-timing-function: ease-in-out; }
+</style>
+</head>
+<body>
+
+<h3>transition-timing-function</h3>
+
+<div>ease</div>
+<div>linear</div>
+<div>ease-in</div>
+<div>ease-out</div>
+<div>ease-in-out</div>
+
+</body>
+</html>

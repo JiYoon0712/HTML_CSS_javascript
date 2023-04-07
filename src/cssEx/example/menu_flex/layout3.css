@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+.header-top {
+	display: flex;
+	justify-content: space-between;
+		/* 시작 item은 시작점, 마지막 item은 끝점에 정렬되고 나머지 items는 사이에 고르게 정렬 */
+	align-items: center; /* 수직 가운데 */
+}
+.header-left {
+	width: 170px;
+	padding: 20px 0 20px 25px;
+}
+.header-center {
+	padding: 20px;
+}
+.header-right {
+	width: 170px;
+	padding: 10px 25px 10px 0;
+	text-align: right;
+}
+
+header .logo {
+	font-size: 30px;
+	margin: 0;
+	margin-right: auto;
+	padding: 0;
+	line-height: 1;
+	font-weight: 600;
+	letter-spacing: 0.8px;
+	font-family: "Poppins", sans-serif;
+}
+header .logo a {
+	color: #222;
+}
+header .logo a:hover {
+	text-decoration: none;
+}
+header .logo a span {
+	color: #106eea;
+}
+
+.header-right a {
+	color: #333;
+    transition: 0.3s;
+}
+.header-right a:hover {
+	color: #106eea;
+	text-decoration: none;
+}
+
+nav {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	/* background: linear-gradient(90deg, #051937, #004d7a, #008793, #00bf72, #a8eb12); */
+	background: linear-gradient(90deg, #051937, #004d7a, #008793, #004d7a, #051937);
+}
+
+nav ul, nav li {
+	list-style: none;
+}
+
+.main-menu {
+	display: flex;
+	align-items: center; /* 수직 가운데 */
+	/* justify-content: center; */ /* 수평(주축) 가운데 */
+	flex-wrap: wrap; /* 폭이 넘치는 경우 여러행으로 출력 */
+}
+
+.main-menu > li > a {
+	font-family: "NanumGothic", "나눔고딕", "Malgun Gothic", "맑은 고딕", 돋움, sans-serif;
+	font-size: 0.85rem;
+	color: rgba(255,255,255,0.9);
+	font-weight: 500;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: 0.05em;
+	display: block;
+	padding: 14px 36px;
+	border-right: 1px solid rgba(0,0,0,0.15);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.main-menu > li:nth-child(1) > a {
+  border-left: 1px solid rgba(0,0,0,0.15);
+}
+
+.main-menu .sub-menu {
+	position: absolute;
+	background: #182952;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.15s ease-in;
+	  /* 트랜지션은 CSS 프로퍼티 변경에 따른 표시의 변화를 부드럽게 하기 위해 애니메이션 속도를 조절 */
+}
+
+.main-menu .sub-menu > li {
+	padding: 13px 28px;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.main-menu .sub-menu > li >  a {
+	font-family: "NanumGothic", "나눔고딕", "Malgun Gothic", "맑은 고딕", 돋움, sans-serif;
+	font-size: 0.85rem;
+	color: rgba(255,255,255,0.9);
+	text-decoration: none;
+}
+
+.main-menu > li:hover .sub-menu {
+	opacity: 1;
+	visibility: visible;
+}
+
+.main-menu .sub-menu > li:hover {
+	background: #008793;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+@media (min-width: 576px) {
+	.container {
+	    max-width: 540px;
+	}
+}
+@media (min-width: 768px) {
+	.container {
+	    max-width: 720px;
+	}
+}
+@media (min-width: 992px) {
+	.container {
+		max-width: 960px;
+	}
+}
+@media (min-width: 1200px) {
+	.container {
+	    max-width: 1140px;
+	}
+}
+
+/* body-container */
+.body-container {
+	min-height: 500px;
+}
+
+.body-title {
+    color: #424951;
+    padding-top: 35px;
+    padding-bottom: 7px;
+    margin: 0 0 25px 0;
+    border-bottom: 2px solid #e0f0fe;
+}
+.body-title h2 {
+    font-size: 24px;
+    min-width: 300px;
+    font-family:"Malgun Gothic", "맑은 고딕", NanumGothic, 나눔고딕, 돋움, sans-serif;
+    color: #023b6d;
+    font-weight: 700;
+    padding-bottom: 10px;
+    display: inline-block;
+    margin: 0 0 -7px 0;
+    border-bottom: 3px solid #002e5b;
+}
+
+.body-main {
+	display: block;
+	padding-bottom: 15px;
+}
+
+.inner-page{
+	display: block;
+	padding-top: 35px;
+}
+
+/* footer */
+footer {
+    background: #fff;
+    padding: 30px 0 30px;
+    color: #444;
+    font-size: 14px;
+    background: #f1f6fe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer ul, footer li {
+	list-style: none;
+}
+
+footer li {
+	display: inline-block;
+}
+footer li + li {
+	margin-left: 5px;
+}

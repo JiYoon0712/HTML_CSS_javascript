@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* { box-sizing: border-box; }
+
+.container {
+  width: 600px;
+  height: 600px;
+  margin: 50px;
+  background-color: #fff;
+  border: 10px solid #eee;
+  border-radius:10px;
+  
+  font-weight: 900;
+  font-size: 25px;
+  
+  display: grid;
+  grid-template-rows: 100px auto 100px;
+  grid-template-columns: 100px auto;
+  grid-template-areas: 
+  	"header header"	/* (grid-area로 이름 줘서 받아온다.) */
+  	"nav body"
+  	"footer footer";
+}
+
+.header {
+  grid-area: header;
+  border: 1px solid #3bc9db;
+  background: #99e9f2;
+  margin: 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+	grid-area: nav;
+	background: #99e9f2;
+	border: 1px solid #3bc9db;
+	margin: 5px 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.body {
+	grid-area: body;
+	background: #99e9f2;
+	border: 1px solid #3bc9db;
+	margin: 5px 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer {
+	grid-area: footer;
+	background: #99e9f2;
+	border: 1px solid #3bc9db;
+	margin: 5px 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<h3>Grid Layout</h3>
+<p>
+   grid-template-areas - 영역(Area) 이름을 참조해 템플릿 생성
+</p>
+
+<div class="container">
+  <header class="header">HEADER</header>
+  <nav class="nav">NAV</nav>
+  <article class="body">BODY</article>
+  <footer class="footer">FOOTER</footer>
+</div>
+
+</body>
+</html>
