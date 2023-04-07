@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+nav > .nav-icon {
+	display: flex;
+	color: #fff;
+	padding: 12px 12px;
+	margin-right: 10px;
+	align-items: center;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
+nav > .nav-menu {
+	display: none;  
+}
+
+main .left, main .right{
+	float: none;
+	width: 100%;
+	padding: 10px;
+}

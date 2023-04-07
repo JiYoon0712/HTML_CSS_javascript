@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--
+  - 데스크탑에 대응하도록 만들어진 문서를 스마트폰으로 열면 보통 3~4배 이상 줌 아웃 되어
+    글씨를 알아 볼 수 없는 형태로 작게 표시한다.
+    이를 해결하기 위해 viewport를 설정한다.
+  - 모바일 뷰 포트를 재설정하는 <meta>
+    스마트폰 웹 브라우저에서만 해석
+    뷰 포트를 문서가 아닌 스크린 영역으로 재 설정
+    웹 문서를 강제로 스크린 사이즈에 맞게 줌 아웃 하지 않음
+  - content 속성
+    width=device-width : 페이지의 너비를 기기의 스크린 너비로 설정.
+       즉, 렌더링 영역을 기기의 뷰포트의 크기와 같게 설정
+    initial-scale=1.0 : 처음 페이지 로딩시 확대/축소가 되지 않은 원래 크기를 사용하도록 설정
+       기본값은 1이며, 1보다 작으면 축소된 페이지, 1보다 크면 확대된 페이지를 표시
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.box {
+	width: 300px;
+	height: 300px;
+	margin: 30px auto;
+	border: 3px dotted #333;
+	padding: 10px;
+	background: #e6e6e6;
+}
+
+@media(max-width:600px){ /* 화면 폭이 0~600 */
+	.box{
+		display: none;
+	}
+}
+
+
+</style>
+</head>
+<body>
+
+<h3>반응형 웹(Responsive Web)</h3>
+
+<p>미디어 쿼리 : 각 미디어 매체에 따라 다른 스타일을 적용할 수 있게 만드는 것</p>
+
+<div class="box"></div>
+
+</body>
+</html>
