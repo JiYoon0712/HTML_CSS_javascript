@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 변수 범위 </h3>
+
+<script type="text/javascript">
+var a =10;	// 전역 변수
+
+function fun(){	// 함수 선언
+	// console.log(a);	//10
+	a = a + 10;
+	
+	b = 100;	// var, let 없이 선언한 변수는 전역 변수(절대로 해서는 안되는 일)
+	
+	if(true) {
+		var x = 5;	// var로 선언한 변수의 범위는 if() {} 블록이 아니라 x가 선언된 함수이다.
+		console.log("if 안 x : " + x);	// 5
+	}	
+	console.log("if 밖 x : " + x);	// 5 
+	
+	if(true){
+		let y = 7;	// let로 선언한 변수의 범위는 if() 블록이다.
+		console.log("if 안 y : " + y);	// 7
+	}
+	// console.log("if 밖 y : " + y);	// 에러. ReferenceError 예외
+}
+
+function sub(){
+	console.log("sub-a:" + a);	// 20
+	console.log("sub-b:" + b);	// 100
+}
+
+// 함수 호출
+fun();
+sub();
+
+</script>
+
+</body>
+</html>

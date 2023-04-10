@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>연산자-조건(삼항)</h3>
+
+<p>
+	<!-- (type에 text 대신 number 기재해도 typeof 해보면 string.) -->
+	<input type="text" id="inputs" placeholder="나이를 입력하세요.">
+	<button type="button" onClick="result()">확인</button>
+</p>
+<hr>
+
+<div id="resultLayout"></div>
+
+
+<script type="text/javascript">
+function result(){
+	let age = document.querySelector("#inputs").value;
+	
+	if(!age){
+		alert("나이를 입력하세요.");
+		document.querySelector("#inputs").focus();
+		return;
+	}
+	
+	// console.log(typeof(age));
+	
+	let s, out;
+	
+	s = age >= 19 ? "성인" : "미성년자";
+	
+	out = "<p style='color:red;'> 결과 : " + s + "</p>";
+	
+	document.querySelector("#resultLayout").innerHTML= out;
+}
+
+
+</script>
+
+</body>
+</html>

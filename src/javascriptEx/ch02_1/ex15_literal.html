@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>literal</h3>
+
+<script type="text/javascript">
+var a;
+
+a = 13;	// 10진수
+console.log(a);	
+
+a = 013;	// 8진수
+console.log(a);	// 11
+
+a = 0x13;	// 16진수
+console.log(a);	// 19
+
+a = 0b101;	// 2진수
+console.log(a);	// 5
+
+a = 3.14;
+console.log(a);	// 부동 소수점
+
+a = 3.1E+12;
+console.log(a);	// 부동 소수점
+
+a = 'seoul';	// 문자열 리터널
+console.log(a);	
+
+a = "seoul";	// 문자열 리터널
+console.log(a);	
+
+a = "c:\\temp";	// 문자 이스케이프
+console.log(a);	
+
+a = "subject:\"java\", price:1000";	// 문자 이스케이프	
+console.log(a);	
+
+a = 'subject:"java", price:1000';	
+console.log(a);	
+
+a = /ab+c/; // 정규식 리터널
+console.log(a);
+
+a = ['html','css'];	// 배열 리터널
+console.log(a);
+
+a = { name:'김자바' , age:20 }; // 객체 리터널
+console.log(a);
+
+var x = '홍';
+var y = '길동';
+var msg;
+
+msg = `안녕하세요 ${x} ${y}님`;	
+	// 템플릿 리터널 : ${} 표현식으로 처리된 값을 문자열로 변환
+	// 템플릿 리터널은 반드시 백틱(`)을 사용하며 ' 나 " 를 사용하지 않는다.
+	
+// msg = "안녕하세요 " + x + " " + y + "님";
+	
+console.log(msg);
+
+</script>
+
+
+</body>
+</html>

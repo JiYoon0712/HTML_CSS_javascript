@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>숫자로 변환 - Number() 함수</h3>
+
+<script type="text/javascript">
+var a, b;
+
+a = "123";
+b = Number(a);
+console.log(b);			// 123
+console.log(b === 123); // true
+
+a = "123.57";
+b = Number(a);
+console.log(b);	// 123.57
+
+a = "1,234";
+b = Number(a);
+console.log(b);	// NaN
+
+a = "123a";
+b = Number(a);
+console.log(b);	// NaN
+
+a ="";
+b = Number(a);
+console.log(b); // 0
+
+a = null;
+b = Number(a);
+console.log(b); // 0
+
+a = "kor";
+b = Number(a);
+console.log(b);	// NaN
+
+a = "0x11"; 
+b = Number(a);
+console.log(b); // 17
+
+</script>
+</body>
+</html>

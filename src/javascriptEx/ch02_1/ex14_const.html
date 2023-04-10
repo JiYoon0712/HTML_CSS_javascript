@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>상수 - const </h3>
+
+<script type="text/javascript">
+const PI = 3.141592;
+// const sub = 10;	// 에러. 함수명과 상수명은 동일할 수 없다.
+
+function sub(){
+	console.log(PI);
+	// PI = 3.14;	// 에러 : TypeError
+	
+	// const x;		// 에러. 상수는 선언과 동시에 초기화해야 함.
+	const x = 10;
+	// var x = 5; 	// 에러 : 상수는 같은 범위에 있는 함수나 변수와 동일한 이름을 가질 수 없다.
+	
+	if(true) {
+		const a = 10;	// const는 let과 마찬가지로 if() 블록에서만 유효
+		console.log("if 안 : " + a);
+	}
+	// console.log("if 밖 : " + a);	// 에러. 
+	
+	var a = 20;
+	console.log(a);
+	
+	const arr = ['HTML','CSS'];	// 배열
+		// 상수로 선언된 객체의 속성 및 배열의 내용은 보호하지 않음
+	arr.push('javascript');	// 배열 뒤에 요소 추가
+	arr[0] = 'html';
+	console.log(arr);	// ['html', 'CSS', 'javascript']
+	
+	// var arr = 10; // 에러. > 위의 배열 이름과 동일
+	
+	const obj = {'subject':'java'};
+	console.log(obj.subject);	// java
+	obj.subject = 'HTML';
+	console.log(obj.subject);	// HTML
+
+}
+
+
+sub();
+</script>
+
+</body>
+</html>

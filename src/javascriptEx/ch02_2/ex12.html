@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>타이머 예제</h3>
+
+<script type="text/javascript">
+var n = 0;
+function sub(){
+	n++;
+	document.write("<p>숫자 : " + n + "</p>");
+}
+
+var timer = setInterval("sub();",1000);	// 1초마다 무한 반복
+
+setTimeout(function(){
+	clearInterval(timer);	// 타이머 종료
+},10000);	// 10초 후에 1번 실행	
+</script>
+
+
+</body>
+</html>

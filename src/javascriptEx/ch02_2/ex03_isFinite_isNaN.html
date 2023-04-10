@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>문자열이 숫자로 이루어졌는지 확인하기</h3>
+
+<script type="text/javascript">
+var a, b;
+
+a = "123";
+b = isFinite(a);	// true. 숫자로 이루어져 있으면 true
+console.log(a + " : " + b);
+
+a = "123.57";
+b = isFinite(a);	// true
+console.log(a + " : " + b);
+
+a = "1, 234";
+b = isFinite(a);	// false
+console.log(a + " : " + b);
+
+a = "123a";
+b = isFinite(a);	// false
+console.log(a + " : " + b);
+
+a = "123";
+b = isNaN(a);	// false. 숫자로 이루어져 있지 않으면 true
+console.log(a + " : " + b);
+
+a = "1,234";
+b = isNaN(a);	// true
+console.log(a + " : " + b);
+
+a = "";
+b = isNaN(a);	// false
+console.log(a + " : " + b);
+
+a = null;
+b = isNaN(a);	// false
+console.log(a + " : " + b);
+</script>
+
+</body>
+</html>

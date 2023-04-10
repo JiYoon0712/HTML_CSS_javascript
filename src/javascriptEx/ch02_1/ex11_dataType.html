@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>데이터 타입</h3>
+
+<script type="text/javascript">
+var a, b;
+
+b = '자바';	// string-문자열, "자바" 가능
+a = typeof(b);	// string
+console.log(a);
+
+b = 50;
+a = typeof(b);	// number-숫자
+console.log(a);
+
+b = true;
+a = typeof(b);	// boolean-논리형
+console.log(a);
+
+b = function (){ };
+a = typeof(b);	// function-함수
+console.log(a);
+
+b = {};
+a = typeof(b);	// object-객체
+console.log(a);
+
+b = null;	// null은 빈객체를 참조하는 특별한 값
+a = typeof(b);	// object-객체
+console.log(a);
+
+var x;
+a = typeof(x);	// undefined 타입. 값이 초기화 되지 않은 변수는 undefined 타입
+console.log(a);
+console.log(x);	// 값이 초기화 되지 않은 변수의 값은 undefined이다.
+	// 즉 undefined는 타입이자 값이다.
+
+a = typeof(y);	// undefined - 정의되지 않은 변수는 undefined 타입
+console.log(a);
+
+</script>
+
+</body>
+</html>

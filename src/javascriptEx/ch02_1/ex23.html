@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>연산자 - 논리</h3>
+
+<script type="text/javascript">
+var a = "";
+
+// 값 "", 0, null, undefined, NaN 등은 거짓입니다.
+if(a){
+	console.log("참");
+} else {
+	console.log("거짓");	
+}
+
+a = 0;
+if(a){
+	console.log("참");
+} else {
+	console.log("거짓");	
+}
+
+a = "html" && "css";
+console.log(a);	// css
+
+a = "html" && true;
+console.log(a);	//true
+
+a = 0 && "css";
+console.log(a);	// 0
+
+a = "html" || "css";
+console.log(a);	// html
+
+</script>
+
+</body>
+</html>

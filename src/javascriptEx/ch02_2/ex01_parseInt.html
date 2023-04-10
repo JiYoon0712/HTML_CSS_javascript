@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>숫자로 변환 - parseInt</h3>
+
+<script type="text/javascript">
+var a, b;
+
+a = "123";
+console.log(a === 123) 	// false
+console.log(a + 10)	//12310
+
+b = parseInt(a);	// 문자열을 숫자로 변환
+console.log(b === 123);	// true
+console.log(a + 10);	// 133
+
+a = "1,234";
+b = parseInt(a);// > 자바스크립트는 숫자로 바꿀 수 있는 곳까지 숫자로 변환
+console.log(b);	// 1
+
+a = "123a45";
+b = parseInt(a);	
+console.log(b);	// 123
+
+a = "a123";
+b = parseInt(a);	
+console.log(b);	// NaN(Not A Number) >> NaN은 false
+
+a = "123.456";
+b = parseInt(a);
+console.log(b);
+
+a = "";
+b = parseInt(a);
+console.log(b);	// NaN
+
+a = "    123";
+b = parseInt(a);
+console.log(b);	// 123
+
+a = "1 23";
+b = parseInt(a);
+console.log(b);	// 1
+
+a = "1 2 3";
+b = parseInt(a);
+console.log(b);	// 1
+
+a = "123.456";
+b = parseFloat(a);
+console.log(b);	// 123.456
+
+</script>
+</body>
+</html>

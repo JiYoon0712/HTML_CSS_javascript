@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>인코딩과 디코딩</h3>
+
+<script type="text/javascript">
+var s = "seoul?자바&123+4";
+var out;
+
+out = escape(s);	// 영문자, 숫자, 일부특수문자(@  *  - _ + . /)를 제외하고 인코딩
+console.log(out);
+
+// 영문자, 숫자, 인터넷 주소문자(: / ? = + &, ....)를 제외하고 인코딩
+out = encodeURI(s);
+console.log(out);
+
+// 영문자, 숫자를 제외하고 주소 형식으로 인코딩(반드시 기억할 것.)
+out = encodeURIComponent(s);
+console.log(out);
+
+out = decodeURIComponent(out);	// 디코딩
+console.log(out);
+
+</script>
+
+</body>
+</html>

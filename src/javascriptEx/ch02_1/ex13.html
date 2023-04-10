@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>형 변환</h3>
+
+<script type="text/javascript">
+var a, b;
+
+a = "123";
+console.log(typeof(a));	// string
+
+b = a + 10;
+console.log(typeof(b));	// string
+console.log(b);		//12310
+
+a = Number(a);	// Number() 함수를 이용하여 문자열을 숫자로 변환
+console.log(typeof(a));	// number
+b = a + 10;
+console.log(b);	//133
+
+a = "true";
+console.log(typeof(a))	// string
+
+a = Boolean(a);	// Boolean() 함수를 이용하여 문자열을 boolean으로 변환
+console.log(typeof(a))	// boolean
+
+</script>
+
+</body>
+</html>

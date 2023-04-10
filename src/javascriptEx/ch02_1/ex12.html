@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>형 변환</h3>
+
+<script type="text/javascript">
+var a;
+
+a = 10 + '20';	// 숫자 + 문자 => 문자 + 문자 => 문자로 형변환됨.(+는 문자 우선)
+				// 문자 + 숫자 => 문자 + 문자
+console.log(a);	//1020
+
+a = 20 - '15';	// "숫자 연산자 문자" 에서 + 이외는 문자가 숫자로 변환 된다.
+console.log(a);	// 5
+
+a = 10 * '20';	
+console.log(a);	// 200
+</script>
+
+
+</body>
+</html>

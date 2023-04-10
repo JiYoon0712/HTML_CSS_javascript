@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 변수 </h3>
+
+<script type="text/javascript">
+function sub() {
+	var a = 10;	// a 변수의 유효 범위는 sub 함수
+	b = 100;	// var 또는 let가 없는 경우 전역변수. 엄격모드에서는 아무것도 출력 안됨
+	
+	console.log(a,b);
+}
+
+function fun(){
+	// console.log(a);	// 에러
+	console.log(b);	// 함수 호출 순서에 따라 결과가 나오거나 에러 발생
+}
+
+// fun();	// 에러 > sub와 순서 바꾼 경우에는 b가 선언되지 않았기 때문에
+sub();	// 10 100
+fun();	// 100 	
+
+
+</script>
+
+
+</body>
+</html>
