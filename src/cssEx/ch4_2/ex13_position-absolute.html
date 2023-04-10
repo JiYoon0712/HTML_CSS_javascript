@@ -16,8 +16,8 @@
 .absolute-box { 
 	width: 150px; height: 150px;	/* ( width, height 추가 ) */
 	
-	position : absolute;
-	left: 50px;	/* 부모가 relative이면 기준은 부모이고, 부모가 static이면 body가 최상단 */
+	position : absolute;	/* 부모가 relative이면 기준은 부모이고, 부모가 static이면 body가 최상단 */
+	left: 50px;	
 	top: 50px;
 	
 	background: #333;
@@ -35,7 +35,7 @@
 <h3>position:absolute - 요소가 문서의 일반적인 흐름을 따르지 않고, 페이지 레이아웃에 공간도 배정하지 않는다.</h3>
 
 <div class="box"><div class="absolute-box">parent-div</div></div>
-<div class="absolute-box" >parent-body</div>	<!-- ( parent-div와 가려져서 top left  ) -->
+<div class="absolute-box" >parent-body</div>	
 
 <p>안녕하세요.</p>			<!-- ( 아래 parent-body 상단부분에 있어서 가려짐. >> left, top 추가) -->
 
