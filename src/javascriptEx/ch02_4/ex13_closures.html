@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<style type="text/css">
+#subject { list-style: none; padding:0; }
+.item { cursor: pointer; }
+</style>
+
+<script type="text/javascript">
+// 잘못 작성한 경우 
+window.onload = function(){
+	let items = document.querySelectorAll(".item");	// > querySelector 사용시 한개만 찾음. > javascript만
+	for(var i=0; i<items.length; i++){
+		items[i].onclick = function(event){
+			alert("순번 : " + (i+1));
+		};
+	}
+};
+</script>
+</head>
+<body>
+
+<h3>함수 - closures</h3>
+
+<ul id = "subject">
+	<li class="item">javascript</li>
+	<li class="item">CSS 3</li>
+	<li class="item">HTML 5</li>
+	<li class="item">Node.js</li>
+	<li class="item">XML</li>
+</ul>
+
+
+
+
+</body>
+</html>

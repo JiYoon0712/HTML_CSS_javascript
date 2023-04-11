@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>함수 - closures : 내부함수는 클로저를 형성 </h3>
+
+<script type="text/javascript">
+var seq = function(){
+	let n = 0;
+	return function(){
+		return ++n;
+	};
+};
+
+var fn = seq();
+console.log( fn() );  // 1 
+console.log( fn() );  // 2 
+console.log( fn() );  // 3
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<form name ="myForm" action="javascript:result();">
+	<p>
+		<input type="radio" name="opt" value="1" checked="checked"> 합
+		<input type="radio" name="opt" value="2"> 짝수합
+		<input type="radio" name="opt" value="3"> 홀수합
+	</p>
+	
+	<p>
+		<input type="number" name="num" style="width:150px;"
+			min="0"
+			required="required"
+			placeholder="숫자를 입력하세요.">
+		<button> 결과 </button>
+	</p>
+</form>
+<hr>
+<div id="resultLayout"></div>
+
+<script type="text/javascript">
+function result(){
+	const f = document.myForm;
+	let opt = f.opt.value;
+	let num = parseInt(f.num.value);
+	let out="";
+	
+	let title = opt === "1" ? "합" : (opt === "2" ? "짝수합" : "홀수합");
+	let s = 0;
+	let start = opt === "2" ? 2 : 1;
+	let step = opt === "1" ? 1 : 2;
+	
+	for(let i = start; i<=num; i+=step){
+		s += i;
+	}
+	
+	out = `${title} : ${s}`;
+	document.querySelector("#resultLayout").innerHTML = out;
+
+}
+
+</script>
+</body>
+</html>

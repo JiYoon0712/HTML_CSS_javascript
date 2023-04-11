@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+<h3> 반복문 </h3>
+
+<script type="text/javascript">
+var s, n;
+
+// while
+s = 0;
+n = 0;
+while(n<100){
+	n++;
+	s+=n;
+}
+console.log('while:'+n+', '+s);
+
+// do~while
+s = 0;
+n = 0;
+do {
+	n++;
+	s+=n;
+} while(n<100);
+console.log('do~while:'+n+', '+s);
+
+// for
+s = 0;
+for(let i=1; i<=100; i++){
+	s += i;
+}
+console.log('for:' + s);
+
+</script>
+</body>
+</html>

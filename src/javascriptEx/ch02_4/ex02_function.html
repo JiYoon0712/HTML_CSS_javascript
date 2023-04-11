@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>함수 호이스팅</h3>
+
+<script type="text/javascript">
+// 함수 선언문에서의 함수 호이스팅 : 함수 선언전에 호출
+console.log( sub1(5,10) );
+
+function sub1(a,b){
+	return a+b;
+}
+
+// 함수 표현식에서의 함수 호이스팅은 불가능
+// console.log( sub2(3,7) );	// 에러
+var sub2 = function(a,b){
+	return a+b;
+};
+console.log( sub2(3,7) );	// 아래에서는 가능
+
+// 콜백함수 - 페이지 실행시 호출
+window.onload = function(){
+	alert("반가워요 ...");
+};
+
+</script>
+
+
+</body>
+</html>

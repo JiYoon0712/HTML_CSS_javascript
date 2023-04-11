@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<p>
+	<input type="text" id="dan" placeholder="원하는 단을 입력하세요.">
+	<button type="button" onclick="result()">확인</button>
+</p>
+<hr>
+<div id="resultLayout"></div>
+
+
+<script type="text/javascript">
+function result(){
+	const inputEl = document.querySelector("#dan");
+	let dan = inputEl.value;
+	if(! /^[1-9]{1}$/.test(dan)){	// > 정규식 함수 test : 정규식이 올바르면 true, 올바르지 않으면 false
+		inputEl.focus();
+		return;
+	}
+	
+	let out;
+	dan = parseInt(dan);
+	
+	out = '<p> ** ' + dan + "단 ** </p>";
+	for(let i=1; i<=9; i++){
+		out += `${dan} * ${i} = ${dan * i}<br>`;
+	}
+	document.querySelector('#resultLayout').innerHTML = out;
+}
+</script>
+
+</body>
+</html>

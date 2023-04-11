@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>함수 - closures : 내부함수는 클로저를 형성 </h3>
+
+<!-- 
+	클로저는 반환된 내부함수가 자신이 선언되었을때의 환경인 스코프를 기억하여
+	자신이 선언되었을때의 환경(스코프) 밖에서 호출되어도 그 환경(스코프)에 접근할 수 있는 함수를
+	말한다.
+ -->
+<script type="text/javascript">
+function fun(x){	// 외부함수
+	let n = 10;
+	
+	// 내부함수(클로저)  > 전 값을 계속 보존하고 있음
+	function sub(y){	// 외부함수의 변수나 매개변수 접근 가능
+		return n+x+y;
+	}
+	
+	return sub(3);	// 외부함수 안에서 내부함수 접근
+}
+
+console.log( fun(2) ); // 15
+
+// ----------------------------------------------
+function fun2(x){
+	function sub2(y){
+		return x+y;
+	}
+	return sub2;
+}
+
+var fn = fun2(2);
+var n = fn(3);
+console.log(n); // 5
+
+n = fun2(10)(5);
+console.log(n);	// 15
+
+
+
+</script>
+
+</body>
+</html>

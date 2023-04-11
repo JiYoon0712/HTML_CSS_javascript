@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>함수-매개변수</h3>
+
+<script type="text/javascript">
+function sub1(a, b){
+	console.log(a, b);
+}
+
+sub1();	 		// undefined undefined
+sub1(1); 		// 1 undefined
+sub1(1,2);	 	// 1 2	
+sub1(1,2,3); 	// 1 2
+console.log('------------------');
+
+function sub2(){
+	for(let i=0; i<sub2.arguments.length; i++){
+		console.log(sub2.arguments[i]);
+	}
+}
+sub2('홍길동' , '자바' , 100);
+console.log('-------------------');
+
+function sub3(name){
+	console.log(name);
+	for(let i=1; i<sub3.arguments.length; i++){
+		console.log(sub3.arguments[i]);
+	}
+}
+sub3('홍길동' , '자바' , 95);
+</script>
+
+</body>
+</html>

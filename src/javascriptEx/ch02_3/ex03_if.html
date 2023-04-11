@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<p>
+	숫자 : <input type="text" id="num">
+	<button type="button" onclick="result();">확인</button>
+</p>
+
+<!-- 2, 3, 2 또는 3의 배수입니다. 2 또는 3의 배수가 아닙니다. 
+    단, 숫자가 아닐 경우 숫자를 입력해주세요. 출력 -->
+<script type="text/javascript">
+function result(){
+	// id로 접근
+	// const inputEl = document.querySelector("#num");	
+	
+	// 속성으로 접근 (type = text)
+	const inputEl = document.querySelector("input[type=text]");	
+
+	if(! inputEl.value || isNaN(inputEl.value) ){
+		alert("숫자를 입력하세요.");
+		inputEl.focus();
+		return;
+	}
+	
+	let num = parseInt(inputEl.value);
+	
+	if(num % 2 === 0 && num % 3 === 0){
+		alert('2 또는 3의 배수가 아닙니다.');
+	} else if(num % 2 === 0){
+		alert('2의 배수입니다.');
+	} else if (num%3 === 0){
+		alert('3의 배수입니다.');
+	} else {
+		alert('2 또는 3의 배수가 아닙니다.')
+	}
+}
+</script>
+</body>
+</html>

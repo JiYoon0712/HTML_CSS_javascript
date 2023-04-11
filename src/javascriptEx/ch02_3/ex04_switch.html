@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<form action="javascript:result();">
+	<p>
+		<input type="text" name = "num" id="num"
+			required ="required" placeholder="숫자를 입력하세요."
+			pattern="\d{1,3}">	<!-- (정규식 : 0-999) -->
+		<button>확인</button>
+	</p>
+</form>
+
+
+<script type="text/javascript">
+function result(){
+	let s;
+	let n = document.querySelector("#num").value;
+	
+	n = parseInt(n);
+	if(n <0 || n >100){
+		document.querySelector("#num").focus();
+		return;
+	}
+	
+	// Math.floor(x) : x 를 넘지 않는 최대 정수
+	switch(Math.floor(n/10)){
+	case 10:
+	case 9: s = "A"; break;
+	case 8: s = "B"; break;
+	case 7: s = "C"; break;
+	case 6: s = "D"; break;
+	default: s = "F"; break;
+	}
+	
+	alert("학점 : " + s);
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>조건문 : if~else, switch</h3>
+
+<script type="text/javascript">
+// 조건문에서의 거짓 : false, undefined, null, 0, NaN, 빈문자열("")
+var a;
+if(a){	// undefined 이므로 거짓
+	console.log("참");	
+} else {	
+	console.log("거짓");	
+}
+
+var b = new Boolean(false);	// 사용을 권장하지 않음
+if(b){	// null 이외의 모든 객체는 참
+	console.log("참");	
+} else {	
+	console.log("거짓");	
+}
+console.log(b);		// Boolean{false}
+console.log(b.valueOf());	//false
+</script>
+</body>
+</html>

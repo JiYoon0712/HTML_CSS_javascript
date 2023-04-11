@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<form name ="myForm">
+	<p> 이름 : <input type="text" name="name"></p>
+	<p> 과목 : <input type="text" name="subject"></p>
+	<p> 점수 : <input type="text" name="score"></p>
+	<p>
+		<button type="button" onclick="sendOk();">확인</button>
+	</p>
+</form>
+
+<script type="text/javascript">
+function sendOk(){
+	const f = document.myForm;
+	
+	if( ! f.name.value ){ // if(f.name.value === "") 
+		alert("이름은 필수 입력사항입니다.");
+		f.name.focus();
+		return;
+	}
+	
+	if( ! f.subject.value ){
+		alert("과목명은 필수 입력사항입니다.");
+		f.subject.focus();
+		return;
+	}
+
+	// isNaN("") => false
+	if( ! isNaN(f.score.value) || isNaN(f.score.value) ){
+		alert("점수는 숫자만 가능합니다.");
+		f.score.focus();
+		return;
+	}
+	
+	let out = f.name.value + ", " + f.subject.value + ", " + f.score.value;
+	alert(out);
+
+}
+</script>
+</body>
+</html>

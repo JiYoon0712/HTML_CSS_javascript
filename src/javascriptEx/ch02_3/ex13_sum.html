@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+
+<h3>1~100까지 수중 2 또는 3의 배수를 제외한 수의 합</h3>
+
+<script type="text/javascript">
+var s, n;
+
+s = 0;
+n = 0;
+
+while(n < 100){
+	n++;
+	if(n%2===0 || n%3===0){
+		continue;
+	}
+	s+=n;
+}
+console.log(s);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>함수 - 함수작성과 호출</h3>
+
+<script type="text/javascript">
+var n;
+
+// 함수 선언문 방식으로 함수 만들기
+function sub1(x, y){
+	let s = x + y;
+	return s;
+}
+
+// 함수 호출
+n = sub1(10, 5);
+console.log(n);
+
+// --------------------------------------
+// 함수 표현식 방법으로 함수 만들기
+var sub2 = function(x,y){ // 익명함수
+	return x + y;
+};
+
+var plus = sub2;
+n = sub2(10,20);
+console.log(n);	// 30
+
+n = plus(10,200);
+console.log(n);	// 210
+
+
+//--------------------------------------
+// 기명 함수 표현식 방법으로 함수 만들기  
+// > 함수에 이름 붙여주는 방식 > 재귀호출시 이름 사용
+var sub3 = function add(x,y){ // 익명함수
+	return x + y;
+};
+n = sub3(100,20);
+console.log(n);	// 120
+
+// n = add(10,20); // 에러
+
+// 기명함수 표현식으로 이용한 재귀호출
+var sub4 = function sum(n){
+	return n>1 ? n +sum(n-1) : n;
+};
+console.log( sub4(10) );
+
+
+//--------------------------------------
+// Function() 생성자를 이용한 함수 만들기
+var sub5 = new Function('x','y','return x+y;');
+console.log( sub5(10, 50) );
+
+
+//--------------------------------------
+// 즉시 실행함수 - 정의함과 동시에 함수를 바로 실행
+var s = (function(a,b) {
+	return a+b;
+})(5,7);
+console.log(s); // 12
+
+
+
+(function(a,b) {
+	return console.log(a,b);
+})(5,7);
+
+
+</script>
+
+</body>
+</html>

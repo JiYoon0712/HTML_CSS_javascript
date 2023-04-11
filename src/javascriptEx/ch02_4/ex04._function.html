@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+<h3>함수-매개변수</h3>
+
+<script type="text/javascript">
+// 매개변수의 기본값은 undefined
+function add(a,b){
+	return a+b;
+}
+console.log(add(10));	// 10 + undefined => NaN 
+
+function add2(a,b){
+	b = b ? b : 0;
+	return a+b;
+}
+
+console.log(add2(10));	  // 10 + 0 => 10
+console.log(add2(10,5));  // 15
+
+// 디폴트 매개 변수
+function add3(a,b=0){	// > b 초기값 0.
+	return a+b;
+}
+console.log(add3(15));	// 15 + 0 => 15
+
+
+function sub(x=1, y){	
+	console.log(x,y);
+}
+sub();	// 1, undefined
+
+// Rest 매개변수(부정인수) : 마지막 매개변수만 Rest 매개변수가 가능
+function add4(...a){	// > 인수의 개수가 가변적인 경우
+	let s = 0;
+	for(let n = 0; n < a.length; n++){
+		s += a[n];
+	}
+	return s;
+}
+
+console.log(add4(1,2,3,4,5));
+</script>
+
+
+</body>
+</html>

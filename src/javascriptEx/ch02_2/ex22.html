@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>전역 속성</h3>
+
+<script type="text/javascript">
+// wrap object : 숫자, 문자열 등 원시 타입이 프로퍼티에 접근 가능하도록 생성되는 임시 객체
+var s = "자바스크립트"; // 문자열 생성
+var len = s.length; // String 프로퍼티임 length 속성 사용
+console.log("문자열길이 : " + len);
+
+// String 객체
+var s2 = new String("자바 스크립트");
+len = s2.length;
+console.log("문자열길이 : " + len);
+
+console.log(s == s2);	// true. == 은 리터널과 객체를 동일하게 본다.
+console.log(s === s2);	// false. 리터널 값과 객체를 구별한다.
+
+console.log(typeof s);	// string 타입
+console.log(typeof s2); // object 타입
+
+console.log(NaN === NaN);	// false. > 숫자가 아닌 값이 어떤 것인지 알 수 없다.
+console.log(isNaN(NaN));	// true.
+
+</script>
+</body>
+</html>
