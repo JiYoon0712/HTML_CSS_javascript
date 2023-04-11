@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+<h3>내장객체 - Date</h3>
+
+<script type="text/javascript">
+var now = new Date();
+
+var y = now.getFullYear();
+var m = now.getMonth() + 1 ;
+var d = now.getDate() ;
+var w = now.getDay() ;	// 일(0) ~ 토(6) 	>> 자바 : 일(1) ~ 토(7)
+
+var hr = now.getHours();
+var mn = now.getMinutes();
+var sc = now.getSeconds();
+
+var ms = now.getTime();	// 1970-01-01 00:00:00 부터 경과 시간. ms
+
+var s = y + "-" + m + "-" + d + " " + w + " " + hr + ":" +  mn +":" +sc;
+console.log(s);
+console.log(ms);
+
+</script>
+</body>
+</html>

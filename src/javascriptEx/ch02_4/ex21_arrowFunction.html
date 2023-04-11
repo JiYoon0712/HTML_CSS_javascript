@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>함수 - arrow function </h3>
+
+<script type="text/javascript">
+var sub1 = function(args){
+	return args.length;	// String 객체의 length 속성 : 문자열의 길이 구함
+};
+console.log( sub1("korea") );	// 5
+
+// 화살표 함수(arrow function)
+var sub2 = (args) => { return args.length; }
+console.log( sub2("korea") );	// 5
+
+// 파라미터가 하나인 경우 주변 괄호 생략 가능
+var sub3 = args => { return args.length; }
+console.log( sub3("kor") );	// 3
+
+// 화살표 함수의 문장이 'return 반환값;' 문장 하나인 경우 'return'과 중괄호({})를 생략할 수 있다. 
+var sub4 = args => args.length;
+console.log( sub4("java") );	// 4
+
+/*
+window.onload = function(){
+	alert("안녕...");
+}
+*/
+
+// window.onload = () => alert("안녕...");
+
+// setTimeout와 화살표 함수 이용해서 3초 후 딱 1번 "안녕하세요." 출력	
+setTimeout(()=> alert('안녕'), 3000);
+	
+</script>
+</body>
+</html>

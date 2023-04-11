@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>내장객체 - Date</h3>
+
+<script type="text/javascript">
+var y, m, d, s;
+var date;
+
+// 2023년 4월 31일로 Date 객체 생성 - 4월 31일은 5월 1일로 설정
+date = new Date(2023, 4-1, 31);
+y = date.getFullYear();
+m = date.getMonth() + 1 ;
+d = date.getDate() ;
+
+s = y + "-" + m + "-" + d;
+console.log(s);
+
+// 일자를 50일로 설정
+date.setDate(50);
+y = date.getFullYear();
+m = date.getMonth() + 1 ;
+d = date.getDate() ;
+
+s = y + "-" + m + "-" + d;	// 6월 19일
+console.log(s);
+
+</script>
+</body>
+</html>

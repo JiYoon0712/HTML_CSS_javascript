@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 예외 처리 </h3>
+
+<script type="text/javascript">
+function sub(){
+/*
+	console.log(x);
+	console.log("윗줄에서 에러(예외)가 발생하면 실행되지 않는다.");
+*/
+
+/*
+	try {
+		console.log(x);	
+		console.log("실행 안된다.")
+	} catch (e) {
+		console.log("예외 발생 : " + e);
+	}
+*/	
+
+/*
+	try {
+		console.log(x);	
+		console.log("실행 안된다.")
+	} catch (e) {
+		console.log("예외 발생 : " + e);
+	} finally {
+		console.log("예외 발생 유무와 상관없이 실행된다.")
+	}
+	console.log("실행된다.");
+*/
+
+	let n=5; s=0;
+	
+	try {
+		if(n<10){
+			throw "10 이상만 가능합니다.";
+		}	
+		
+		for(let a=1; a<=n; a++){
+			s += a;
+		}
+		console.log("결과:" + s);
+		
+	} catch (e) {
+		console.log(e);
+	}
+}
+
+sub();
+</script>
+
+</body>
+</html>

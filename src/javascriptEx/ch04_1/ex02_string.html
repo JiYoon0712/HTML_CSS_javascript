@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>내장객체 - String</h3>
+
+<script type="text/javascript">
+var s1, s2;
+
+s1 = "seoul korea";
+s2 = s1.length;	// 문자열 길이
+console.log(s2); // 11
+
+s2 = s1.charAt(6);	// 문자열에서 index 위치의 문자 반환. 인덱스는 0부터 시작
+console.log(s2); // k
+
+s2 = s1.substring(6,9);	// s 인덱스에서 e-1 인덱스까지의 문자열
+console.log(s2); // kor
+
+s2 = s1.substring(6);	// s 인덱스에서 끝까지의 문자열
+console.log(s2);	// korea
+
+s2 = s1.substr(6,3);	// s 인덱스에서 3개만 추출
+console.log(s2); // kor	
+
+s2 = s1.substr(6);	// s 인덱스에서 끝까지 추출
+console.log(s2);	// korea
+
+s2 = s1.indexOf('o');	// 문자열의 인덱스 반환. 없으면 -1
+console.log(s2);	// 2
+
+s2 = s1.lastIndexOf('o');	// 문자열을 뒤에서부터 찾아 인덱스 반환. 없으면 -1
+console.log(s2);	// 7
+
+s2 = s1.indexOf('java');	// 문자열의 인덱스 반환. 없으면 -1
+console.log(s2);	// -1
+
+s2 = s1.toUpperCase();	// 영문자를 모두 대문자로
+console.log(s2);	// SEOUL KOREA
+
+s2 = s1.toLowerCase();	// 영문자를 모두 소문자로
+console.log(s2);	// seoul korea
+
+console.log(s1 === "seoul");			//false
+console.log(s1.startsWith("seoul"));	// true
+console.log(s1.startsWith("korea"));	// false
+console.log(s1.startsWith("korea",6));	// true
+console.log(s1.endsWith("seoul"));		// false
+
+s1 = "    자    바    ";	// :    자    바    :
+s2 = ":" + s1 + ":";	// :자    바:
+console.log(s2);
+
+s2 = ":" + s1.trim() + ":";	// trim() : 앞과 뒤 공백 제거
+console.log(s2);
+
+s1 = "javascript,css,html";
+s2 = s1.split(",");	// 문자열을 패턴으로 분리하여 배열을 반환
+for(let n=0; n<s2.length; n++){
+	console.log(s2[n]);
+}
+
+s1 = "좋아요 대한 우리대한 한국 대한";
+s2 = s1.replace(/대한/,'大韓');	// 정규식 패턴의 문자열을 치환(하나만 치환)
+console.log(s2);
+
+s2 = s1.replace(/대한/g,'大韓');	// 정규식 패턴의 문자열을 치환(모두 치환)
+console.log(s2);
+
+s2 = s1.replaceAll('대한','大韓');	// ECMA-262 12th(2021) 스팩에 추가 // > 브라우저 버전이 낮을 경우 실행이 안될 수 있다.
+console.log(s2);
+
+
+</script>
+
+</body>
+</html>
