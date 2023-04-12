@@ -120,14 +120,23 @@ function calendar(y,m){
 	
 	// 1일 앞부분
 	out += '<tr>';
+	let preDate = (new Date(y,m-1,0));	// 이전달의 마지막 일자
+	let preLastDay = preDate.getDate();
+	let preDay = preLastDay - w;
 	for(let i=0; i<w; i++){
-		out += '<td>&nbsp;</td>';
+		out += '<td class="gray">'+ (++preDay) +'</td>';
 	}
+	/*
+	for(let i=w-1; i>=0; i--){
+		out += '<td class="gray">'+ (preLastDay - i) +'</td>'; 
+	}
+	*/
+	
 	
 	let cls;
 	let lastDay = (new Date(y,m,0)).getDate();	// 월의 마지막 날짜
 	for(let i=1; i<=lastDay; i++){
-		cls = y === ny && i === nd ? ' today ' : '';
+		cls = y === ny && m === nm &&i === nd ? ' today ' : '';
 		out += '<td class ="'+ cls +'">' + i + '</td>';
 		if(i !== lastDay && ++w%7 ===0){
 			out += '</tr> <tr>';
@@ -135,13 +144,15 @@ function calendar(y,m){
 	}
 	
 	// 월의 마지막 날짜 뒷부분
-	for(let i = w%7; i<6; i++){
-		out += '<td>&nbsp;</td>';
+	let nextDay = 0;
+	for(let i=w%7; i<6; i++){
+		out += '<td class="gray">' + (++nextDay) +'</td>';
 	}
 	out += '</tr>';
 	
 	out += "</table>";
 	
+	out += '<div class = "footer"><span onclick="calendar('+ny+','+nm+');">오늘날짜로</span></div>';
 	
 	
 	document.querySelector('#calendarLayout').innerHTML = out;

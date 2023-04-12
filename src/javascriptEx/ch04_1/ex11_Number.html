@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>내장객체 - Number</h3>
+
+<script type="text/javascript">
+var s;
+
+s = new Date();
+console.log(s instanceof Date);	// true
+
+// Number 생성자
+s = new Number('123');	// 객체
+console.log(s === 123);	// false
+console.log(s.valueOf() === 123); 	// true
+console.log( s instanceof Number );	// true
+
+// Number() 함수, 문자열을 숫자로 변환
+s = Number('123');
+console.log(s === 123);	// true
+console.log( s instanceof Number );	// false
+
+console.log( Number('100') );	// 100
+console.log( Number('') );		// 0
+console.log( Number(null) );	// 0
+console.log( Number('0x11') );	// 17
+console.log( Number('011') );	// 11
+console.log( Number('100a') );	// NaN
+console.log( Number('1,000') );	// NaN
+console.log( Number(undefined) );	// NaN
+
+console.log(NaN == NaN);	// false
+console.log(isNaN(NaN));	// true
+console.log(Number('100a') === NaN);	// false
+console.log(isNaN(Number('100a')));		// true
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<style type="text/css">
+* { margin: 0; padding: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+
+body { font-size: 14px; font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif; }
+
+a { color: #000; text-decoration: none; cursor: pointer; }
+a:active, a:hover { text-decoration: underline; color: #F28011; }
+
+.btn {
+	padding: 5px 10px;
+	font-size: 14px; font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	color: #333; font-weight: 500;
+	border: 1px solid #999; border-radius: 4px;
+	background-color: #fff;
+	cursor:pointer;
+	vertical-align: baseline;
+}
+.btn:active, .btn:focus, .btn:hover {
+	color:#333;
+	background-color: #f8f9fa;
+}
+.btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: default;
+	opacity: .65;
+}
+
+.form-control {
+	padding: 5px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	vertical-align: baseline;
+}
+.form-control[readonly] { background-color:#f8f9fa; }
+
+textarea.form-control { height: 170px; resize : none; }
+
+.form-select {
+	padding: 4px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	vertical-align: baseline;
+}
+.form-select[readonly] { background-color:#f8f9fa; }
+
+textarea:focus, input:focus { outline: none; }
+input[type=checkbox], input[type=radio] { vertical-align: middle; }
+
+/* table */
+.table { width: 100%; border-spacing: 0; border-collapse: collapse; }
+.table th, .table td { padding-top: 10px; padding-bottom: 10px; }
+
+.table-border thead > tr { border-top: 2px solid #212529; border-bottom: 1px solid #ced4da; }
+.table-border tbody > tr { border-bottom: 1px solid #ced4da; }
+.table-border tfoot > tr { border-bottom: 1px solid #ced4da; }
+.td-border td { border: 1px solid #ced4da; }
+
+.border { border: 1px solid #ced4da; }
+
+/* layout */
+.container { width: 450px; margin: 30px auto; }
+
+.container table td { padding: 5px 7px; }
+.container input[type=text] { width: 98%; }
+
+.btn-black { background: #333; color: #fff; }
+</style>
+
+<script type="text/javascript" src = "dateUtil.js"></script>
+<script type="text/javascript">
+function init(){
+	// 초기화
+	// > 배열 개념                               > 띄어쓰기 : 자손
+	const inputEls = document.querySelectorAll(".container input");
+	
+	for(let el of inputEls){	// > for문장의 of. 자바의 향상된 for문과 유사
+		el.value="";
+	}
+}
+
+function afterDayResult(){
+
+	// 기준일로부터 몇일 후
+	const baseDateEl = document.querySelector("#baseDate");
+	const afterDayEl = document.querySelector("#afterDay");
+	const resultDate1 = document.querySelector("#resultDate1");
+	
+	// (\d+) : 숫자 1자 이상
+	if(! /^(\d+)$/.test(afterDayEl.value)){
+		alert('일자를 정확하게 입력하세요.')
+		afterDayEl.focus();
+		return;
+	}
+
+	if(parseInt(afterDayEl.value) === 0){
+		alert('0일째 되는 날짜는 계산하지 않습니다.')
+		afterDayEl.focus();
+		return;
+	}
+	
+	try {
+		let s = daysLater(baseDateEl.value, afterDayEl.value);
+		resultDate1.value = s;
+	} catch (e) {
+		console.log(e);
+		alert('날짜 형식이 올바르지 않습니다.');
+	}
+}
+
+function afterDateResult(){
+	// 기준일부터 지정 날짜까지 일수 계산
+	const baseDateEL = document.querySelector("#baseDate");
+	const afterDateEL = document.querySelector("#afterDate");
+	const resultDateEL = document.querySelector("#resultDate2");
+	
+	try {
+		let s = diffDays(baseDateEL.value, afterDateEL.value);
+		resultDateEL.value = s;
+	} catch (e) {
+		alert('날짜 형식이 올바르지 않습니다.');
+	}
+}
+
+function birthResult(){
+	// 나이 계산
+	const birthEL = document.querySelector("#birth");
+	const resultEL = document.querySelector("#resultAge");
+	
+	try {
+		let s = toAge(birthEL.value);
+		resultEL.value = s;
+	} catch (e) {
+		alert('날짜 형식이 올바르지 않습니다.');
+	}
+	
+}
+
+
+</script>
+</head>
+<body>
+
+<div class="container">
+    <table class="table border">
+		<tr>
+		    <td colspan="2">
+		        기준년월일
+		    </td>
+		</tr>
+		<tr>
+		    <td width="250">
+		        <input type="date" id="baseDate" class="form-control"
+		                   placeholder="예)20151010">
+		    </td>
+		    <td>
+		        <button type="button" class="btn" onclick="init();">&nbsp;초기화&nbsp;</button>
+		    </td>
+		</tr>
+		
+		<tr style="border-top: 1px solid #eaeaea;">
+		    <td colspan="2">
+		        기준일부터
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+		        <input type="text" id="afterDay" class="form-control" style="width: 110px;"
+		                  placeholder="예) 100">
+		        <span>일째 되는 날은 ?</span>
+		    </td>
+		    <td>
+		        <button type="button" onclick="afterDayResult();" class="btn btn-black">&nbsp;계산&nbsp;</button>
+		        <input type="text" id="resultDate1" class="form-control" style="width: 90px; color: #00f; border: none;" readonly="readonly">
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+		        <input type="text" id="afterDate" class="form-control" style="width: 110px;"
+		                   placeholder="예) 20151010">
+		        <span>까지 며칠 ?</span>
+		    </td>
+		    <td>
+		        <button type="button" onclick="afterDateResult();" class="btn btn-black">&nbsp;계산&nbsp;</button>
+		        <input type="text" id="resultDate2" class="form-control" style="width: 90px; color: #00f; border: none;" readonly="readonly">
+		    </td>
+		</tr>
+		<tr>
+		    <td colspan="2">
+		        <span>* 기준일을 1일로 계산</span>
+		    </td>
+		</tr>
+
+		<tr style="border-top: 1px solid #eaeaea;">
+		    <td colspan="2">
+		        생년월일
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+		        <input type="text" id="birth" class="form-control" style="width: 110px;"
+		                   placeholder="예) 20151010">
+		        <span>나이는 ?</span>
+		    </td>
+		    <td>
+		        <button type="button" onclick="birthResult();" class="btn btn-black">&nbsp;계산&nbsp;</button>
+		        <input type="text" id="resultAge" class="form-control" style="width: 90px; color: #00f; border: none;" readonly="readonly">
+		    </td>
+		</tr>
+    </table>
+</div>
+
+
+
+</body>
+</html>
