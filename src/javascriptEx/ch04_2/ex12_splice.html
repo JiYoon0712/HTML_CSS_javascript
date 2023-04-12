@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 배열 - 요소 추가(중간) </h3>
+
+<script type="text/javascript">
+// splice( start [,deleteCount [,item1, item2, ....]] ) : 배열의 기존 요소를 삭제 또는 교체하거나 새 요소를 추가
+//		   start : 변경 시작 위치, deleteCount: start 부터 deleteCount 개수만큼 삭제
+// 		   item1, item2 : start 인덱스에 item 추가
+
+// 가장 앞에 추가
+var arr1 = [10,20,30];
+arr1.splice(0,0,'a','b');
+console.log(arr1.join());	// 'a','b',10,20,30
+
+// 가장 뒤에 추가
+var arr2 = [10,20,30];
+arr2.splice(arr2.length,0,'a','b');
+console.log(arr2.join());	// 10,20,30,'a','b'
+
+// 중간에 추가
+var arr3 = [10,20,30];
+arr3.splice(1,0,'a','b');
+console.log(arr3.join());	// 10,'a','b',20,30
+
+// 삭제하고 중간에 추가
+var arr4 = [10,20,30,40,50];
+arr4.splice(1,2,'a','b');
+console.log(arr4.join());	// 10,'a','b',40,50
+
+// 삭제
+var arr5 = [10,20,30,40,50];
+arr5.splice(1,2);
+console.log(arr5.join());	// 10,40,50
+console.log(arr5.length);	// 3
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 배열 - 정렬 </h3>
+
+
+<script type="text/javascript">
+// sort() : 문자의 유니코드값에 따라 사전식 배열
+
+var arr1 = ["BBA","BC","CC","ABC"];
+arr1.sort();
+console.log(arr1.join());	// ABC,BBA,BC,CC
+
+
+var arr2 = [55,7,10,35,40];
+arr2.sort();  // 각 요소를 문자열로 변환하여 유니코드로 비교하므로 숫자는 이상한 결과가 나옴
+console.log(arr2.join());	// 10,35,40,55,7
+
+
+var arr3 = ["BBA","BC","CC","ABC"];
+// 오름차순 : arr1.sort(); 와 동일
+arr3.sort(function(a,b){
+	if(a>b) return 1;
+	else if(a<b) return -1;
+	else 0;
+});
+console.log(arr3.join());	// ABC,BBA,BC,CC
+
+var arr4 = ["BBA","BC","CC","ABC"];
+arr4.sort(function(a,b){
+	if(a>b) return -1;
+	else if(a<b) return 1;
+	else 0;
+});
+console.log(arr4.join());	// CC,BC,BBA,ABC
+
+
+var arr5 = [55,7,10,35,40];
+arr5.sort(function(a,b){	// 오름차순
+	return a-b;
+});
+console.log(arr5.join());	// 7,10,35,40,55
+
+// > 화살표 함수. 위와 동일
+arr5.sort((a,b) => a-b);
+
+
+var arr6 = [55,7,10,35,40];
+arr6.sort(function(a,b){	// 내림차순
+	return -(a-b);
+});
+// arr6.sort((a,b) => -(a-b));
+console.log(arr6.join());	// 55,40,35,10,7
+
+
+</script>
+
+</body>
+</html>

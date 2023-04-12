@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>배열 - 메소드</h3>
+
+<script type="text/javascript">
+var arr1 = [10,20,30,20,40];
+var n;
+
+n = arr1.indexOf(20);
+console.log('20의 인덱스 : ' + n);	// 1
+
+n = arr1.lastIndexOf(20);
+console.log('20를 뒤에서 부터 검색한 인덱스 : ' + n);	// 3
+
+n = arr1.indexOf(100);
+console.log('100의 인덱스 : ' + n);	// -1. 없으면 -1
+
+// 배열 요소를 연결하여 하나의 문자열로 만든다.
+console.log(arr1.join());
+
+// 배열을 반전 시킴
+arr1.reverse();
+console.log(arr1.join());	// 40 20 30 20 10
+
+</script>
+</body>
+</html>

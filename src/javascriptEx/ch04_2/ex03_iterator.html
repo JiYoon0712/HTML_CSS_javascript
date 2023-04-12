@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>배열 - 반복(iterator : 처음부터 끝까지 순회)</h3>
+
+
+<script type="text/javascript">
+var arr = [10,20,,40,0];
+
+// 배열의 요소를 처음부터 끝까지 순회
+for(let i=0; i<arr.length; i++){
+	console.log(arr[i]);	// 10 20 undefined 40 0
+}
+console.log('---------------');
+
+for(let i=0; i<arr.length; i++){
+	if(arr[i]){	// undefined, null, 0은 거짓
+		console.log(arr[i]);	// 10 20 40
+	}
+}
+console.log('---------------');
+
+var arr2 = [10,20,30];
+for(let a of arr2){	// 컬렉션 반복구문
+	console.log(a);	// 10 20 30
+}
+console.log('---------------');
+
+for(let idx in arr2){	// 첨자만 출력
+	console.log(idx);	// 0 1 2
+}
+console.log('---------------');
+
+for(let idx in arr2){	
+	console.log(arr2[idx]);	
+}
+console.log('---------------');
+
+</script>
+
+</body>
+</html>

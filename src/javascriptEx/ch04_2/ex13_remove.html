@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 배열 - 모든 요소 및 특정 요소 제거 </h3>
+
+<script type="text/javascript">
+var arr1 = [10,20,30,40,50];
+console.log( arr1.length );	// 5
+
+// length를 이용한 마지막 요소 삭제
+arr1.length = arr1.length - 1;
+console.log( arr1.join() );	// 10,20,30,40
+console.log( arr1.length );	// 4
+
+// length를 이용한 모든 요소 삭제
+arr1.length = 0;
+console.log( arr1.join() );	// []
+console.log( arr1.length ); // 0
+
+// --------------------------------------
+var arr2 = [10,20,30,40,50];
+arr2.pop();	// 마지막 요소를 제거하고 제거한 요소 반환. 배열의 길이도 줄어듬
+console.log(arr2);	// [10, 20, 30, 40]
+console.log( arr2.length );	// 4
+
+// -----------------------------------
+var arr3 = [10,20,30,40,50];
+var a = arr3.shift();	// 처음 요소를 제거하고 제거한 요소 반환. 배열의 길이도 줄어듬
+console.log( arr3 );	// [20,30,40,50]
+console.log( arr3.length );	// 4
+console.log( a ); // 10
+
+//-----------------------------------
+// delete() : 요소의 값을 없애고 undefined 를 할당. 길이가 줄어들지 않음
+var arr4 = [10,20,30,40,50];
+delete(arr4[1]);
+console.log( arr4 );	// [10, empty, 30, 40, 50], undefined가 empty로 표시됨
+console.log( arr4.length );	// 5
+
+//-----------------------------------
+// splice() : 중간 요소 삭제			> delete는 길이 줄어들지 x, splice는 길이가 줄어듬
+var arr5 = [10,20,30,40,50];
+arr5.splice(1,3);
+console.log( arr5 );	// [10, 50]
+console.log( arr5.length );	// 2
+</script>
+</body>
+</html>
