@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<style type="text/css">
+* { margin: 0; padding: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+
+body { font-size: 14px; font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif; }
+
+a { color: #000; text-decoration: none; cursor: pointer; }
+a:active, a:hover { text-decoration: underline; color: #F28011; }
+
+.btn {
+	padding: 5px 10px;
+	font-size: 14px; font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	color: #333; font-weight: 500;
+	border: 1px solid #999; border-radius: 4px;
+	background-color: #fff;
+	cursor:pointer;
+	vertical-align: baseline;
+}
+.btn:active, .btn:focus, .btn:hover {
+	color:#333;
+	background-color: #f8f9fa;
+}
+.btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: default;
+	opacity: .65;
+}
+
+.form-control {
+	padding: 5px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	vertical-align: baseline;
+}
+.form-control[readonly] { background-color:#f8f9fa; }
+
+textarea.form-control { height: 170px; resize : none; }
+
+.form-select {
+	padding: 4px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	vertical-align: baseline;
+}
+.form-select[readonly] { background-color:#f8f9fa; }
+
+textarea:focus, input:focus { outline: none; }
+input[type=checkbox], input[type=radio] { vertical-align: middle; }
+
+/* table */
+.table { width: 100%; border-spacing: 0; border-collapse: collapse; }
+.table th, .table td { padding-top: 10px; padding-bottom: 10px; }
+
+.table-border thead > tr { border-top: 2px solid #212529; border-bottom: 1px solid #ced4da; }
+.table-border tbody > tr { border-bottom: 1px solid #ced4da; }
+.table-border tfoot > tr { border-bottom: 1px solid #ced4da; }
+.td-border td { border: 1px solid #ced4da; }
+</style>
+
+<script type='text/javascript'>
+function settingsInput(option, value) {
+	const startDateObj = document.getElementById("startDate");
+	const endDateObj = document.getElementById("endDate");
+	
+	let date = new Date();
+	let y = date.getFullYear();
+	let m = date.getMonth()+1;
+	let d = date.getDate();
+	
+	endDateObj.value = dateToString(date);
+	
+	if(option === "day") {
+		startDateObj.value = dateToString(date);
+	} else if(option === "week") {
+		startDateObj.value = dateToString(new Date(y, m-1, d-7));
+	} else if(option === "month") {
+		let last = (new Date(y, m-value, 0)).getDate();
+		if(d > last) {
+			d = last;
+		}
+		startDateObj.value = dateToString(new Date(y, m-1-value, d+1));
+	} else if(option === "year") {
+		startDateObj.value = dateToString(new Date(y-value, m-1, d+1));
+	}
+}
+
+function searchList() {
+	const f = document.searchForm;
+	
+	if(! isValidDateFormat(f.startDate.value)) {
+		f.startDate.focus();
+		return;
+	}
+	
+	if(! isValidDateFormat(f.endDate.value)) {
+		f.endDate.focus();
+		return;
+	}
+	
+	if(diffDays(f.startDate.value, f.endDate.value) < 0) {
+		alert("시작일은 종료일보다 클수 없습니다.");
+		f.startDate.focus();
+		return;
+	}
+
+	if(diffDays(f.endDate.value, dateToString(new Date())) < 0) {
+		alert("종료일은 오늘보다 클수 없습니다.");
+		f.endDate.focus();
+		return;
+	}
+	
+	alert("성공...");
+	
+}
+
+// 날짜를 문자열로
+function dateToString(date) {
+	let y = date.getFullYear();
+	let m = date.getMonth() + 1;
+    if(m < 10) m='0'+m;
+    let d = date.getDate();
+    if(d < 10) d='0'+d;
+    
+    return y + '-' + m + '-' + d;
+}
+
+// 문자열을 날짜로
+function stringToDate(data) {
+	if(! isValidDateFormat(data)) {
+		throw "날짜 형식이 올바르지 않습니다.";
+	}
+
+	let format = /(\.)|(\-)|(\/)/g;
+	data = data.replace(format, "");
+    
+	let y = parseInt(data.substring(0, 4));
+	let m = parseInt(data.substring(4, 6));
+	let d = parseInt(data.substring(6));
+    
+    return new Date(y, m-1, d);
+}
+
+function isValidDateFormat(data){
+	if(data.length !== 8 && data.length !== 10) return false;
+		
+	let p = /(\.)|(\-)|(\/)/g;
+	data = data.replace(p, "");
+	if(data.length !== 8) return false;
+	
+	// let format = /^[12][0-9]{3}[0-9]{2}[0-9]{2}$/;
+	let format = /^[12][0-9]{7}$/;
+	if(! format.test(data)) return false;
+    
+	let y = parseInt(data.substring(0, 4));
+	let m = parseInt(data.substring(4, 6));
+	let d = parseInt(data.substring(6));
+
+	if(m<1 || m>12) return false;
+	let lastDay = (new Date(y, m, 0)).getDate();
+	if(d<1 || d>lastDay) return false;
+	
+	return true;
+}
+
+// 두 날짜 사이의 일자 구하기
+function diffDays(startDate, endDate) {
+	if(! isValidDateFormat(startDate) || ! isValidDateFormat(endDate)) {
+		throw "날짜 형식이 올바르지 않습니다.";
+	}
+
+	let format = /(\.)|(\-)|(\/)/g;
+    startDate = startDate.replace(format, "");
+    endDate = endDate.replace(format, "");
+   
+    let sy = parseInt(startDate.substring(0, 4));
+    let sm = parseInt(startDate.substring(4, 6));
+    let sd = parseInt(startDate.substring(6));
+    
+    let ey = parseInt(endDate.substring(0, 4));
+    let em = parseInt(endDate.substring(4, 6));
+    let ed = parseInt(endDate.substring(6));
+
+    let fromDate = new Date(sy, sm-1, sd);
+    let toDate = new Date(ey, em-1, ed);
+    
+    let sn = fromDate.getTime();
+    let en = toDate.getTime();
+    
+    let diff = en-sn;
+    let day = Math.floor(diff/(24*3600*1000));
+    
+    return day;
+}
+</script>
+</head>
+<body>
+
+<div style="width:800px; margin: 10px auto;">
+   <form name="searchForm">
+       <button type="button" class="btn" onclick="settingsInput('day', 0);">오늘</button>
+       <button type="button" class="btn" onclick="settingsInput('week', 1);">1주일</button>
+       <button type="button" class="btn" onclick="settingsInput('month', 1);">1개월</button>
+       <button type="button" class="btn" onclick="settingsInput('month', 3);">3개월</button>
+       <button type="button" class="btn" onclick="settingsInput('month', 6);">6개월</button>
+       <button type="button" class="btn" onclick="settingsInput('year', 1);">1년</button>
+       
+       <input type="text" name="startDate" id="startDate" class="form-control">
+       ~
+       <input type="text" name="endDate" id="endDate" class="form-control">
+       
+       <button type="button" class="btn" onclick="searchList();">검색</button>
+       
+   </form>
+</div>
+
+</body>
+</html>
