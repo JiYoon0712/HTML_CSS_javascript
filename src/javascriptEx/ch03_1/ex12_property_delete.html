@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>객체-프로퍼티 삭제</h3>
+
+
+<script type="text/javascript">
+var obj = {
+	name : '자바',
+	age : 19
+};
+
+console.log(obj.name);
+console.log(obj.age);
+
+// 속성제거
+delete obj.age;
+console.log(obj.age);	// undefined
+
+</script>
+
+
+</body>
+</html>

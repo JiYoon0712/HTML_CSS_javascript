@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<!-- Map()은 다른 것. 주의. -->
+<h3> Map 객체</h3>
+
+
+<script type="text/javascript">
+var map = new Map();
+map.set("java", 100);	// 키, 값 
+map.set("oracle", 95);
+map.set("html", 100);
+map.set("spring", 80);
+map.set("oracle", 90);	// 키는 중복을 허용하지 않으며 키가 같으면 이전 값을 덮는다.
+
+console.log( map.size );	// 4
+console.log( map.has('css') );	// false, 키 존재 여부
+console.log( map.get('css') );	// 키에 대한 값 반환. 없으면 undefined
+console.log( map.get('oracle') );	// 90
+
+map.delete("spring");     // 키와 값 삭제
+console.log( map.size );  // 3
+
+// 처음부터 끝까지 순환
+for(let [key,value] of map){
+	console.log(key, value);
+}
+console.log('------------------------------');
+
+			// > value 먼저 
+map.forEach( (value, key) => console.log(key + ' : ' + value) );	// > forEach(value 값, key 값)
+console.log('------------------------------');
+
+// 모두 지우기
+map.clear();
+console.log(map.size);	// 0 
+
+// 배열을 map으로
+let map2 = new Map(
+	[
+		["01" , "java"],
+		["02" , "html"],
+		["03" , "css"],
+		["04" , "java"],
+		["02" , "spring"]	// 키가 같으면 기존 값에 덮어씀
+	]		
+);
+
+map2. forEach((value, key) => console.log(key + " : " + value) );
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>apply(), call()</h3>
+
+<script type="text/javascript">
+/*
+// (1)
+function sub(a, b, c){
+	let arr = [];
+	arr.push(a);
+	arr.push(b);
+	arr.push(c);
+	console.log( arr.join() );
+}
+sub(1, '자바', true);
+*/
+
+/*
+// (2)
+function sub(){
+	for(let i=0; i<arguments.length; i++) {
+		console.log( arguments[i] );	// > arguments는 배열이 아니라 유사배열이다.
+	}
+}
+sub(1, '자바', true);
+*/
+
+/*
+function sub(){
+	console.log( arguments.join() );	// 에러.
+	// arguments는 배열과 유사하지만 배열은 아니며, 배열을 다루는 메소드가 없다.
+}
+sub(1, '자바', true);
+*/
+
+function sub(){
+	console.log( Array.prototype.join.call(arguments) );
+	// > Array.join은 정적인 경우 > 이 경우 정적 x > prototype 기재해야함
+}
+sub(1, '자바', true);
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>apply(), call()</h3>
+
+<script type="text/javascript">
+var sum = function(a,b,c) {
+	return a+b+c;
+};
+
+var s;
+
+// 1) 함수 호출 - 일반적인 방법
+s = sum(1,2,3);
+console.log(s);
+
+// 2) 함수호출 - apply(), 함수에 전달할 인자를 배열로 넘긴다.
+s = sum.apply(null, [1,2,3]);
+console.log(s);
+
+// 3) 함수호출 - call(), 함수에 전달할 인자는 함수와 동일하게 넘긴다.
+s = sum.call(null, 1,2,3);
+console.log(s);
+
+var max = Math.max(5,6,7,4,10,9);
+console.log(max);
+
+var nums = [11,7,19,17,20,15];
+// s = Math.max(nums);	// NaN
+s = Math.max.apply(null, nums);	
+console.log(s);	// 20
+
+s = Math.min.apply(null, nums);
+console.log(s); // 7
+
+
+
+</script>
+
+</body>
+</html>

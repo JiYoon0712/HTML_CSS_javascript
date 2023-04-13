@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 객체 - 객체에 프로퍼티나 메소드 추가 </h3>
+
+<script type="text/javascript">
+// 객체에 프로퍼티나 메소드를 추가하면 해당 객체에만 추가
+function User(name,age){
+	this.name = name;
+	this.age = age;
+}
+
+var obj = new User('이자바', 21);	// obj 객체 생성
+obj.score = 80;			// obj 객체에 속성 추가
+obj.state = function(){	// obj 객체에 메소드 추가
+	return this.age >= 19 ? '성인' : '미성년자';
+};
+
+console.log( obj.name );	
+console.log( obj.score );	
+console.log( obj.state() );	
+
+var obj2 = new User('김자바', 22);
+console.log( obj2.name );
+console.log( obj2.score );		// undefined
+// console.log( obj2.state() );	// 에러. > 해당되는 객체에만 생성돼서 state()는 obj에만 있음 
+
+</script>
+
+</body>
+</html>

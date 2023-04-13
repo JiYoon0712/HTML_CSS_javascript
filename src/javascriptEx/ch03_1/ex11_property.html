@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>객체-프로퍼티 동적 추가</h3>
+
+<script type="text/javascript">
+var obj = {
+	name : '자바'	
+};
+
+console.log(obj.name);	// 자바
+console.log(obj.age);	// 에러아님. 속성이 없으면 undefined
+
+obj.age = 19;	// 동적으로 속성 추가
+console.log(obj.age);	// 19
+
+</script>
+
+</body>
+</html>

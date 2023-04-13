@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>this</h3>
+
+<script type="text/javascript">
+var obj = {	// 객체 생성
+	name : '김자바',
+	sayName : function() {
+		// 객체의 메소드안에서의 this는 해당 메소드를 호출한 객체
+		// console.dir(this);
+		console.log(this.name);	// this는 sayName()메소드를 호출한 객체
+	}
+};
+
+obj.sayName();
+
+// 생성자 함수를 호출할때 this : 새로 생성되는 객체에 바인딩
+function Test(arg){	// 생성자
+	this.name = arg;
+	
+	this.getName = () => this.name;
+}
+var obj2 = new Test('나자바');
+console.log( obj2.getName() );	// 나자바
+
+
+var user = '후자바';	// 전역 변수
+var sayUser = function(){	// 일반 함수
+	// 일반 함수안에서의 this는 전역 객체(window)에 바인딩
+	console.log(user, this.user, window.user);	// 후자바 후자바 후자바
+};
+sayUser();
+
+</script>
+
+</body>
+</html>

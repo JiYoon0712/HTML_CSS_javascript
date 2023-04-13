@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+<!-- 자바의 map과는 다른 개념. -->
+<h3> map() 메소드 : 배열 각 요소에 대하여 순차적으로 콜백함수를 실행한 반환값을 모아 새로운 배열을 만들어 반환 </h3>
+<!-- ( forEach는 반환x, map은 반환, filter ) -->
+
+<script type="text/javascript">
+var arr = [1,2,3,4,5];
+var arr2 = [];
+
+//(1)
+for(let i=0; i<arr.length; i++){
+	arr2.push(arr[i] * 2);
+}
+console.log( arr.join() );	// 1,2,3,4,5
+console.log( arr2.join() );	// 2,4,6,8,10
+console.log( '------------------------' );
+
+//(2)
+arr2 = [];	// > 배열 초기화
+arr.forEach( item => arr2.push(item*2) );
+console.log( arr.join() );
+console.log( arr2.join() );
+console.log( '------------------------' );
+
+//(3-1)
+var arr3 = arr.map(function(item){ return item*2 });
+console.log( arr.join() );
+console.log( arr3.join() );
+console.log( '------------------------' );
+
+//(3-2)
+var arr4 = arr.map( item => item*2 );
+console.log( arr.join() );
+console.log( arr4.join() );
+console.log( '------------------------' );
+
+// 2와 4만 값을 두배로 변경
+var arr5 = arr.map( (item, index) => (index%2 === 0 ? item : item *2) );
+console.log( arr.join() );
+console.log( arr5.join() );	// 1 4 3 8 5
+console.log( '------------------------' );
+
+</script>
+</body>
+</html>

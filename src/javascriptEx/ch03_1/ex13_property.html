@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>객체-프로퍼티나열</h3>
+
+<script type="text/javascript">
+var obj = {
+	name : '자바',
+	age : 19,
+	result : function(){
+		return this.age >= 19 ? '성인' : '미성년자';
+	}
+};
+
+// 객체 속성 접근
+console.log(obj.name);		// 도트 표시법으로 접근
+console.log(obj["age"]);	// 대괄호 표기법으로 접근
+
+// 메소드 접근
+console.log( obj.result() );
+
+// 객체의 프로퍼티 나열
+for(let p in obj){	// p : 속성명
+	console.log(p, obj[p]);
+}
+
+// 프로퍼티 존재 여부 확인
+console.log( 'name' in obj );		// true. 객체에 속성이 존재하는지 확인
+console.log( 'subject' in obj );	// false
+console.log('-------------------------');
+
+// console.log(obj.name);
+with(obj){
+	console.log(name);	// 자바
+	console.log(age);	// 19
+}
+	
+
+
+
+</script>
+
+</body>
+</html>

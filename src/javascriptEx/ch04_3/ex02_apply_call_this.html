@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>apply(), call()</h3>
+
+<script type="text/javascript">
+var obj = {
+	name: "자바",
+	sayName : function(){
+		console.log(this.name);	
+	}
+};
+
+var obj2 = {
+	name : '스프링'
+};
+
+obj.sayName();	// 자바
+
+// obj2.sayName();	// 오류
+// obj.sayName.call();	// 아무것도 출력안됨
+// obj.sayName.call(null);	// 아무것도 출력안됨
+obj.sayName.call(obj);	// 자바, sayName 의 this는 obj
+obj.sayName.call(obj2);	// 스프링, sayName 의 this는 obj2
+
+
+</script>
+
+</body>
+</html>

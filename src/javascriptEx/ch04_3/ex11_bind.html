@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+<h3>bind() : 호출할 떄 this를 제공된 값으로 설정하는 새로운 함수를 만든다. </h3>
+
+<script type="text/javascript">
+var obj = {
+		name : '자바',
+		sayName : function(){
+			console.log(this.name);
+		}
+};
+
+var obj2 = {
+	name : '스프링'	
+};
+obj.sayName();	// 자바
+
+// > 새로운 객체 x, 새로운 함수 o
+var fn = obj.sayName.bind(obj2);	// 함수를 호출하지 않으며, this가 obj에서 obj2로 변경
+fn();	// 스프링
+
+
+
+</script>
+</body>
+</html>

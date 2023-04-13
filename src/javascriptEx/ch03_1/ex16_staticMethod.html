@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 객체 - 정적 메소드 </h3>
+
+<script type="text/javascript">
+function User(name){	// 생성자 함수
+	this.name = name;
+	this.getName = function(){	// > 인스턴스 메소드. 정적 메소드가 아님. 객체 생성을 하지 않으면 사용 불가능
+		return this.name;		
+	};
+}
+
+// 정적 메소드 > 프로토타입 없으므로 정적 메소드. 객체생성 유무와 상관없이 접근 가능
+User.state = function(age){
+	return age >= 19 ? '성인' : '미성년자';
+};
+
+console.log( User.state(20) );
+
+// console.log( User.getName() );	// 에러. 객체를 생성해야 접근 가능
+
+
+
+
+</script>
+</body>
+</html>

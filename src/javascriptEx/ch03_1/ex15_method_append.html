@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 객체 : 객체에 프로퍼티 또는 메소드 추가 </h3>
+
+<!-- 
+  - 생성자 함수에 추가하는 프로퍼티나 메소드 
+ 	: 프로토타입에 추가되므로 생성자를 통해 생성되는 모든 객체에 적용
+  - 프로토타입
+ 	: 객체는 부모의 프로퍼티 또는 메소드를 상속받아 사용함
+ 	: 이러한 부모 객체를 프로토타입 객체 또는 프로토타입 이라 한다.
+  - prototype 프로퍼티
+ 	: 생성자로 존재
+ 	: 생성자로 생성될 객체에 물려줄 프로퍼티, 메소드를 가지고 있음
+ -->
+
+<script type="text/javascript">
+function User(name){	// 생성자
+	this.name = name;	// 프로토타입에 추가. 기본값을 가질 수 있음
+	this.age = 20;
+	this.state = function(){
+		return this.age >=19 ? '성인' : '미성년자';
+	};
+}
+
+// console.dir(User);	// > 프로토타입이 존재하는 것 확인
+
+// > prototype 사용 > 데이터 유지 (score, msg)
+User.prototype.score = 80;
+User.prototype.msg = function(){
+	console.log( this.name + ":" + this.state() + ":" + this.score);
+};
+
+var obj = new User('자바');
+console.log(obj.age);
+console.log(obj.state());
+obj.msg();
+
+console.dir(obj);
+
+var obj2 = new User('스프링');
+console.log(obj2.age);
+console.log(obj2.state());
+obj2.msg();
+</script>
+
+</body>
+</html>
