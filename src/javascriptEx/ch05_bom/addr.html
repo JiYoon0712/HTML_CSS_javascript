@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<div>
+	<form name="myForm">
+		<p> <input type="text" name="name" placeholder="이름"> </p>
+		<p> 
+			<input type="text" name="zip" readonly="readonly" placeholder="우편번호"> 
+			<button type="button" onclick="zipFind();">우편번호</button><br>	
+			<input type="text" name="addr1"
+				   placeholder="기본주소" readonly="readonly"><br>
+			<input type="text" name="addr2" placeholder="상세주소">
+		</p>
+		<p>
+			<button type="button">확인</button>
+		</p>
+	</form>
+</div>
+
+
+<script type="text/javascript">
+function zipFind() {
+	let flag;
+	let url = 'zipFind.html';
+	
+	flag = 'left=50,';
+	flag += 'top=50,';
+	flag += 'width=700,';
+	flag += 'height=500';
+	
+	window.open(url, 'zip', flag);
+	
+}
+</script>
+</body>
+</html>

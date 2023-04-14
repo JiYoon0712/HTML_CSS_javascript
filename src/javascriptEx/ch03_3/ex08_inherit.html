@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>클래스 - 상속</h3>
+
+<script type="text/javascript">
+class Car {
+	constructor(name){
+		this.name = name;
+	}
+	
+	speed(){
+		console.log(`${this.name}는 시속 80 입니다.`);
+	}
+	
+	color(){
+		console.log(`${this.name}는 검정색 입니다.`);
+	}
+}
+
+class Taxi extends Car {
+	constructor(name){
+		super(name);	// 슈퍼 클래스 생성자 호출
+	}
+	
+	speed(){
+		// super.speed();	// 상위 클래스 메소드 호출
+		console.log(`${this.name}는 시속 100 입니다.`);
+	}
+}
+
+var t = new Taxi('그랜저');
+t.speed();	// 시속 100, 메소드의 이름이 같은 경우 Taxi()(자식) 메소드가 우선
+t.color();
+
+
+</script>
+
+
+</body>
+</html>

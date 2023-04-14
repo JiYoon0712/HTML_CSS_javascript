@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>객체 : prototype</h3>
+
+<script type="text/javascript">
+function User(name){	// 생성자 함수
+	this.name = name;	// 프로퍼티와 메소드는 prototype 프로퍼티에 저장 
+}
+
+var obj = new User();
+	// User() 생성자의 prototype 프로퍼티에 있는 프로퍼티, 메소드를 obj 객체에 물려줌
+
+console.dir(User);	// 생성자에는 prototype 프로퍼티가 있음
+console.dir(obj);	// 객체에는 prototype 프로퍼티가 없고 __proto__ 프로퍼티가 존재
+	// __proto__ 프로퍼티 : 객체의 부모(객체의 생성자)를 나타내는 프로토타입으로
+	// 					 물려받은 정보를 가지고 있음
+console.log(obj);	
+	
+console.log( User.prototype === obj.__proto__ );  // true
+
+	
+</script>
+</body>
+</html>

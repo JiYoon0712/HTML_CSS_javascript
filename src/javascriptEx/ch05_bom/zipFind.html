@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<script type="text/javascript">
+function selectZip(zip, addr){
+	// opener : 현재 윈도우를 생성한 창(부모)
+	
+	opener.myForm.zip.value = zip;	// 부모에게 값 전달
+	opener.myForm.addr1.value = addr;
+	
+	window.close();     
+}
+
+window.onload = () => {
+	let s = opener.myForm.name.value + '님의 우편번호를 선택하세요';
+	document.getElementById('zipTitle').innerHTML = s;
+}
+</script>
+
+
+</head>
+
+<body>
+
+<h3 id="zipTitle"></h3>
+
+<div>
+	<a href ="javascript:selectZip('111','서울');">111-서울</a><br>
+	<a href ="javascript:selectZip('222','인천');">222-인천</a><br>
+	<a href ="javascript:selectZip('333','경기');">333-경기</a><br>
+	<a href ="javascript:selectZip('444','부산');">444-부산</a><br>
+	<a href ="javascript:selectZip('555','제주');">555-제주</a><br>
+</div>
+
+
+
+</body>
+</html>

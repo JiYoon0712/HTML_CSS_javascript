@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 객체 : prototype </h3>
+
+<script type="text/javascript">
+function User(name, age){
+	this.name = name;
+	this.age = age;
+}
+
+User.prototype.score = 80;	// prototype에 속성 추가
+User.prototype.state = function(){	// prototype에 메소드 추가
+	return this.age >= 19 ? '성인' : '미성년자';
+}
+
+var obj = new User('자바', 21);
+var obj2 = new User('스프링', 20);
+
+console.log(obj.state());
+console.log(obj2.state());
+
+// Date 객체
+Date.prototype.weekday = function(){
+	let w = ['일','월','화','수','목','금','토'];
+	return w[this.getDay()];	
+};
+
+
+/*
+// 에러 : 화살표 함수에서의 this는 window 객체 
+Date.prototype.weekday = () => {
+	let w = ['일','월','화','수','목','금','토'];
+	return w[this.getDay()];	
+};
+*/
+
+var now = new Date();
+console.log(now.weekday());	// '금'
+
+</script>
+</body>
+</html>

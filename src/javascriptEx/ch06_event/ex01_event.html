@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>event handler - 이벤트 등록 : 인라인 이벤트 핸들러 방식</h3>
+
+<p> <button type="button" onclick="fun1();">확인 1</button> </p>
+<p> <button type="button" onclick="fun1(); fun2();">확인 2</button> </p>
+
+
+<script type="text/javascript">
+function fun1(){
+	alert("클릭 1");
+}
+
+function fun2(){
+	alert("클릭 2");
+}
+</script>
+</body>
+</html>

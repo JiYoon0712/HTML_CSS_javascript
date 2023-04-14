@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>window 객체</h3>
+
+<div>
+	<p> <a href="javascript:openWin()">팝업 열기</a> </p>
+	<p> <a href="javascript:closeWin()">팝업 닫기</a> </p>
+</div>
+
+<script type="text/javascript">
+var win = null;
+
+function openWin(){
+	let flag;
+	let url = 'https://www.naver.com';
+	
+	flag = 'left=50,';
+	flag += 'top=50,';
+	flag += 'width=700,';
+	flag += 'height=500';
+	
+	win = window.open(url, '테스트', flag );
+}
+
+function closeWin(){
+	if( win ) {
+		win.close();
+	}
+	
+	win = null;
+}
+
+</script>
+
+</body>
+</html>

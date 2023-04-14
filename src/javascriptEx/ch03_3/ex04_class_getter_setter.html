@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>클래스-메소드 : getter, setter</h3>
+
+<script type="text/javascript">
+class User{
+	constructor() {
+		this._name = "";	// > _ 주는 이유 : name 과 메소드 name()의 이름이 일치
+	}
+	
+	// > 연산 등 값에 추가하고 싶은 경우 사용. 
+	get name() {
+		return this._name+' 님';
+	}
+	
+	set name(newName){
+		this._name = newName;
+	}
+}
+
+var obj = new User();
+obj.name = '이자바';
+console.log(obj.name);	// > 클래스의 getter, setter로 받은 경우 ()를 사용하지 않아도 된다. ex) obj.name() >> obj.name
+
+</script>
+
+</body>
+</html>

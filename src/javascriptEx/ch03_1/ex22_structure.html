@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 구조 분해 </h3>
+
+<script type="text/javascript">
+var a = 1;
+var b = 3;
+
+// var c = a; a = b; b = c;
+[ a,b ] = [ b, a ];
+console.log(a,b);
+
+function fn(){
+	return [1,10];
+}
+var x, y;
+
+// var a = fn(); x = a[0]; y = [a];
+[x , y] = fn();
+console.log(x,y);
+
+var arr = [1,2,3,4];
+var [a2, ...b2] = arr;
+console.log(a2);	// 1
+console.log(b2);	// [2,3,4]	> 배열로 분해
+
+</script>
+</body>
+</html>

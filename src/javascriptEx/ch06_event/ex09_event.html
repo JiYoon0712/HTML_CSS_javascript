@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<script type="text/javascript">
+function sub(){
+	// event : deprecated 되었으므로 사용하지 말것을 권장
+	
+	console.log(event);	// 발생된 이벤트에 대한 정보를 가지고 있는 객체
+	console.log(event.target);	// 이벤트를 발생시킨 객체
+	console.log(event.currentTarget);	// 이벤트를 발생시킨 객체
+		// 표준은 target, currentTarget
+	console.log(event.srcElement);	// 이벤트를 발생시킨 객체
+}
+
+function fun(e){
+	console.log(e);	// 이벤트 핸들러에서 넘긴 인수이므로 발생된 이벤트에 대한 정보를 가지고 있음
+	
+	// 이벤트를 발생시킨 객체
+	let obj = e.currentTarget;
+	
+	// 이벤트를 발생시킨 태그
+	let t = obj.tagName;
+	
+	// 이벤트를 발생시킨 태그의 아이디
+	let i = obj.id;
+	
+	// 이벤트를 발생시킨 태그의 innerText
+	let s = obj.innerText;
+	
+	let result = '이벤트 발생 객체의 태그 : ' + t + '<br>';
+	result += 'ID : ' + i + '<br>';
+	result += '텍스트 내용 : ' + s + '<br>';
+	
+	document.getElementById('resultLayout').innerHTML = result;
+	
+}
+
+window.addEventListener('load',function(){
+	const btnELS = document.querySelectorAll('.btn1');
+	
+	btnELS.forEach( item => item.addEventListener('click', e=>fun(e)) );
+});
+
+</script>
+</head>
+<body>
+
+<h3>이벤트를 발생 시킨 객체</h3>
+<p>
+	<button type="button" onclick="sub();"> 확인 </button>
+</p>
+<hr>
+
+<p>
+	<button type="button" class="btn1" id="b1">자바</button> |
+	<button type="button" class="btn1" id="b2">스프링</button> |
+	<button type="button" class="btn1" id="b3">오라클</button>
+</p>
+<div id="resultLayout"> </div>
+<hr>
+
+<p>
+	<button type="button" class="btn2"> <span>확인</span> </button>
+</p>
+
+<script type="text/javascript">
+// > target보다 currentTarget 사용!
+
+const btn2 = document.querySelector('.btn2');
+btn2.addEventListener('click',function(e){
+	// "확인" 이라는 텍스트를 클릭한 경우
+	console.log(e.target);	// 부모로부터 이벤트가 위임되어 발생하는 자식의 위치를 반환
+		// <span>확인</span>
+	
+	console.log(e.currentTarget);	// 이벤트가 부착된 부모 반환
+		// <button type="button" class="btn2"> <span>확인</span> </button>
+});
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

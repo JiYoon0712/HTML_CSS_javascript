@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> form 요소안에서 this.form : 현재 객체의 부모 폼 </h3>
+
+<form name="myForm">
+	<p> 이름 : <input type="text" name="name"> </p>
+	<p> 국어 : <input type="text" name="kor"> </p>
+	<p> 영어 : <input type="text" name="eng"> </p>
+	<p> 수학 : <input type="text" name="mat"> </p>
+	<p>
+											<!-- (button의 form > 부모 폼) -->
+		<button type="button" onclick="sendOk(this.form);">확인</button>
+	</p>
+</form>
+
+<script type="text/javascript">
+function sendOk( f ){
+	const inputELS = document.querySelectorAll("form input[type=text]");
+	
+	for(let el of inputELS){
+		if( ! el.value ){
+			el.focus();
+			return;
+		}
+	}
+	
+	let name = f.name.value;
+	let kor = f.kor.value;
+	let eng = f.eng.value;
+	let mat = f.mat.value;
+	
+	alert(`${name} : ${kor} : ${eng} : ${mat}`);
+}
+
+</script>
+
+</body>
+</html>

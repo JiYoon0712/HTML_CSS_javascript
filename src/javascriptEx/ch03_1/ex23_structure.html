@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> 구조분해 : 객체 </h3>
+
+<script type="text/javascript">
+var obj = {name:'홍길동' ,  score:90};
+var {name,score} = obj;		// > 변수명이 일치해야 한다.
+console.log(name);	
+console.log(score);
+
+// 선언 없는 할당
+var a,b;
+( {a,b} = {a:1, b:2} );	// > () 와 ; 반드시 기재. ; 안찍으면 함수로 인식될 가능성 있음
+console.log(a);
+console.log(b);	
+
+// 기본값
+var {x, y, z=100} = {x:10, y:20};
+console.log(x);	// 10
+console.log(y);	// 20
+console.log(z);	// 100  >> z : undefined / z=100 : 100
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>document 객체</h3>
+
+<form name="myForm">
+	<p> 이름 : <input type="text" name="name"> </p>
+	<p> 생년월일 : <input type="text" name="birth"> </p>
+	<p> 나이 : <input type="text" id="age"> </p>
+	<p>
+		<button type="button" onclick="send()">확인</button>
+	</p>
+</form>
+<hr>
+
+<div class="layout"></div>
+
+<script type="text/javascript">
+function send(){
+	// 폼 접근  
+	// const f = document.forms[0];	 // > forms : 유사배열
+	const f = document.myForm;	// form의 name 속성을 이용하여 접근 > 똑같은 이름이 존재할 경우 주의
+	// console.log(f);
+	
+	// form 객체를 이용하여 form 아래의 입력 요소 접근 : 이름(name 속성) 접근
+	let name = f.name.value;
+	
+	// getElementsByName() 메소드를 이용하여 name 속성으로 접근
+	//         > s : 배열 처리
+	let birth = document.getElementsByName('birth')[0].value;	//  > 배열이기에 [0] 반드시 기재. form 없어도 사용 가능
+	
+	// getElementById() 메소드를 이용하여 id 속성으로 접근
+	let age = document.getElementById('age').value;	// > # 기재 x
+				
+	
+	s = '이름 : ' + name + '<br>';
+	s += '생년월일 : ' + birth + '<br>';
+	s += '나이 : ' + age + '<br>';
+	
+	// class 속성의 속성값으로 접근
+	//document.getElementsByClassName('layout')[0].innerHTML = s;	// > . 기재 x
+	
+	// 선택자를 이용하여 접근
+	// document.querySelectorAll('.layout')[0].innerHTML = s;
+	document.querySelector('.layout').innerHTML = s;
+	
+}
+</script>
+</body>
+</html>

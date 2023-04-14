@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> event handler - 동적 객체 이벤트 등록 : addEventListener() </h3>
+
+<p> <button type="button" onclick="add();"> 추가 </button> </p>
+<hr>
+
+<div id="resultLayout">
+	<p><button type="button" class="btnOk" data-num="1"> 버튼 </button>
+</div>
+
+<script type="text/javascript">
+var idx = 1;
+
+function add(){
+	const EL = document.querySelector("#resultLayout");
+	let out = EL.innerHTML;
+	
+	idx++;
+	out += '<p><button type="button" class="btnOk" data-num="'+ idx +'">버튼</button></p>';
+	
+	EL.innerHTML = out;
+}
+
+/*
+
+// 동적으로 추가된 버튼은 이벤트가 처리되지 않는다.
+const btnELS = document.querySelectorAll('.btnOk');
+for(let EL of btnELS){
+	EL.addEventListener('click', (e) => {
+		// event의 target 속성 : 이벤트를 발생시킨 객체
+		let num = e.target.getAttribute('data-num');	// getAttribute('속성') : 속성 값 반환
+		alert(num);
+	});
+}*/
+
+/*
+// > 범위가 크다 (body). 줄여주는 것이 좋다.
+document.addEventListener('click', (e) => {
+	if(e.target.matches('.btnOk')){	// matches('선택자') : 요소에 선택자가 있으면 true
+		let num = e.target.getAttribute('data-num');	
+		alert(num);
+	}
+	
+});
+*/
+
+
+const divEL = document.querySelector('#resultLayout');
+divEL.addEventListener('click', (e) => {
+	if(e.target.matches('.btnOk')){	// matches('선택자') : 요소에 선택자가 있으면 true
+		let num = e.target.getAttribute('data-num');	
+		alert(num);
+	}
+	
+});
+
+
+
+
+</script>
+</body>
+</html>

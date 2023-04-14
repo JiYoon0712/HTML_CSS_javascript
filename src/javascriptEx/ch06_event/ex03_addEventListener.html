@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> event handler - 이벤트 등록 : addEventListener() </h3>
+
+<p> <button type="button" class="btn"> 확인 </button> </p>
+
+<script type="text/javascript">
+const btn = document.querySelector(".btn");
+
+// addEventListener() 메소드로 등록한 이벤트는 모두 실행된다.
+// 첫번째 바인딩
+btn.addEventListener('click' , function () {
+	alert('확인 1');
+});
+
+//두번째 바인딩
+btn.addEventListener('click' , () => alert('확인 2') );
+
+</script>
+</body>
+</html>

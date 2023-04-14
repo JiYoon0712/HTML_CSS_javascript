@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>클래스-메소드 : 임의의 표현식</h3>
+
+<script type="text/javascript">
+const methodName = 'sayName';	// > 여기에서 주고 싶은 메소드 이믈 기재
+
+class User{
+	// > constructor : 생성자 키워드 > 이름 다르게 주면 x
+	constructor({name, age}){
+		this.name = name;
+		this.age = age;
+	}
+	
+					// > 메소드 이름을 가변적으로 주고싶은 경우 사용 
+	[methodName](){	// 임의의 표현식을 []로 둘러싸서 메소드 이름으로 사용 가능
+		return `이름은 ${this.name} 입니다.`;
+	}
+}
+
+var obj = new User({name:'이자바', age:20});
+console.log(obj.sayName());
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>이벤트에서 this</h3>
+
+<!-- (1)  -->
+<p>
+	<button type="button" onclick="fun();">확인</button>
+</p>
+
+<script type="text/javascript">
+function fun(){
+	alert('이벤트 핸들러 함수에서의 this는 window 객체');
+	console.log(this);	
+}
+</script>
+<hr>
+
+
+<!-- (2)  -->
+<p>
+	<button type="button" class="btn2">확인</button>
+</p>
+
+<script type="text/javascript">
+const btn2 = document.querySelector('.btn2');
+btn2.onclick = function(e) {
+	// 이벤트 핸들러의 첫번째 인수(e)는 이벤트를 발생시킨 객체에 대한 정보
+	// 이벤트 핸들러 프로퍼티 방식에서의 이벤트 핸들러 내부의 this는 이벤트를 발생시킨 객체
+	// 이벤트 핸들러 프로퍼티 방식에서의 이벤트 핸들러가 화살표 함수이면 this는 window 객체
+	
+	alert('이벤트 핸들러 프로퍼티 방식');
+	
+	console.log(this);
+	console.log(e.target);	// 이벤트 발생시킨 객체
+	console.log(e.currentTarget);	// 이벤트 발생 객체
+	console.log(this === e.currentTarget);
+	
+	this.style.display = 'none';
+};
+</script>
+<hr>
+
+
+<!-- (3)  -->
+<p>
+	<button type="button" class="btn3">확인</button>
+</p>
+
+<script type="text/javascript">
+const btn3 = document.querySelector('.btn3');
+btn3.addEventListener('click',function(e){
+	// 이벤트 핸들러의 첫번째 인수(e)는 이벤트를 발생시킨 객체에 대한 정보
+	// addEventListener()로 등록한 이벤트 핸들러 내부의 this는 이벤트를 발생시킨 객체
+	// addEventListener() 로 등록한 이벤트 핸들러가 화살표 함수이면 this는 window 객체
+	
+	alert('이벤트 핸들러 프로퍼티 방식');
+	
+	console.log(this);
+	console.log(e.target);	// 이벤트 발생시킨 객체
+	console.log(e.currentTarget);	// 이벤트 발생 객체
+	console.log(this === e.currentTarget);
+	
+	this.style.display = 'none';
+	
+});
+
+</script>
+
+</body>
+</html>

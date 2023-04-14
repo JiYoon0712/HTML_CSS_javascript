@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> form 요소 이벤트 핸들러에서의 this : 이벤트를 발생시킨 객체 자신 </h3>
+
+<form name="myForm">
+	<p> 이름 : <input type="text" name="name"> </p>
+	<p> 국어 : <input type="text" name="kor" onchange="validate(this);"> </p>
+	<p> 영어 : <input type="text" name="eng" onchange="validate(this);"> </p>
+	<p> 수학 : <input type="text" name="mat" onchange="validate(this);"> </p>
+	<p>
+		<button type="button" onclick="sendOk();">확인</button>
+	</p>
+</form>
+
+<script type="text/javascript">
+function sendOk(){
+	const f = document.myForm;
+	const inputELS = document.querySelectorAll("form input[type=text]");
+	
+	// forEach 사용하면 x > forEach는 break가 없다. 반복문을 빠져 나갈 수 있는 방법이 없다.
+	for(let el of inputELS){
+		if( ! el.value ){
+			el.focus();
+			return;
+		}
+	}
+	
+	let name = f.name.value;
+	let kor = f.kor.value;
+	let eng = f.eng.value;
+	let mat = f.mat.value;
+	
+	alert(`${name} : ${kor} : ${eng} : ${mat}`);
+}
+
+function validate(obj){
+	// console.log(obj.value);
+	if(isNaN(obj.value) || parseInt(obj.value) < 0 || parseInt(obj.value) > 100 ){
+		alert('점수는 0~100 사이만 가능합니다.');
+		obj.value = "";
+		obj.focus();
+	}
+}
+
+</script>
+
+</body>
+</html>

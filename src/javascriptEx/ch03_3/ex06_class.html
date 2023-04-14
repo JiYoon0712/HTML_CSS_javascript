@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>클래스 - 속성</h3>
+
+<script type="text/javascript">
+/*
+class Rect {
+	constructor(){
+		this.width = 0;
+		this.height = 0;
+	}
+}
+
+var obj = new Rect();	// 0 0
+console.log(obj.width, obj.height);
+*/
+
+
+/*
+class Rect {
+	constructor(width, height){
+		this.width = width;
+		this.height = height;
+	}
+}
+
+var obj = new Rect(10,5);
+console.log(obj.width, obj.height);
+*/
+
+
+class Rect {
+	area(width, height){
+		this.width = width;
+		this.height = height;
+		
+		return this.width * this.height
+	}
+}
+
+var obj = new Rect();				// > 생성자를 만들지 않아서 () 안에 값 넣어주면 안됨.
+console.log(obj.width, obj.height);	// undefined undefined
+
+let a = obj.area(10,5);	
+console.log(a, obj.width, obj.height);	// 50, 10, 5   > 넓이를 구해야 obj.width, obj.height 사용 가능
+
+
+
+
+
+
+</script>
+</body>
+</html>

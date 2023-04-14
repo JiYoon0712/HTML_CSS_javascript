@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>class</h3>
+
+<script type="text/javascript">
+// 클래스
+class User {
+	// 생성자 함수는 클래스 안에 constructor 이라는 이름으로 정의
+	constructor({name, age}){	// > {} : 객체를 넘기겠다.
+		// 필드
+		this.name = name;
+		this.age = age;
+	}
+	
+	// > function 기재 안해도 됨. 함수 이름만 기재
+	sayHello() {
+		return `제 이름은 ${this.name} 이고 나이는 ${this.age} 입니다.`;
+	}
+}
+ 
+ var obj = new User({name:'홍길동', age:20});
+ console.log(obj.name);
+ console.log(obj.sayHello());
+ 
+ console.log(typeof User);	// function >> class 타입 : 함수
+
+</script>
+
+</body>
+</html>

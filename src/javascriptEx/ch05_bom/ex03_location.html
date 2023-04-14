@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> location 객체 </h3>
+
+<p> <button type="button" onclick="fun()">네이버</button> </p>
+<p> <button type="button" onclick="fun2()">구글</button> </p>
+<p> <button type="button" onclick="location.href='https://www.daum.net';">다음</button> </p>
+
+<script type="text/javascript">
+// location : 현재 브라우저에 표시된 HTML 문서의 주소를 얻거나 브라우저에 새 문서를 불러올때 사용
+
+function fun(){
+	location.href = 'https://www.naver.com';  // 뒤로가기 가능
+}
+
+function fun2(){
+	// 뒤로가기 불가능
+	location.replace('https://google.com');	  
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>클래스 - static 속성, static 메소드</h3>
+
+<script type="text/javascript">
+class Rect {
+	constructor(width, height){
+		this.width = width;
+		this.height = height;
+	}
+	
+	static displayName = 'Rectangle';	// static 속성
+	static area(obj) {
+		return obj.width * obj.height;
+	}
+}
+
+var obj = new Rect(10, 5);
+// console.log(obj.displayName);	// undefined. static 속성은 객체로 접근 불가
+
+console.log(Rect.displayName);	// Rectangle
+console.log(Rect.area(obj));
+
+</script>
+
+</body>
+</html>
