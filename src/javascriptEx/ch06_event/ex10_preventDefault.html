@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.box1 { background: #ccc; padding: 20px; display: block; }
+.box2 { background: #aaa; padding: 20px; display: block; }
+.box3 { background: #888; padding: 20px; display: block; }
+.console { background: #47a; padding: 20px; margin: 50px 0; }
+</style>
+
+</head>
+<body>
+<h3> preventDefault </h3>
+
+<pre>
+	- a 태그의 href 속성 : a 태그를 클릭할 경우 해당 페이지로 이동
+	- a 태그에 click 이벤트가 존재하는 경우 : 먼저 click 이벤트를 처리하고 href 속성 페이지로 이동
+	- preventDefalut() : 이벤트를 취소할 수 있는 경우 해당 이벤트를 취소하지만 
+	  					 상위로의 이벤트는 전파된다.
+</pre>
+
+<div class = "box1">
+	DIV 영역
+	<p class="box2">
+		p 영역
+		<a class="box3" href="https://www.naver.com" target="_blank">A 영역</a>
+	</p>
+</div>
+<hr>
+
+<div class="console"></div>
+
+<script type="text/javascript">
+const box1 = document.querySelector(".box1");
+const box2 = document.querySelector(".box2");
+const box3 = document.querySelector(".box3");
+const console = document.querySelector(".console");
+
+box1.addEventListener('click', function(e){
+	console.innerHTML += 'DIV 클릭<br>';
+	
+});
+
+box2.addEventListener('click', function(e){
+	console.innerHTML += 'P 클릭<br>';
+	
+});
+
+box3.addEventListener('click', function(e){
+	console.innerHTML += 'A 클릭<br>';
+	
+	e.preventDefault();	// 이벤트의 기본 동작을 중단한다. href 속성이 무효화된다.
+						// 상위로의 이벤트는 전파된다.
+						
+	// e.stopPropagation();	// 상위로의 이벤트는 전파되지 않지만 href 속성은 무효화되지 않음
+});
+</script>
+
+</body>
+</html>

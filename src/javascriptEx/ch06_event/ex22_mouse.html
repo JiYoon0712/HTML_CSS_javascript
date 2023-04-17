@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<script type="text/javascript">
+window.addEventListener('load', () => {
+	document.addEventListener('keydown', function(e){
+		// e.keyCode : 123
+		if(e.key === 'F12'){
+			e.preventDefault();
+		}
+	});
+	
+	
+	document.addEventListener('mousedown',function(e){
+		if(e.button === 2 || e.button === 3){
+			alert('우측 사용 금지');
+		}
+	});	
+
+});
+
+</script>
+
+</head>
+<body>
+<h3>F12, 마우스 우측 금지</h3>
+
+
+
+</body>
+</html>

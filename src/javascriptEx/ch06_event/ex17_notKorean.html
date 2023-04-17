@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>키보드 이벤트 - 한글입력 제한</h3>
+
+<p> 한글 가능 : <input type="text"> </p>
+<p> 한글 제한 : <input type="text" class = "notKorean"> </p>
+<p> 한글 제한 : <input type="text" class = "notKorean"> </p>
+<p> 한글 제한 : <input type="text" class = "notKorean"> </p>
+<p> 한글 가능 : <input type="text"> </p>
+<p> 한글 제한 : <input type="text" class = "notKorean"> </p>
+
+<script type="text/javascript">
+const inputELS = document.querySelectorAll('.notKorean');
+
+inputELS.forEach(function(el){
+   el.addEventListener('compositionstart',e =>{
+      const self = e.currentTarget;
+      self.blur();
+      
+      // 다음 리페인트전 실행
+      requestAnimationFrame(function(){
+         self.focus();
+      });
+   });
+});
+
+for(let el of inputELS){
+   el.addEventListener('keyup',e => {
+      // Backspace(8), Tab(9), ArrowLeft(37), ArrowRight(39), Delete(46)
+      // bs, tab, <-, ->, del 키는 keypress 이벤트는 발생 안됨
+      if(e.keyCode === 8 || e.keyCode === 9 || e.keyCode === 37 || 
+            e.keyCode === 39 || e.keyCode === 46) {
+         return;
+      }
+   
+      // 자음, 모음, 한글을 사용
+      let obj = e.currentTarget;
+      obj.value = obj.value.replace(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g,'');
+   });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>키보드 관련 이벤트</h3>
+
+<p>
+	<input type="text" id="inputs">
+</p>
+<hr>
+<div id= "layout"></div>
+
+<pre>
+	- ASCII 관련 키 
+	  : a~z, 0~9, 엔터 등
+	  : 발생 이벤트
+	    keydown, keypress, keyup
+	  : keydown, keyup
+	    어떤키를 눌렀는지는 판단할 수 있지만, 대소문자는 구분하지 않음
+	  : keypress
+	    실제 눌러진 키를 반환
+	    
+	- F1~F12, Alt, Ctrl, Shift 등 특수 키
+	  : 발생 이벤트
+	    keydown, keyup	    
+	  : keypress 이벤트는 발생되지 않는다.
+	  
+	- shift + a키를 누른 경우
+	  : keydown(shift) - keydown(a) - keypress(a) - keyup(a) - keyup(shift)
+</pre>
+
+<script type="text/javascript">
+const inputs = document.querySelector("#inputs");
+const layout = document.querySelector("#layout");
+
+inputs.addEventListener('keydown' , function(e){
+	// keyCode 사용을 권장하지 않음
+	
+	// layout.innerHTML = 'keydown : ' + e.keyCode + "<br>";
+		// keyCode : 'a'->65, 'A'->65
+		
+	layout.innerHTML = 'keydown : ' + e.key + "<br>";
+		// key : 'a'->'a', 'A'->'A'		
+	
+	// layout.innerHTML = 'keydown : ' + e.code + "<br>";
+		// code : 'a'->'keyA',  A->'keyA'	
+	
+	// 브라우저 버전이 낮아 key 속성을 지원하지 않는 경우	
+	// let k = e.key || e.keyCode;
+	// if(k === 'Enter' || k === 13){ }
+});
+
+inputs.addEventListener('keypress' , function(e){
+	layout.innerHTML += 'keypress : ' + e.keyCode + "<br>";
+		// keyCode : 'a'->97, 'A'->65
+});
+
+inputs.addEventListener('keyup' , function(e){
+	layout.innerHTML += 'keyup : ' + e.keyCode + "<br>";
+		// keyCode : 'a'->65, 'A'->65
+});
+</script>
+
+</body>
+</html>

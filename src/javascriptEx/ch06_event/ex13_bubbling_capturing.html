@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.box1 { background: #ccc; padding: 20px; display: block; }
+.box2 { background: #aaa; padding: 20px; display: block; }
+.box3 { background: #888; padding: 20px; display: block; }
+.console { background: #47a; padding: 20px; margin: 50px 0; }
+</style>
+
+</head>
+<body>
+<h3> bubbling과 capturing </h3>
+
+<pre>
+	- bubbling : 하위 요소에서 이벤트가 발생하면 하위 요소에서 상위 요소로 이벤트가 전파(기본)
+	- capturing : 하위 요소에서 이벤트가 발생하면 상위 요소에서 하위 요소로 이벤트가 전파
+</pre>
+
+<div class = "box1">
+	DIV 영역
+	<p class="box2">
+		p 영역
+		<span class="box3">span 영역</span>
+	</p>
+</div>
+<hr>
+
+<div class="console"></div>
+
+<script type="text/javascript">
+const box1 = document.querySelector(".box1");
+const box2 = document.querySelector(".box2");
+const box3 = document.querySelector(".box3");
+const console = document.querySelector(".console");
+
+// bubbling(기본) : 이벤트가 하위에서 상위로 전파
+// span을 클릭 : span -> p -> div 로 전파
+/*
+box1.addEventListener('click', function(e){
+	console.innerHTML += 'DIV 클릭<br>';
+});
+
+box2.addEventListener('click', function(e){
+	console.innerHTML += 'P 클릭<br>';
+});
+
+box3.addEventListener('click', function(e){
+	console.innerHTML += 'SPAN 클릭<br>';
+});
+*/
+
+// Capturing : 이벤트가 상위에서 하위로 전파
+//  span 클릭 : div -> p -> span
+box1.addEventListener('click', function(e){
+	console.innerHTML += 'DIV 클릭<br>';
+}, true);
+
+box2.addEventListener('click', function(e){
+	console.innerHTML += 'P 클릭<br>';
+}, true);
+
+box3.addEventListener('click', function(e){
+	console.innerHTML += 'SPAN 클릭<br>';
+}, true);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>form : submit 버튼 - javascript로 유효성 검사</h3>
+
+<form name="myForm" action="request.jsp" method="post" onsubmit="return check();">
+	<p> 이름 : <input type="text" name="name"> </p>
+	<p> 나이 : <input type="text" name="age"> </p>
+	<p> 
+		<button type="submit" >등록</button>
+	</p>
+</form>
+
+<script type="text/javascript">
+function check(){
+	const f = document.myForm;
+	
+	// submit 버튼을 클릭하면 submit 이벤트가 발생되고 submit 이벤트에서 
+	// false를 리턴하거나 preventDefault()를 호출하면 이벤트가 취소된다.
+	
+	if( ! f.name.value ){
+		alert('이름을 입력하세요.');
+		f.name.focus();
+		return false;	// 이벤트 취소
+	}
+	
+	if( ! /^\d+$/.test(f.age.value) ){
+		alert('나이를 입력하세요.');
+		f.age.focus();
+		event.preventDefault();	// 이벤트 취소
+		return;
+	}
+	
+	return true;	// 서버로 전송
+	// submit 버튼을 사용하여 서버로 전송하는 경우 submit() 함수를 호출하면 절대로 안된다.
+	// submit 버튼을 사용하여 서버로 전송하는 경우 submit() 함수를 호출하면 서버로 두번 전송된다.
+	// submit 버튼을 사용하여 서버로 전송하는 경우 자바스크립트 오류가 있으면
+	// 스크립트를 무시하고 서버로 전송하므로 조심해야 한다.
+
+	
+}
+</script>
+
+</body>
+</html>

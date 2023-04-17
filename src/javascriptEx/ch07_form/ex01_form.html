@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> form 접근 : document.forms </h3>
+
+<form>
+	<p> 이름 : <input type="text"> </p>
+	<p> 과목 : <input type="text"> </p>
+	<p> 
+		<button type="button" onclick="sendOk();">확인</button>
+	</p>
+</form>
+
+<script type="text/javascript">
+function sendOk(){
+	const f = document.forms[0];
+	
+	// elements : form 요소에 담긴 form 컨트롤(input, select, button, textarea)에 대한 배열 반환
+	// (1) button에 value="값". 넣어주고 실행
+	/*
+	// (2)
+	for(let el of f.elements){
+		if(el.tagName !== 'BUTTON' && ! el.value.trim()){
+			alert('필수 입력 사항입니다.');
+			el.focus();
+			return;
+		}
+	}
+	*/
+	
+	// >> 버튼 제외라서 -1
+	for(let i=0; i<f.elements.length-1; i++){
+		if(! f.elements[i].value.trim()){
+			alert('필수 입력 사항입니다.');
+			f.elements[i].focus();
+			return;
+		}
+	}
+	
+	let s = f.elements[0].value + ',' + f.elements[1].value;
+	alert(s);
+}
+</script>
+
+</body>
+</html>

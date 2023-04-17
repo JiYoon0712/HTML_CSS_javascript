@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.box{ width: 150px; height: 100px; border: 1px solid black; }
+</style>
+</head>
+<body>
+
+<h3>mouse 이벤트</h3>
+
+<div class="box"></div>
+<hr>
+
+<div class="console"></div>
+
+
+<script type="text/javascript">
+const boxEL = document.querySelector(".box");
+const consoleEL = document.querySelector(".console");
+
+boxEL.addEventListener('mousedown',function(e){
+	consoleEL.innerHTML += 'mousedown<br>';
+});
+
+boxEL.addEventListener('mouseup',function(e){
+	consoleEL.innerHTML += 'mouseup<br>';
+});
+
+boxEL.addEventListener('mouseover',function(e){
+	consoleEL.innerHTML += 'mouseover<br>';
+});
+
+boxEL.addEventListener('mouseout',function(e){
+	consoleEL.innerHTML += 'mouseout<br>';
+});
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+
+<style type="text/css">
+* { padding: 0; margin: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+
+body {
+	font-family:"Malgun Gothic", "맑은 고딕", NanumGothic, 나눔고딕, 돋움, sans-serif;
+	font-size: 14px;
+	color: #222;
+}
+
+a { color: #222; text-decoration: none; cursor: pointer; }
+a:active, a:hover { color: #f28011; text-decoration: underline; }
+
+/* form-control */
+.btn {
+	color: #333;
+	border: 1px solid #999;
+	background-color: #fff;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-weight: 500;
+	cursor:pointer;
+	font-size: 14px;
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.btn:active, .btn:focus, .btn:hover {
+	background-color: #f8f9fa;
+	color:#333;
+}
+.btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: default;
+	opacity: .65;
+}
+
+.form-control {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 5px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-control[readonly] { background-color:#f8f9fa; }
+
+textarea.form-control { height: 170px; resize : none; }
+
+.form-select {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 4px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-select[readonly] { background-color:#f8f9fa; }
+
+textarea:focus, input:focus { outline: none; }
+input[type=checkbox], input[type=radio] { vertical-align: middle; }
+
+/* table */
+.table { width: 100%; border-spacing: 0; border-collapse: collapse; }
+.table th, .table td { padding-top: 10px; padding-bottom: 10px; }
+
+.table-border thead > tr { border-top: 2px solid #212529; border-bottom: 1px solid #ced4da; }
+.table-border tbody > tr { border-bottom: 1px solid #ced4da; }
+.table-border tfoot > tr { border-bottom: 1px solid #ced4da; }
+.td-border td { border: 1px solid #ced4da; }
+
+/* container */
+.container { width: 600px; margin: 30px auto 25px; }
+
+.title { width:100%; font-size: 16px; font-weight: bold; padding: 13px 0; }
+
+.table-form { margin-top: 7px; }
+.table-form td { padding: 7px 0; }
+.table-form tr:first-child { border-top: 2px solid #212529; }
+.table-form tr > td:first-child { width: 120px; text-align: center; background: #f8f9fa; }
+.table-form tr > td:nth-child(2) {padding-left: 10px; }
+
+.table-form input[type=text]:focus, .table-form input[type=date]:focus, .table-form input[type=password]:focus {
+	border: 1px solid #f28011;
+}
+</style>
+
+<script type="text/javascript">
+function memberOk() {
+	
+	// 아이디는 5~10자 이내이며 영문자로 시작하고 영숫자와 _로 구성
+	
+	// 
+	
+	alert('성공 ...');
+} 
+</script>
+
+</head>
+<body>
+
+<div class="container">
+	<div class="title">
+		<h3><i class="fa-solid fa-user-plus"></i> 회원 가입</h3>
+	</div>
+	
+	<form name="memberForm" method="post">
+	<table class="table table-border table-form">
+		<tr>
+			<td>아&nbsp;이&nbsp;디</td>
+			<td>
+				<input type="text" name="userId" id="userId" maxlength="10" class="form-control" style="width: 50%;">
+			</td>
+		</tr>
+	
+		<tr>
+			<td>패스워드</td>
+			<td>
+				<input type="password" name="userPwd" class="form-control" maxlength="10" style="width: 50%;">
+			</td>
+		</tr>
+	
+		<tr>
+			<td>패스워드 확인</td>
+			<td >
+				<input type="password" name="userPwd1" class="form-control" maxlength="10" style="width: 50%;">
+			</td>
+		</tr>
+	
+		<tr>
+			<td>이&nbsp;&nbsp;&nbsp;&nbsp;름</td>
+			<td>
+				<input type="text" name="userName" maxlength="10" class="form-control" style="width: 50%;">
+			</td>
+		</tr>
+	
+		<tr>
+			<td>생년월일</td>
+			<td>
+				<input type="date" name="birth" class="form-control" style="width: 50%;">
+			</td>
+		</tr>
+	
+		<tr>
+			<td>이 메 일</td>
+			<td>
+				  <select name="selectEmail" class="form-select">
+						<option value="">선 택</option>
+						<option value="naver.com">네이버 메일</option>
+						<option value="hanmail.net">한 메일</option>
+						<option value="gmail.com">지 메일</option>
+						<option value="hotmail.com">핫 메일</option>
+						<option value="direct">직접입력</option>
+				  </select>
+				  <input type="text" name="email1" maxlength="30" class="form-control" style="width: 33%;"> @ 
+				  <input type="text" name="email2" maxlength="30" class="form-control" style="width: 33%;" readonly="readonly">
+			</td>
+		</tr>
+		
+		<tr>
+			<td>전화번호</td>
+			<td>
+				  <select name="tel1" class="form-select">
+						<option value="">선 택</option>
+						<option value="010">010</option>
+						<option value="02">02</option>
+						<option value="031">031</option>
+						<option value="032">032</option>
+						<option value="033">033</option>
+						<option value="041">041</option>
+						<option value="042">042</option>
+						<option value="043">043</option>
+						<option value="044">044</option>
+						<option value="051">051</option>
+						<option value="052">052</option>
+						<option value="053">053</option>
+						<option value="054">054</option>
+						<option value="055">055</option>
+						<option value="061">061</option>
+						<option value="062">062</option>
+						<option value="063">063</option>
+						<option value="064">064</option>
+						<option value="070">070</option>
+				  </select>
+				  <input type="text" name="tel2" maxlength="4" class="form-control" style="width: 33%;"> -
+				  <input type="text" name="tel3" maxlength="4" class="form-control" style="width: 33%;">
+			</td>
+		</tr>
+	
+		<tr>
+			<td>우편번호</td>
+			<td>
+				<input type="text" name="zip" maxlength="7" class="form-control" readonly="readonly" style="width: 50%;">
+				<button type="button" class="btn">우편번호검색</button>
+			</td>
+		</tr>
+		
+		<tr>
+			<td valign="top">주&nbsp;&nbsp;&nbsp;&nbsp;소</td>
+			<td>
+				<label style="display: block;">
+					<input type="text" name="addr1" maxlength="50" class="form-control" readonly="readonly" style="width: 96%;">
+				</label>
+				<label style="display: block; margin-top: 2px;">
+					<input type="text" name="addr2" maxlength="50"  class="form-control" style="width: 96%;">
+				</label>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>직&nbsp;&nbsp;&nbsp;&nbsp;업</td>
+			<td>
+				<input type="text" name="job" maxlength="10" class="form-control" style="width: 50%;">
+			</td>
+		</tr>
+	</table>
+	
+	<table class="table">
+		<tr>
+			<td align="center">
+			    <button type="button" class="btn" onclick="memberOk();"> 회원가입 </button>
+			    <button type="reset" class="btn"> 다시입력 </button>
+			    <button type="button" class="btn"> 가입취소 </button>
+			</td>
+		</tr>
+		
+		<tr height="40">
+			<td align="center">
+				<span style="color: blue;"></span>
+			</td>
+		</tr>
+	</table>
+	</form>
+	
+</div>	
+
+</body>
+</html>

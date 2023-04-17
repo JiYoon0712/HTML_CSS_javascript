@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>키보드 관련 이벤트</h3>
+
+<p> 숫자만 : <input type="text" class="inputNum"> </p>
+<p> 영문만 : <input type="text" class="inputAlph"> </p>
+<p> 영문,숫자만 : <input type="text" class="inputAlphNum"> </p>
+<p> 한글만 : <input type="text" class="inputKor"> </p>
+<p> 한글입력제한 : <input type="text" class="inputNotKor"> </p>
+
+<script type="text/javascript">
+function onlyNumber(e) {
+	if(e.key < '0' || e.key > '9'){
+		e.preventDefault();
+	}
+}
+
+function onlyAlphabet(e){
+	if((e.key < 'A' || e.key > 'Z') && (e.key < 'a' || e.key > 'z')) {
+		e.preventDefault();
+	}
+}
+
+function onlyAlphaNum(e){
+	// > \w : 영숫자
+	if(! /^\w{1}$/.test(e.key)){
+		e.preventDefault();
+	}
+}
+
+function deleteKorean(e){
+	// 해당 아스키 코드 값
+	// Backspace(8), Tab(9), ArrowLeft(37), ArrowRight(39), Delete(46)
+	// bs, tab, <--, -->, del 키는 keypress 이벤트는 발생 안됨
+	if(e.keyCode === 8 || e.keyCode=== 9 || e.keyCode=== 37|| e.keyCode=== 39 || e.keyCode=== 46){
+		return;
+	}
+	
+	// 자음, 모듬, 한글을 지움
+	let obj = e.currentTarget;
+	obj.value = obj.value.replace(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g ,'');
+}
+
+function onlyKorea(e){
+	// > 한글 유니코드 '가'~'힣'
+	if(e.keyCode < 12592 || e.keyCode > 12687){
+		e.preventDefault();
+	}
+}
+
+const inputNum = document.querySelector('.inputNum');
+const inputAlph = document.querySelector('.inputAlph');
+const inputAlphNum = document.querySelector('.inputAlphNum');
+const inputKor = document.querySelector('.inputKor');
+const inputNotKor = document.querySelector('.inputNotKor');
+
+						// > keydown 사용하면 백스페이스 안먹음. keypress 사용해야 함.
+//inputNum.addEventListener('keypress', e => onlyNumber(e));
+//inputNum.addEventListener('keyup', e => deleteKorean(e));
+
+inputAlph.addEventListener('keypress', e => onlyAlphabet(e));
+inputAlph.addEventListener('keyup', e => deleteKorean(e));
+
+inputAlphNum.addEventListener('keypress', e => onlyAlphaNum(e));
+inputAlphNum.addEventListener('keyup', e => deleteKorean(e));
+
+inputKor.addEventListener('keypress', e => onlyKorea(e));
+
+// compositionstart : 한글 등 조합 문자가 입력될때 발생하는 이벤트
+inputNotKor.addEventListener('compositionstart', e => {
+	const self = e.currentTarget;
+	self.blur();
+	
+	// 다음 리페인트전 실행
+	requestAnimationFrame(function(){
+		self.focus();
+	});
+});
+inputNotKor.addEventListener('keyup', e => deleteKorean(e));
+
+</script>
+
+</body>
+</html>

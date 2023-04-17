@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.box{
+	width: 300px; height: 300px;
+	border: 3px dotted gray;
+	padding: 10px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ctrl와 마우스 왼쪽 클릭시 alert창 띄우기 -->
+<h3> ctrl + click 금지 </h3>
+
+<div class="box"></div>
+
+<script type="text/javascript">
+const boxEL = document.querySelector(".box");
+
+boxEL.addEventListener('click',e => {
+	if(e.ctrlKey){		
+		alert('ctrl + 마우스 왼쪽 클릭 금지');
+	}	
+});
+
+</script>
+
+</body>
+</html>

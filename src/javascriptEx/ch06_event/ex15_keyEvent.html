@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>키보드 관련 이벤트</h3>
+
+<p>
+	<input type="text" id="inputs">
+</p>
+<hr>
+<div id="layout"></div>
+
+<pre>
+	- ctrl, shift, alt 키가 눌러진 상태 확인
+	  e.ctrlKey, e.shiftKey, e.altKey로 확인
+	  if(e.ctrlKey) {}
+</pre>
+
+<script type="text/javascript">
+const inputs = document.querySelector("#inputs");
+const layout = document.querySelector("#layout");
+
+inputs.addEventListener('keydown', (e) => {
+	if(e.ctrlKey){
+		layout.innerHTML = 'ctrl 키를 눌렀습니다. <br>';
+	}
+	
+	layout.innerHTML += e.key + "<br>";
+});	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> form 접근 : document.폼이름 </h3>
+
+<form name="myForm">
+	<p> 이름 : <input type="text" name="name"> </p>
+	<p> 과목 : <input type="text" name="subject"> </p>
+	<p> 
+		<button type="button" onclick="sendOk();">확인</button>
+	</p>
+</form>
+
+<script type="text/javascript">
+function sendOk(){
+	const f = document.myForm;
+
+	if(! f.name.value){
+		alert('이름...');
+		f.name.focus();
+		return;
+	}
+	
+	if(! f.subject.value){
+		alert('과목...');
+		f.subject.focus();
+		return;
+	}
+	
+	let s = f.name.value + ', '+ f.subject.value;
+	
+	alert(s);
+}
+</script>
+
+</body>
+</html>

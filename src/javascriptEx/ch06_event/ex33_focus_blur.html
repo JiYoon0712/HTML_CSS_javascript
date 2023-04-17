@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.yb{ background-color: yellow; border:1px solid tomato; }
+.wb{ background: white; border:1px solid blue; }
+
+form input{ outline: none; }
+</style>
+
+
+</head>
+<body>
+
+<h3>focus, blur 이벤트</h3>
+<!-- 
+ focus : 포커스를 받았을 때
+ blur : 포커스를 잃었을 때
+ -->
+
+
+<form>
+	<p> <label> 이름 : <input type="text" name="name" class ="wb" onfocus="inputFocus(this);" onblur="inputBlur(this);" ></label> </p>
+	<p> <label> 패스워드 : <input type="password" name="pwd" class ="wb" onfocus="inputFocus(this);" onblur="inputBlur(this);"></label> </p>
+	<p> <label> 나이 : <input type="text" name="age" class ="wb" onfocus="inputFocus(this);" onblur="inputBlur(this);"></label> </p>
+	<p> 
+		<button type="button">확인</button>
+	</p>
+</form>
+
+<script type="text/javascript">
+function inputFocus(obj){
+	obj.className = 'yb';
+}
+
+function inputBlur(obj){
+	obj.className = 'wb';
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>form : submit 버튼 - javascript로 유효성 검사</h3>
+
+<form name="myForm" action="request.jsp" method="post" >
+	<p> 이름 : <input type="text" name="name"> </p>
+	<p> 나이 : <input type="text" name="age"> </p>
+	<p> 
+		<button type="submit" >등록</button>
+	</p>
+</form>
+
+<script type="text/javascript">
+function check(){
+	const f = document.myForm;
+
+	
+	if( ! f.name.value ){
+		alert('이름을 입력하세요.');
+		f.name.focus();
+		return false;	// 이벤트 취소
+	}
+	
+	if( ! /^\d+$/.test(f.age.value) ){
+		alert('나이를 입력하세요.');
+		f.age.focus();
+		return false;
+	}
+	return true;	
+}
+
+
+document.myForm.addEventListener('submit', e => {
+	if(! check()){
+		e.preventDefault();
+	}
+});
+
+
+</script>
+
+</body>
+</html>

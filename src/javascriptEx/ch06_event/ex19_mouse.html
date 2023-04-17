@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.box{ width: 150px; height: 100px; border: 1px solid black; }
+
+</style>
+</head>
+<body>
+
+<h3>mouse 이벤트</h3>
+
+<div class="box"></div>
+<hr>
+
+<script type="text/javascript">
+const boxEL = document.querySelector(".box");
+
+document.addEventListener('mousedown',function(e){
+	if(e.button === 2 || e.button === 3){		// > 오른쪽 버튼 : 2, 버튼 3개인 경우 : 3
+		alert('우측 버튼 누르면 혼난다.');
+	}	
+});
+
+boxEL.addEventListener('mouseover',function(e){
+	e.currentTarget.style.background = '#ff0';
+});
+
+boxEL.addEventListener('mouseout',function(e){
+	e.currentTarget.style.background = '#fff';
+});
+
+
+
+
+</script>
+
+</body>
+</html>

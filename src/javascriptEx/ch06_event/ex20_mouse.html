@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.box{
+	width: 300px; height: 700px;
+	border: 3px dotted gray;
+	padding: 10px;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<h3>마우스 좌표</h3>
+<div id = "resultLayout" class="box"></div>
+
+<script type="text/javascript">
+const layoutEL = document.querySelector('#resultLayout');
+
+layoutEL.addEventListener('click', e => {
+	let x = e.clientX;	// document의 가장 왼쪽 지점부터 x좌표(스크롤바는 제외)     >> div(box) 기준이 아니라 document 기준.
+	let y = e.clientY;	
+	
+	let x2 = e.pageX;	// client좌표와 동일하지만 스크롤바가 이동된 것 만큼 포함
+	let y2 = e.pageY;
+	
+	let x3 = e.offsetX;	// 이벤트가 발생된 객체 내에서의 x 좌표				>> div(box) 기준
+	let y3 = e.offsetY;
+
+	let x4 = e.screenX;	// 스크린 상대적인 마우스 좌표의 x좌표(화면 가장 왼쪽 위)  >> 모니터 기준. drag&drop 할때 사용
+	let y4 = e.screenY;
+	
+	let s;
+	s = 'client 좌표 		- x : ' + x  + ', y : ' + y + '<br>';
+	s += 'page 좌표 		- x : ' + x2 + ', y : ' + y2 + '<br>';
+	s += 'offset 좌표 	- x : ' + x3 + ', y : ' + y3 + '<br>';
+	s += 'screen 좌표 	- x : ' + x4 + ', y : ' + y4 + '<br>';
+	
+	layoutEL.innerHTML = s;
+});
+</script>
+
+</body>
+</html>

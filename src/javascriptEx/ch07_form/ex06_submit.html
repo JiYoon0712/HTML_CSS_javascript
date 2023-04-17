@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>form : button으로 submit</h3>
+
+<form name="myForm" action="request.jsp" method="post" >
+	<p> 이름 : <input type="text" name="name"> </p>
+	<p> 나이 : <input type="text" name="age"> </p>
+	<p> 
+		<button type="button" onclick="sendOk();" >등록</button>
+	</p>
+</form>
+
+<script type="text/javascript">
+function sendOk(){
+	const f = document.myForm;
+
+	if( ! f.name.value ){
+		alert('이름을 입력하세요.');
+		f.name.focus();
+		return;	
+	}
+	
+	if( ! /^\d+$/.test(f.age.value) ){
+		alert('나이를 입력하세요.');
+		f.age.focus();
+		return;
+	}
+	
+	// > 서버 전송이 두번된다. 일반버튼에서만. img x
+	f.submit();	// 서버로 form 요소의 내용을 전송
+		// submit 이외의 일반 버튼이나 select 요소로 이용하여 서버에 전송할때 호출
+		// submit 버튼은 절대로 호출하면 안됨
+}
+
+
+
+</script>
+
+</body>
+</html>

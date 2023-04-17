@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>change event</h3>
+
+<form name="memberForm">
+<p>
+	<select name="selectEmail" onchange="changeEmail();">
+		<option value=""> :: 선택 :: </option>
+		<option value="naver.com"> 네이버 메일 </option>
+		<option value="hotmail.com"> 핫 메일 </option>
+		<option value="hanmail.com"> 한 메일 </option>
+		<option value="gmail.com"> 지 메일 </option>
+		<option value="direct"> 직접입력 </option>
+	</select>
+	<input type="text" name="email1" maxlength="30">@
+	<input type="text" name="email2" maxlength="30" readonly="readonly">
+</p>
+</form>
+
+<!-- 
+	- change 이벤트
+	  : <input>, <select>, <textarea> 요소의 값이 변경될 때 발생
+	  : <select> 는 드롭다운에서 값을 선택하면 발생
+	  : <input type='text'>, <textarea>는 값을 편집 후 요소가 포커스를 잃으면 발생
+	  : <input type='checkbox'>, <input type='radio'> 는 요소를 선택한 경우 발생
+ -->
+
+<script type="text/javascript">
+function changeEmail(){
+	const f = document.memberForm;
+	
+	let s = f.selectEmail.value;
+	if(s != 'direct'){
+		f.email2.value = s;
+		f.email2.readOnly = true;
+		f.email1.focus();
+	} else {
+		f.email2.value='';
+		f.email2.readOnly = false;
+		f.email1.focus();
+	}
+}
+
+</script>
+
+</body>
+</html>
