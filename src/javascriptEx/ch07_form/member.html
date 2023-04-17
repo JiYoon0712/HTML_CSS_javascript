@@ -94,7 +94,17 @@ function memberOk() {
 	
 	// 아이디는 5~10자 이내이며 영문자로 시작하고 영숫자와 _로 구성
 	
-	// 
+	// 패스워드는 5~10자이며 영문자와 하나이상의 숫자 또는 특수문자를 포함한다.
+	
+	// 패스워드와 패스워드 확인은 일치해야 한다.
+	
+	// 이름은 한글 2~5자이내여야 한다.
+	
+	// 생년월일을 정확한 날짜 형식이여야 한다. 2023-02-29는 오류
+	
+	// 이메일은 필수 입력 사항이다.
+	
+	// 전화번호는 필수 입력 사항이다.
 	
 	alert('성공 ...');
 } 
@@ -141,7 +151,7 @@ function memberOk() {
 		<tr>
 			<td>생년월일</td>
 			<td>
-				<input type="date" name="birth" class="form-control" style="width: 50%;">
+				<input type="date" name="birth" class="form-control" style="width: 50%;" >
 			</td>
 		</tr>
 	
