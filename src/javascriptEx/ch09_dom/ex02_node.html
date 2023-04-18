@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<script type="text/javascript">
+function sub(e){
+	alert(e.target.firstChild.nodeValue);	
+}
+
+
+function fun1(){
+	const divEl = document.querySelector('#subjectLayout');
+	let str;
+	
+	// 속성 추가
+	divEl.setAttribute('title','과목');	// > 자바, 안드로이드, 프레임워크에 커서 올려놓으면 과목으로 변한 것 확인
+	
+	// style 속성 반환
+	str = divEl.getAttribute('style');
+	
+	// childNodes : 자식노드(태그, 문자열, 공백, 엔터 포함)
+	// console.log(divEl.childNodes);	// [text, p, text, p, text, p, text ]	>> 여기서 text는 공백
+	
+	// children : 태그만 검색
+	// console.log(divEl.children);	// [p,p,p]
+	
+	str += '자식노드수(p) : ' + divEl.children.length; 
+
+	alert(str);
+}
+
+var idx = 0;
+function fun2(){
+	const divEl = document.querySelector('#subjectLayout');
+	
+	let node = document.createElement('p');
+	node.setAttribute('title','추가과목...');
+	node.onclick = function(e) { sub(e); };		
+	
+	let textNode = document.createTextNode('마지막 - ' + (++idx));
+	node.appendChild(textNode);	// 마지막에 자식 노드 추가
+	
+	divEl.appendChild(node);
+}
+
+
+function fun3(){
+	const divEl = document.querySelector('#subjectLayout');
+	
+	let node = document.createElement('p');
+	node.setAttribute('title','추가과목...');
+	node.onclick = function(e) { sub(e); };		
+	
+	let textNode = document.createTextNode('앞 - ' + (++idx));
+	node.appendChild(textNode);	// 앞에 자식 노드 추가
+	
+	divEl.insertBefore(node, divEl.children[0]);	// 가장 앞에 추가
+}
+
+
+function fun4(){
+	const divEl = document.querySelector('#subjectLayout');
+	
+	if(divEl.children.length >= 1){
+		divEl.removeChild(divEl.children[0]);	// 가장 앞 삭제
+	} 
+}
+
+
+function fun5(){
+	const divEl = document.querySelector('#subjectLayout');
+	
+	divEl.style.border = 'none';
+}
+
+window.addEventListener('load', () => {
+	// > p 태그만
+//	const divEl = document.querySelector('#subjectLayout');
+//	const pEls = divEl.querySelectorAll('p');
+	
+	// > children이라서 p태그만 불러오는 것은 아님.
+	const pEls = document.querySelector('#subjectLayout').children;
+
+	for(let el of pEls){
+		el.addEventListener('click', e => sub(e));
+	}
+	
+	
+});ㄴ
+
+</script>
+
+</head>
+<body>
+
+<h3> 노드 추가 및 삭제 </h3>
+
+<div id="subjectLayout" style="width:300px; height:300px; border:1px solid red;">
+	<p> 자바 </p>		<!-- (p 태그의 자식은 자바) -->
+	<p> 안드로이드 </p>
+	<p> 프레임워크 </p>
+</div>
+<hr>
+
+<div>
+	<p>
+		<button type="button" onclick="fun1();">노드정보</button>
+		<button type="button" onclick="fun2();">노드추가</button>
+		<button type="button" onclick="fun3();">특정노드앞에추가</button>
+		<button type="button" onclick="fun4();">노드삭제</button>
+		<button type="button" onclick="fun5();">스타일속성제거</button>
+	</p>
+</div>
+</body>
+</html>

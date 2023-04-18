@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>getElement</h3>
+
+<div>
+	<p> 이름 : <input type="text" id="name"> </p>
+	<p> 나이 : <input type="text" name="age"> </p>
+	<p> 생년월일 : <input type="text"> <input type="checkbox" checked="checked"> 양력 </p>
+	<p> 전화번호 : <input type="text" class="telClass"> </p>
+	<p> 과목 : 
+		<input type="text" name="subject"> <br>
+		<input type="text" name="subject"> <br>
+		<input type="text" name="subject">
+	</p>
+	<p>	
+		<button type="button" onclick="result()"> 확인 </button>
+	</p>
+</div>
+<hr>
+
+
+<div id="resultLayout"></div>
+
+<script type="text/javascript">
+// css : input에 style border 효과
+const inputELS = document.querySelectorAll('input[type=text]');
+for(let el of inputELS){
+	el.style.border = '1px solid green';
+}
+
+
+function result(){
+	let str;
+	
+	// id로 접근
+	let name = document.getElementById('name').value;
+	
+	// name 속성으로 접근
+	let age = document.getElementsByName('age')[0].value;
+	
+	// 태그로 접근
+	let birth = document.getElementsByTagName('input')[2].value;
+	// let birth = document.querySelectorAll('input')[2].value;
+	
+	// 선택자로 접근
+	let chk = document.querySelector('input[type=checkbox]').checked;
+	// let chk = document.querySelectorAll('input[type=checkbox]')[0].checked;
+
+	// class 속성으로 접근
+	let tel = document.getElementsByClassName('telClass')[0].value;
+	// let tel = document.querySelector('telClass').value;
+
+	str = '이름 : ' + name + '<br>';
+	str += '나이 : ' + age + '<br>';
+	str += '생년월일 : ' + birth + ', 양력 : ' + chk + '<br>';
+	str += '전화번호 : ' + tel+ '<br>';
+	str += '과목 : ';
+	
+	// subject
+	let subjects = document.querySelectorAll('input[name=subject]');
+	for(let el of subjects){
+		str += el.value + ' ';
+	}
+	
+	
+	document.querySelector('#resultLayout').innerHTML = str;
+}
+
+</script>
+</body>
+</html>
