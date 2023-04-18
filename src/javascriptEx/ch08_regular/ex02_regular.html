@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>정규식(regular expression)</h3>
+
+<script type="text/javascript">
+var s,p,a;
+
+s = 'web 자바 jsp 자바 html';
+
+p = /자바/;
+a = s.replace(p,'java');
+console.log(a);	// web java jsp 자바 html
+
+p = /자바/g;		// g : global match, 전체에서 일치하는 모든 문자 검색. 치환할때 유용
+a = s.replace(p,'java');	
+console.log(a);	// web java jsp java html
+</script>
+</body>
+</html>

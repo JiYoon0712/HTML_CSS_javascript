@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<p>
+	<input type="text" id = "inputText" placeholder="텍스트">
+	<input type="text" id = "inputValue" placeholder="값">
+	<button type="button" onclick="add()">등록</button>
+</p>
+<p>
+	<select id="subject" multiple="multiple" size ="5" style="width:150px;"></select>
+</p>
+
+<p>
+	<button type="button" onclick="remove()">삭제</button>
+	<button type="button" onclick="result()">확인</button>
+</p>
+
+<script type="text/javascript">
+function add(){
+	let t = document.querySelector('#inputText').value;
+	let v = document.querySelector('#inputValue').value;
+	
+	if(!t || !v){
+		document.querySelector('#inputText').focus();
+		return;
+	}
+	
+	const selectEL = document.querySelector('#subject');
+	// select에 새로운 option 추가
+	selectEL[selectEL.length] = new Option(t,v);	//text, value
+	
+	document.querySelector('#inputText').value = '';
+	document.querySelector('#inputValue').value = '';
+	document.querySelector('#inputText').focus();
+}
+
+function remove(){
+	const selectEL = document.querySelector('#subject');
+	
+	let len = selectEL.length;	// 요소의 개수
+	for(let i=0; i<len; i++){
+		if(selectEL.options[i].selected){
+			selectEL[i] = null;	// 삭제
+			i--;
+			len--;
+		}
+	}
+}
+
+function result(){
+	const selectEL = document.querySelector('#subject');
+	let s = '';
+	
+	for(let el of selectEL){
+		if(el.selected){
+			s += el.value + ' ';
+		}
+	}
+	
+	alert(s);
+}
+
+</script>
+</body>
+</html>

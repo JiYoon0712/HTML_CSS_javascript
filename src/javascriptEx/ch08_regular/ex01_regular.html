@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>정규식(regular expression)</h3>
+
+<script type="text/javascript">
+var s, p;
+
+//regrex.test( str ) : 정규식 패턴이 일치하면 true
+
+// 정규식 생성 - 리터널 방식
+p = /ab+c/i;	// i : 대소문자 구분 안함
+s = 'xy abc 12';	
+console.log(p.test(s));	
+
+s = 'xy ab 12';	
+console.log(p.test(s));	// false
+
+// 정규식 생성 - 생성자 방식
+p = new RegExp('ab+c','i');
+s = 'xy abc 12';	
+console.log(p.test(s));	
+
+s = 'xy ab 12';	
+console.log(p.test(s));	// false
+
+
+</script>
+</body>
+</html>

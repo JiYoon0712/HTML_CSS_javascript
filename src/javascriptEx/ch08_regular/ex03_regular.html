@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>정규식(regular expression)</h3>
+
+<script type="text/javascript">
+var s, p;
+p = /a.s/;	// . : 한글자
+s = 'a2s';
+console.log(p.test(s));	// true
+
+s = 'as';
+console.log(p.test(s));	// false
+
+p = /java a*b/;	// * : 앞문자가 0개이상 일치   >> a가 0개 이상
+s = 'java ab';	
+console.log(p.test(s));	// true
+
+s = 'java b';	
+console.log(p.test(s));	// true
+
+s = 'java cb';	
+console.log(p.test(s));	// false
+
+console.log('-------------------------------');
+// 자바로 시작하는 모든 문자
+p = /^자바.*/;
+s = '자바 사랑';
+console.log(p.test(s));	//true
+s= '이자바';
+console.log(p.test(s));	//false
+
+
+//자바로 끝나는 모든 문자
+p = /.*자바$/;
+s = '자바 사랑';
+console.log(p.test(s));	// false
+s= '웹 자바';
+console.log(p.test(s));	// true
+
+
+//자바로 시작하고 웹으로 끝나는 모든 문자
+p = /^자바(.*)웹$/;
+s = '자바 스프링 오라클';
+console.log(p.test(s));	// false
+s= '자바 스프링 웹';
+console.log(p.test(s));	// true
+</script>
+</body>
+</html>

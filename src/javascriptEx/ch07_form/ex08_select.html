@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<form name="myForm">
+	<p> 이름 : <input type="text" name = "name"> </p>
+	<p> 출신도 : 
+		<select name="city">
+			<option>서울</option>
+			<option selected="selected">경기</option>
+			<option>인천</option>
+			<option>기타</option>
+		</select>
+	</p>
+	<p>
+		가장 좋아하는 과목 :
+		<select name="subject">
+			<option value="">:: 선택 ::</option>
+			<option value="java">자바</option>
+			<option value="oracle">오라클</option>
+			<option value="web">웹프로그래밍</option>
+		</select>
+	</p>
+	<p>
+		취미 :
+		<select name="hobby" multiple="multiple">
+			<option value="운동">운동하기</option>
+			<option value="게임">게임하기</option>
+			<option value="영화">영화보기</option>
+			<option value="음악">음악듣기</option>
+			<option value="요리">요리하기</option>
+		</select>
+	</p>
+	<p>
+		<button type="button" onclick="sendOk();">확인</button>
+	</p>
+</form>
+<hr>
+
+<div class="layout"></div>
+
+<script type="text/javascript">
+// > script를 head 사용할때 필요한 코드
+window.addEventListener('load', e => {
+	const f = document.myForm;
+	
+	// f.subject.value = 'java';	// select 박스 항목 선택
+	f.subject[1].selected = true;	
+});
+
+function sendOk(){
+	const f = document.myForm;
+	
+	let name = f.name.value;
+	let city = f.city.value;	// value 속성이 없으면 text 반환
+	let subject = f.subject.value;
+	let h = '';
+	
+	// > multiple 속성이라 배열로 가져와서 처리
+	for(let el of f.hobby){
+		if(el.selected){
+			h += el.value + ' ';
+		}
+	}
+	
+	const layout = document.querySelector('.layout');
+	layout.innerHTML = '이름 : ' + name + '<br>';
+	layout.innerHTML += '출신도 : ' + city + '<br>';
+	layout.innerHTML += '좋아하는 과목 : ' + subject + '<br>';
+	layout.innerHTML += '취미 : ' + h;
+	
+}
+</script>
+
+</body>
+</html>

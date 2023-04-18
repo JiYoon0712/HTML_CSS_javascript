@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<form name="myForm">
+	<p> 이름 : <input type = "text" name ="name"> </p>
+	<p> 나이 : <input type = "number" name ="age" value ="0"> </p>
+	<p> 과목 
+		<input type = "text" name ="subject"> 
+		<input type = "text" name ="subject"> 
+		<input type = "text" name ="subject"> 
+	</p>
+	<p>
+		<button type="button" onclick="sendOk();"> 등록 </button>
+	</p>
+</form>
+
+<script type="text/javascript">
+function sendOk(){
+	const f = document.myForm;
+	let s;
+	
+	if( ! f.name.value ){
+		f.name.focus();
+		return;
+	}
+	
+	if( ! f.age.value ){
+		f.age.focus();
+		return;
+	}
+	
+	s = f.name.value + ', ' + f.age.value + ', ';
+	
+	for(let el of f.subject){
+		if(el.value){
+			s += el.value + '  ';
+		}
+	}
+	
+	alert(s);
+}
+
+</script>
+
+</body>
+</html>

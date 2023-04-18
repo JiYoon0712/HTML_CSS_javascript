@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>정규식(regular expression)</h3>
+
+<script type="text/javascript">
+var p, s;
+
+// 자바 웹 오라클 web 중 하나라도 존재하면 true, 없으면 false 
+p = /(자바|웹|오라클|web)/i;
+s = '프로그래밍 언어 자바 입니다.';
+console.log(p.test(s));
+
+
+// 영문자로 시작하고 영문자와 띄어쓰기만 가능
+// p = /^[a-z][a-z\s]*$/i;
+p = /^(?=[a-z])[a-z\s]*$/i;		// > ?= : 반드시 존재 해야함.  ??
+
+
+</script>
+</body>
+</html>
