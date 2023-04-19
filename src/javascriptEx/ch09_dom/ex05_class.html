@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.layout { width : 300px; padding: 50px; text-align:center; }
+.yb{ background: yellow; }
+.gb{ background: green; }
+.border{ border: 5px dotted gray; }
+</style>
+
+<script type="text/javascript">
+window.addEventListener('load' , () => {
+	// btn1 : 클래스 추가
+	document.querySelector('.btn1').addEventListener('click', () => {
+		const layoutEl = document.querySelector('.layout');
+		
+		// 기존 클래스는 지우고 yb만 설정	> 이렇게 작성해서는 안됨.
+		// layoutEl.className = 'yb';
+		
+		// layoutEl.className += ' yb';	// > 앞에 띄어쓰기 필요. 기존 클래스에 더해줌. 그렇지만 프로그램이 없어보임.
+		
+		// classList : 읽기전용으로 클래스의 속성의 컬렉션
+		// layoutEl.classList.add('yb');	// 클래스 추가
+		// layoutEl.classList.add('border');
+		
+		layoutEl.classList.add('yb', 'border');
+	});
+	
+	
+	// btn2 : 클래스 토글
+	document.querySelector('.btn2').addEventListener('click', () => {
+		const layoutEl = document.querySelector('.layout');
+		
+		layoutEl.classList.toggle('border');
+		
+		// > 조건에 맞춰 클래스를 추가하고 싶은 경우. 사용하기 편리하다.
+		// let n = 15;
+		// layoutEl.classList.toggle('gb',n<10);	// n이 10보다 적으면 gb라는 클래스 추가
+	});
+	
+	
+	// btn3 : 클래스 제거
+	document.querySelector('.btn3').addEventListener('click', () => {
+		const layoutEl = document.querySelector('.layout');
+		
+		// layoutEl.classList.remove('yb');
+		// layoutEl.classList.remove('border');
+		
+		layoutEl.classList.remove('border', 'yb');
+	});
+	
+	
+	// btn4 : 클래스 존재 여부
+	document.querySelector('.btn4').addEventListener('click', () => {
+		const layoutEl = document.querySelector('.layout');
+		
+		let b = layoutEl.classList.contains('border');
+		alert(b);
+	});
+	
+	
+	// btn5 : 클래스 교체
+	document.querySelector('.btn5').addEventListener('click', () => {
+		const layoutEl = document.querySelector('.layout');
+		
+		layoutEl.classList.replace('yb', 'gb');
+			// 없으면 교체하지 않음 (yb가 없다면 바뀌지 않음)
+		
+	});
+});
+
+</script>
+</head>
+<body>
+
+<h3> class 속성 </h3>
+
+<div class="layout">클래스 추가 및 삭제</div>
+<hr>
+
+<p>
+	<button type="button" class="btn1">클래스 추가</button>
+	<button type="button" class="btn2">클래스 토글</button>
+	<button type="button" class="btn3">클래스 제거</button>
+	<button type="button" class="btn4">클래스 존재 여부</button>
+	<button type="button" class="btn5">클래스 교체</button>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>localStorage</h3>
+
+<p>
+	<input type="text" id="subject" placeholder="좋아하는 과목">
+	<button type="button" onclick="addSubject()">추가</button>
+	<button type="button" onclick="deleteSubject()">삭제</button>
+</p>
+
+<div id="log"></div>
+
+<script type="text/javascript">
+viewSubject();
+
+function viewSubject(){
+   let ss = JSON.parse(localStorage.getItem('subject')) || [];   // > || [] 를 안해주면 값이 없으면 null이 됨. > 아래 null과 조인을 하면 에러
+   let s = ss.join();
+   document.querySelector("#log").innerHTML = s;
+}
+
+function addSubject(){
+   const inputEl = document.querySelector("#subject");
+   let s = inputEl.value.trim();
+   if(!s){
+      inputEl.focus();
+      return;
+   }
+   
+   // > parse : 문자열을 자바스크립트 객체로 만들어 주는 것
+   let ss = JSON.parse(localStorage.getItem('subject')) || [];	// > 
+   // let subject = localStorage.subject;
+   // let ss = subject ? SON.parse(subject) : [] ;
+   
+   ss.push(s);	// > push() : 배열 맨 뒤에 저장
+   
+   // > JSON.stringify() : 자바스크립트 객체를 JSON 형식의 문자열로 만들어줌.
+   localStorage.setItem('subject', JSON.stringify(ss));
+   
+   inputEl.value = "";
+   inputEl.focus();
+   
+   viewSubject();
+}
+
+function deleteSubject(){
+	const inputEl = document.querySelector("#subject");
+	let s = inputEl.value.trim();
+	
+	if( s ){
+		let ss = JSON.parse(localStorage.getItem('subject')) || [];
+		
+		let idx = ss.indexOf(s);
+		if(idx === -1){
+			return;
+		}
+		
+		ss.splice(idx,1);	// idx 위치의 항목 하나 지우기
+		
+		localStorage.setItem('subject', JSON.stringify(ss));
+		
+		inputEl.value ="";
+		
+	} else {
+		localStorage.removeItem('subject');
+	}
+   
+	viewSubject();
+}
+
+</script>
+
+
+</body>
+</html>

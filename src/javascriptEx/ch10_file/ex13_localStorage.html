@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<style type="text/css">
+.list li { cursor: pointer; }
+.list li:hover:after, .list li.chk:after { content: '\2605'; color: skyblue; }
+.list li.chk:hover:after{ color:pink; content:'\2605'; }
+</style>
+
+</head>
+<body>
+
+<ul class="list">
+	<li id="java">자바</li>
+	<li id="oracle">오라클</li>
+	<li id="html">HTML</li>
+	<li id="javascript">자바스크립트</li>
+	<li id="spring">스프링</li>
+	<li id="css">CSS</li>
+</ul>
+
+
+<script type="text/javascript">
+let language = JSON.parse(localStorage.getItem('language')) || [];
+
+language.forEach( (item) => document.getElementById(item).classList.add('chk') );
+
+document.querySelector('.list').addEventListener('click',function(e) {
+	let id = e.target.id;
+	let item = e.target;
+	let index = language.indexOf(id);
+	
+	if(index === -1){
+		language.push(id);
+		item.classList.add('chk');
+	} else{
+		language.splice(index, 1);
+		item.classList.remove('chk');
+	}
+	
+	localStorage.setItem('language',JSON.stringify(language));
+});
+
+</script>
+
+
+</body>
+</html>

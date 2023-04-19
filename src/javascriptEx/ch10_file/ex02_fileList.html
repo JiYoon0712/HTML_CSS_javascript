@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3> File List </h3>
+
+<p>
+	<input type="file" id="selectFile" multiple="multiple">
+</p>
+
+<script type="text/javascript">
+var allfiles = function(){
+	const fileInput = document.querySelector('#selectFile');
+	const files = fileInput.files;
+	
+	for(let i=0; i<files.length; i++){	// > length : 파일 개수
+		let f = files[i];
+		console.log(f.name);	// > f.name : 파일 이름
+		console.log(f);			// > f: 파일 정보 
+	}
+};
+
+document.querySelector('#selectFile').onchange = allfiles;
+</script>
+</body>
+</html>

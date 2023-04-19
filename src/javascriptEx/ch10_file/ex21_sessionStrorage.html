@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>sessionStrorage</h3>
+<!-- 
+  - 세션 동안만 유지
+  - 유효범위와 보존기간이 있음
+  - 같은 브라우저도 탭마다 세션이 달라 다른 스트로지 생성
+  - 도메인마다 따로 생성
+-->
+
+<p>
+	<button type="button" onclick="incCount()">증가</button>
+	<button type="button" onclick="delCount()">삭제</button>
+</p>
+
+<div id="log"></div>
+
+
+<script type="text/javascript">
+viewCount();
+
+function viewCount(){
+	let cnt = sessionStorage.count;
+	cnt = cnt ? cnt : "";
+	document.querySelector("#log").innerHTML = '카운트 : ' + cnt;
+}
+
+function incCount(){
+	let cnt = sessionStorage.count;
+	cnt = cnt ? Number(cnt) + 1 : 1;
+	
+	sessionStorage.count = cnt;
+	
+	viewCount();
+}
+
+
+function delCount(){
+	delete sessionStorage.count;
+	
+	viewCount();
+}
+
+</script>
+
+</body>
+</html>

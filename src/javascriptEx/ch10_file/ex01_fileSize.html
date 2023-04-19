@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>파일 용량</h3>
+
+<form name="frm">
+	<p> <input type="file" name="selectFile" multiple="multiple"> </p>
+	<p> <button type="button" onclick="sendOk();">등록하기</button> </p>
+</form>
+
+<script type="text/javascript">
+function checkFilesize(file){
+	let maxSize = 10 * 1024 * 1024;
+	
+	let size = 0;
+	// size = file.files[0].size;
+	for(let f of file.files){	// > 배열 개념
+		size += f.size;			// > size : 파일 크기
+	}
+	// console.log(size + 'byte');
+	
+	return maxSize >= size ;
+}
+
+function sendOk(){
+	const f = document.frm;
+	
+	if( ! f.selectFile.value ){
+		alert('파일은 필수입니다.');
+		f.selectFile.focus();
+		return;
+	}
+	
+	if( ! checkFilesize(f.selectFile) ){
+		alert('파일은 10MB까지만 가능합니다.');
+		f.selectFile.focus();
+		return;
+	}
+	
+	alert('ok');
+}
+</script>
+
+</body>
+</html>

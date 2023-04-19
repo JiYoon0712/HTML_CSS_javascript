@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.image-preViewer{ width: 200px; height: 200px; margin-top: 5px; margin-bottom: 5px; }
+.image-preViewer img{ max-width : 100% };
+</style>
+
+<script type="text/javascript">
+//이미지 파일이면 true, 아니면 false를 반환
+function isValidImageFile(filename){
+	var p = /(\.gif|\.jpg|\.jpeg|\.png)$/i;
+	
+	return p.test(filename);
+}
+
+function sendOk(){
+	const f = document.frm;
+	
+	if( ! isValidImageFile(f.selectFile.value) ){
+		alert('이미지 파일만 가능합니다.');
+		f.selectFile.focus();
+		return;
+	}
+	
+	alert('ok');
+}
+
+function imagePreview(inputEl){
+	const file = inputEl.files[0];
+	if(! file.type.match("image.*")){
+		inputEl.focus();
+		return;
+	}
+	
+	let reader = new FileReader();
+	reader.onload = function(e){
+		document.querySelector('#imgPreView').setAttribute('src', e.target.result);
+	};
+	
+	reader.readAsDataURL(file);
+}
+
+</script>
+</head>
+<body>
+
+<h3>이미지 미리보기</h3>
+
+<form name="frm">
+	<p>
+		<input type="file" name = "selectFile" onchange="imagePreview(this)">
+	</p>
+	<div class="image-preViewer">
+			<img id="imgPreView">
+	</div>
+	<p>
+		<button type="button" onclick="sendOk();">등록</button>
+	</p>
+</form>
+
+</body>
+</html>

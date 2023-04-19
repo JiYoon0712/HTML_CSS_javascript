@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+
+<h3>텍스트 파일 저장(다운로드)</h3>
+
+<p>
+	<textarea rows="10" cols="50" id="content"></textarea>
+</p>
+<p>
+	<button type="button" onclick="result()">저장</button>
+</p>
+
+<script type="text/javascript">
+// 다운로드
+function saveTextFile(filename, text){
+	let aEL = document.createElement('a');
+	
+	aEL.setAttribute('href', 'data:text/plain; charset=utf-8,' + encodeURIComponent(text));	// > encodeURIComponent : 주소 형식으로 인코딩
+	aEL.setAttribute('download', filename);
+	aEL.style.display = 'none';
+	document.body.appendChild(aEL);
+	aEL.click();
+	document.body.removeChild(aEL);
+}
+
+function result(){
+	const EL = document.querySelector('#content');
+	if( !EL.value.trim() ){
+		EL.focus();
+		return;
+	}
+	
+	saveTextFile('ex.txt', EL.value);
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+.container {
+	width: 500px; margin: 30px auto;
+}
+
+.image-container {
+	display : grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 5px;
+	width: 450px;
+	margin : 10px 0;
+}
+
+.image{ 
+	object-fit : cover;
+	width: 150px;
+	height: 100px;
+}
+</style>
+
+<script type="text/javascript">
+function sendOk(){
+	const f = document.frm;
+	
+	if( ! f.selectFile.value ){
+		alert('하나이상의 파일을 선택하세요');
+		f.selectFile.focus();
+		return;
+	}
+	
+	alert('ok');
+}
+
+function imageFilePreview(inputEL){
+	const divEl = document.querySelector('.image-container');
+	divEl.innerHTML = "";
+	
+	if(inputEL.files){
+		for(let f of inputEL.files){	
+			const reader = new FileReader();
+			const imgEL = document.createElement('img');
+			imgEL.classList.add('image');
+			
+			reader.onload = e => {
+				imgEL.src = e.target.result;	// > 읽어들이는 파일 
+												// > src :  외부 스크립트 파일의 URL을 명시
+			};
+			reader.readAsDataURL(f);
+			
+			divEl.appendChild(imgEL);
+		}	
+	}
+}
+
+
+</script>
+
+</head>
+<body>
+
+<h3>이미지 미리보기 - 다중파일</h3>
+
+<div class="container">
+	<form name="frm">
+		<p>
+			<input type="file" name="selectFile" accept="image/*"
+				multiple="multiple" onchange="imageFilePreview(this)">
+		</p>
+		<div class="image-container"></div>
+		<p>
+			<button type="button" onclick="sendOk();">등록하기</button>
+		</p>
+
+
+	</form>
+</div>
+
+</body>
+</html>
