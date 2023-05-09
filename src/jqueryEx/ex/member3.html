@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+<style type="text/css">
+* { padding: 0; margin: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+
+body {
+	font-family:"Malgun Gothic", "맑은 고딕", NanumGothic, 나눔고딕, 돋움, sans-serif;
+	font-size: 14px;
+	color: #222;
+}
+
+a { color: #222; text-decoration: none; cursor: pointer; }
+a:active, a:hover { color: #f28011; text-decoration: underline; }
+
+/* form-control */
+.btn {
+	color: #333;
+	border: 1px solid #999;
+	background-color: #fff;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-weight: 500;
+	cursor:pointer;
+	font-size: 14px;
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.btn:active, .btn:focus, .btn:hover {
+	background-color: #f8f9fa;
+	color:#333;
+}
+.btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: default;
+	opacity: .65;
+}
+
+.form-control {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 5px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-control[readonly] { background-color:#f8f9fa; }
+
+textarea.form-control { height: 170px; resize : none; }
+
+.form-select {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 4px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-select[readonly] { background-color:#f8f9fa; }
+
+textarea:focus, input:focus { outline: none; }
+input[type=checkbox], input[type=radio] { vertical-align: middle; }
+
+/* table */
+.table { width: 100%; border-spacing: 0; border-collapse: collapse; }
+.table th, .table td { padding-top: 10px; padding-bottom: 10px; }
+
+.table-border thead > tr { border-top: 2px solid #212529; border-bottom: 1px solid #ced4da; }
+.table-border tbody > tr { border-bottom: 1px solid #ced4da; }
+.table-border tfoot > tr { border-bottom: 1px solid #ced4da; }
+.td-border td { border: 1px solid #ced4da; }
+
+/* container */
+.body-container { width: 700px; margin: 30px auto 10px; }
+
+.body-title {
+    margin: 0 0 25px 0;
+    padding-top: 25px; padding-bottom: 5px;
+    color: #424951;
+    border-bottom: 1px solid #ddd;
+}
+.body-title h3 {
+    min-width: 300px;
+    margin: 0 0 -5px 0;
+    padding-bottom: 5px;
+    font-size: 23px;
+    font-family:"Malgun Gothic", "맑은 고딕", NanumGothic, 나눔고딕, 돋움, sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: 3px solid #424951;
+}
+
+.table-form td { padding: 7px 0; }
+.table-form caption { text-align:left; font-size:15px; font-weight: 700; margin-bottom:10px; }
+.table-form tr td:first-child{ text-align: right; width: 120px; font-weight: 700; vertical-align: top; }
+.table-form tr td:nth-child(2) { text-align: left; padding-left: 10px; }
+
+.step:before { content:" ㆍ "; }
+.step:after { content:" - "; }
+
+.inputLayout {
+   width: 98%; min-height: 30px; margin: 10px auto 0; padding: 10px; border: 1px solid #212529; }
+.inputLayout td p { padding-bottom: 5px; }
+
+.inputLayout input[type=text]:focus, .inputLayout input[type=date]:focus, .inputLayout input[type=password]:focus {
+	border: 1px solid #222; }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+
+<div class="body-container">
+	<div class="body-title">
+		<h3><i class="fa-solid fa-user-plus"></i> 회원 가입 </h3>
+	</div>
+
+	<form name="memberForm" method="post">
+		<div class="inputLayout required">
+			<table class="tab table-form">
+				<caption><span class="step">1 단계</span><span>이메일 인증</span></caption>
+				<tr>
+					<td>이름</td>
+					<td>
+						<p>
+							<input type="text" name="userName" maxlength="30" class="form-control" style="width: 95%;" placeholder="이름">
+						</p>
+					</td>
+				</tr>
+				
+				 <tr>
+				     <td>이메일</td>
+				     <td>
+						<p>
+							<input type="text" name="email1" maxlength="30" class="form-control" size="20">
+							@ 
+							<input type="text" name="email2" maxlength="50" class="form-control" size="25" >
+							<button type="button" class="btn">인증받기</button>
+						</p>
+						<p class="help-block">인증 받기 버튼을 클릭하면 입력하신 이메일에서 인증번호를 확인 할 수 있습니다.</p>
+				     </td>
+				</tr>
+				
+				<tr>
+				     <td>인증번호</td>
+				     <td>
+				       <p>
+				           <input type="text" name="verificationCode" maxlength="30" class="form-control" style="width: 95%;" placeholder="이메일 인증번호">
+				      </p>
+				    </td>
+				</tr>
+			</table>
+		</div>
+			
+		<div class="inputLayout required">
+			<table class="table table-form">
+				<caption><span class="step">2 단계</span><span>필수 입력 사항</span></caption>
+				
+				<tr>
+					<td>아이디</td>
+					<td>
+						<p>
+							<input type="text" name="userId" id="userId" style="width: 95%;" maxlength="15" class="form-control" placeholder="아이디">
+						</p>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>패스워드</td>
+					<td>
+						<p>
+							<input type="password" name="userPwd" maxlength="15" class="form-control" style="width:95%;" placeholder="패스워드">
+						</p>
+						<p class="help-block">패스워드는 5~10자 이내이며, 하나 이상의 숫자나 특수문자가 포함되어야 합니다.</p>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>패스워드 확인</td>
+					<td>
+						<p>
+							<input type="password" name="userPwdCheck" maxlength="15" class="form-control" style="width: 95%;" placeholder="패스워드 확인">
+						</p>
+						<p class="help-block">패스워드를 한번 더 입력해주세요.</p>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>생년월일</td>
+					<td>
+						<p>
+							<input type="text" name="birth" maxlength="10" class="form-control" style="width: 95%;" placeholder="생년월일">
+						</p>
+						<p class="help-block">생년월일은 2000-01-01 형식으로 입력 합니다.</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+			
+		<div class="inputLayout">
+			<table class="table table-form">
+				<caption><span class="step">3 단계</span><span>선택 입력 사항</span></caption>
+			
+				<tr>
+					<td>전화번호</td>
+					<td>
+						<p>
+							<input type="text" name="tel1" class="form-control" maxlength="3" style="width: 28%;">
+							-
+							<input type="text" name="tel2" class="form-control" maxlength="4" style="width: 28%;">
+							-
+							<input type="text" name="tel3" class="form-control" maxlength="4" style="width: 28%;">
+						</p>
+					</td>
+				</tr>
+			
+				<tr>
+					<td>우편번호</td>
+					<td>
+						<p>
+							<input type="text" name="zip" id="zip" class="form-control" readonly="readonly" style="width: 28%;">
+							<button type="button" class="btn">우편번호</button>          
+						</p>
+					</td>
+				</tr>
+			
+				<tr>
+					<td>주소</td>
+					<td>
+						<p>
+							<input type="text" name="addr1" id="addr1" maxlength="50" class="form-control" style="width: 95%;" placeholder="기본 주소" readonly="readonly">
+						</p>
+						<p>
+							<input type="text" name="addr2" id="addr2" maxlength="50" class="form-control" style="width: 95%;" placeholder="나머지 주소">
+						</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+			
+		<div class="inputLayout">
+			<table class="table table-form">
+				<caption><span class="step">4 단계</span><span>약관 동의</span></caption>
+			
+				<tr>
+					<td>개인정보 수집</td>
+					<td>
+						<p>
+							<textarea class="form-control" style="height: 50px; width: 95%">개인정보 수집에 관한 사항입니다.</textarea>
+						</p>
+						<p>
+							<label>
+								<input id="personal" name="personal" type="checkbox" checked="checked"> 개인정보 수집에 동의합니다.
+							</label>
+						</p>
+					</td>
+				</tr>
+				
+				<tr>
+				    <td>약관동의</td>
+				    <td>
+						<p>
+							<textarea class="form-control" style="height: 50px; width: 95%; font-size: 13px;">이용약관에 관한 사항입니다.</textarea>
+						</p>
+						<p>
+							<label>
+								<input id="agree" name="agree" type="checkbox" checked="checked"> 이용약관에 동의합니다.
+							</label>
+						</p>
+				    </td>
+				</tr>
+			</table>
+		</div>
+			
+		<div>
+			<table class="table">
+				 <tr> 
+					<td align="center" >
+						<button type="button" id="btnPrev" class="btn">가입취소</button>
+						<button type="button" id="btnNext" class="btn">회원가입</button>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" style="color: blue;">${message}</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+
+</div>
+
+</body>
+</html>

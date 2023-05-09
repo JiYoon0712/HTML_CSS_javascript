@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<style type="text/css">
+* { padding: 0; margin: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+
+body {
+	font-family:"Malgun Gothic", "맑은 고딕", NanumGothic, 나눔고딕, 돋움, sans-serif;
+	font-size: 14px;
+	color: #222;
+}
+
+a { color: #222; text-decoration: none; cursor: pointer; }
+a:active, a:hover { color: #f28011; text-decoration: underline; }
+
+/* form-control */
+.btn {
+	color: #333;
+	border: 1px solid #999;
+	background-color: #fff;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-weight: 500;
+	cursor:pointer;
+	font-size: 14px;
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.btn:active, .btn:focus, .btn:hover {
+	background-color: #f8f9fa;
+	color:#333;
+}
+.btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: default;
+	opacity: .65;
+}
+
+.form-control {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 5px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-control[readonly] { background-color:#f8f9fa; }
+
+textarea.form-control { height: 170px; resize : none; }
+
+.form-select {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 4px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-select[readonly] { background-color:#f8f9fa; }
+
+textarea:focus, input:focus { outline: none; }
+input[type=checkbox], input[type=radio] { vertical-align: middle; }
+
+/* table */
+.table { width: 100%; border-spacing: 0; border-collapse: collapse; }
+.table th, .table td { padding-top: 10px; padding-bottom: 10px; }
+
+.table-border thead > tr { border-top: 2px solid #212529; border-bottom: 1px solid #ced4da; }
+.table-border tbody > tr { border-bottom: 1px solid #ced4da; }
+.table-border tfoot > tr { border-bottom: 1px solid #ced4da; }
+.td-border td { border: 1px solid #ced4da; }
+
+ul { list-style: none; }
+li { padding: 0; }
+p { line-height: 1.3; }
+
+h2 { margin: 30px; }
+
+.container { width: 700px; margin: 30px auto; }
+
+.box { 
+	width: 350px; min-height: 50px;
+	padding: 15px; margin: 20px auto;
+	border: 3px dotted gray;
+}
+
+.box p { margin-bottom: 10px; }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript">
+
+
+
+/*
+-- 프로퍼티 설정 / 반환
+.attr() : 선택한 요소 집합의 첫 번째 요소의 지정된 속성(attribute)값을 반환하거나, 선택한 요소의 지정된 속성을 전달받은 값으로 설정한다.
+.prop() : 선택한 요소 집합의 첫 번째 요소의 지정된 프로퍼티(property)값을 반환하거나, 선택한 요소의 지정된 프로퍼티를 전달받은 값으로 설정한다.
+.removeAttr() : 선택한 요소에서 지정된 속성(attribute)을 제거한다.
+.removeProp() : 선택한 요소에서 지정된 프로퍼티(property)를 제거한다.
+
+-- attr() 와 prop() 비교
+  var s = $("#chk").attr("checked"); => "checked"/undefined 반환 => HTML의 텍스트 적인 속성을 설정하거나 리턴
+  var s = $("#chk").prop("checked"); => true/false 반환 => 객체의 자바스크립트 속성을 설정하거나 리턴(Boolean)
+  var s = $("#chk").is(":checked"); => true/false 반환 => 선택여부 확인
+
+-- readonly, disabled 속성 설정은 .attr()로 가능 하지만 .prop()를 사용한다.
+  $("form input[name=subject]").attr("readonly", "readonly");
+  $("form input[name=subject]").attr("disabled", "disabled");
+
+-- checkbox의 checked, select option의 selected는 반드시 .prop()를 사용. attr() 사용시 문제가 발생할 수 있다.
+  $("form input[name=subject]").prop("readonly", true);
+  $("form input[name=subject]").prop("disabled", true);
+  $("form input[name=chk]").prop("checked", true);
+  $("form select[name=city] option").prop("selected", true);
+*/
+</script>
+
+</head>
+<body>
+
+<h2>Attributes(속성)</h2>
+
+<div style="margin: 20px;">
+	<button type="button" class="btn btn1"> 속성 설정 </button>
+	<button type="button" class="btn btn2"> 속성 확인 </button>
+	<button type="button" class="btn btn3"> 속성 해제 </button>
+</div>
+<hr>
+
+<div class="box">
+	<form>
+		<p><label>학번 : <input type="text" name="hak" value="1111"></label></p>
+		<p><label>이름 : <input type="text" name="name" value="홍길동"></label></p>
+		<p><label>메일수신 : <input type="checkbox" name="receiveMail" value="y"></label></p>
+		<div><label>사진 : <img id="photo" width="100" height="100" style="vertical-align: top;"></label></div>
+	</form>
+</div>
+
+<div class="box result-box"></div>
+
+</body>
+</html>

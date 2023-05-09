@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<style type="text/css">
+* { padding: 0; margin: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+
+body {
+	font-family:"Malgun Gothic", "맑은 고딕", NanumGothic, 나눔고딕, 돋움, sans-serif;
+	font-size: 14px;
+	color: #222;
+}
+
+a { color: #222; text-decoration: none; cursor: pointer; }
+a:active, a:hover { color: #f28011; text-decoration: underline; }
+
+/* form-control */
+.btn {
+	color: #333;
+	border: 1px solid #999;
+	background-color: #fff;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-weight: 500;
+	cursor:pointer;
+	font-size: 14px;
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.btn:active, .btn:focus, .btn:hover {
+	background-color: #f8f9fa;
+	color:#333;
+}
+.btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: default;
+	opacity: .65;
+}
+
+.form-control {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 5px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-control[readonly] { background-color:#f8f9fa; }
+
+textarea.form-control { height: 170px; resize : none; }
+
+.form-select {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 4px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-select[readonly] { background-color:#f8f9fa; }
+
+textarea:focus, input:focus { outline: none; }
+input[type=checkbox], input[type=radio] { vertical-align: middle; }
+
+/* table */
+.table { width: 100%; border-spacing: 0; border-collapse: collapse; }
+.table th, .table td { padding-top: 10px; padding-bottom: 10px; }
+
+.table-border thead > tr { border-top: 2px solid #212529; border-bottom: 1px solid #ced4da; }
+.table-border tbody > tr { border-bottom: 1px solid #ced4da; }
+.table-border tfoot > tr { border-bottom: 1px solid #ced4da; }
+.td-border td { border: 1px solid #ced4da; }
+
+ul { list-style: none; }
+li { padding: 0; }
+p { line-height: 1.3; }
+
+h2 { margin: 30px; }
+
+.container { width: 700px; margin: 30px auto; }
+
+.box { 
+	width: 350px; min-height: 50px;
+	padding: 15px; margin: 20px auto;
+	border: 3px dotted gray;
+}
+
+.ps {
+	padding: 5px; margin-bottom: 5px;
+	font-size: 15px; color: #fff;
+	background: #333;
+}
+
+.inner-box {
+	width: 300px; min-height: 150px;
+	margin: 5px auto; padding: 15px; 
+	border: 3px dotted green;
+}
+
+.item1, .item2 {
+	cursor: pointer;
+	font-weight: bold;
+}
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript">
+
+
+/*
+-- 형제(sibling) 요소의 선택
+  .siblings( [selector] ) : 선택한 요소의 형제(sibling) 요소 중에서 지정한 선택자에 해당하는 요소를 모두 선택한다.
+  .next( [selector] ) : 선택한 요소의 바로 다음에 위치한 형제 요소를 선택한다.
+  .nextAll( [selector] ) : 선택한 요소의 다음에 위치한 형제 요소를 모두 선택한다.
+  .nextUntil( [selector] [,filter] ) : 선택한 요소의 형제 요소 중에서 지정한 선택자에 해당하는 요소 바로 이전까지의 요소를 모두 선택한다.
+  .prev( [selector] ) : 선택한 요소의 바로 이전에 위치한 형제 요소를 선택한다.
+  .prevAll( [selector] ) : 선택한 요소의 이전에 위치한 형제 요소를 모두 선택한다.
+  .prevUntil( [selector] [,filter] ) : 선택한 요소의 형제 요소 중에서 지정한 선택자에 해당하는 요소 바로 다음까지의 요소를 모두 선택한다.
+*/
+</script>
+
+</head>
+<body>
+
+<h2>탐색(Traversing)</h2>
+
+<div class="box">
+	<div class="inner-box">
+		<p class="ps" data-subject="프로그래밍">
+			<label>프로그래밍</label>
+		</p>
+		<ul>
+			<li>자바</li>
+			<li>스프링</li>
+			<li class="item1">파이썬</li>
+			<li>C</li>
+			<li>C++</li>
+			<li>Unix C</li>
+		</ul>		
+	</div>
+	<div class="inner-box">
+		<p class="ps" data-subject="웹 프로그래밍">
+			<label>웹 프로그래밍</label>
+		</p>
+		<ul>
+			<li>자바스크립트</li>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li class="item2">Node.js</li>
+			<li>JSP</li>
+			<li>ASP.NET</li>
+			<li>PHP</li>
+		</ul>		
+	</div>
+</div>
+
+</body>
+</html>

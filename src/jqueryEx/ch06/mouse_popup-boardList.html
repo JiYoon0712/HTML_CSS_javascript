@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+<style type="text/css">
+* { padding: 0; margin: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+
+body {
+	font-family:"Malgun Gothic", "맑은 고딕", NanumGothic, 나눔고딕, 돋움, sans-serif;
+	font-size: 14px;
+	color: #222;
+}
+
+a { color: #222; text-decoration: none; cursor: pointer; }
+a:active, a:hover { color: #f28011; text-decoration: underline; }
+
+/* form-control */
+.btn {
+	color: #333;
+	border: 1px solid #999;
+	background-color: #fff;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-weight: 500;
+	cursor:pointer;
+	font-size: 14px;
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.btn:active, .btn:focus, .btn:hover {
+	background-color: #f8f9fa;
+	color:#333;
+}
+.btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: default;
+	opacity: .65;
+}
+
+.form-control {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 5px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-control[readonly] { background-color:#f8f9fa; }
+
+textarea.form-control { height: 170px; resize : none; }
+
+.form-select {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 4px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-select[readonly] { background-color:#f8f9fa; }
+
+textarea:focus, input:focus { outline: none; }
+input[type=checkbox], input[type=radio] { vertical-align: middle; }
+
+/* table */
+.table { width: 100%; border-spacing: 0; border-collapse: collapse; }
+.table th, .table td { padding-top: 10px; padding-bottom: 10px; }
+
+.table-border thead > tr { border-top: 2px solid #212529; border-bottom: 1px solid #ced4da; }
+.table-border tbody > tr { border-bottom: 1px solid #ced4da; }
+.table-border tfoot > tr { border-bottom: 1px solid #ced4da; }
+.td-border td { border: 1px solid #ced4da; }
+
+ul { list-style: none; }
+li { padding: 0; }
+p { line-height: 1.3; }
+
+h2 { margin: 30px; }
+
+.container { width: 700px; margin: 30px auto; }
+
+.box { 
+	width: 350px; min-height: 50px;
+	padding: 15px; margin: 20px auto;
+	border: 3px dotted gray;
+}
+
+.board-title {
+	width:100%;
+	height:45px;
+	line-height:45px;
+	text-align:left;
+	font-weight: bold;
+	font-size:15px;
+}
+
+.board-paging {
+	margin-top: 10px;
+	clear:both;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+}
+
+.board-list tr { border-bottom: 1px solid #777; text-align: center; }
+.board-list tr:first-child { border-top: 3px solid #777; background: #eee; }
+.board-list tr:last-child { border-bottom: 2px solid #777; }
+.board-list tr td:nth-child(2) { padding-left: 10px; text-align: left; }
+
+.popup-dialog {
+	box-sizing: border-box;
+	padding: 5px;
+	width: 300px;
+	min-height: 80px;
+	border: 1px solid #ccc;
+	display: none;
+	background: #fff;
+}
+.popup-dialog .popup-header{
+	box-sizing: border-box;
+	width: 290px;
+	height: 25px;
+	line-height: 25px;
+	border: 1px solid #999;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.popup-title{
+	box-sizing: border-box;
+	float: left;
+	width: 265px;
+	font-size: 11px;
+	color: #333;
+}
+.popup-close {
+	box-sizing: border-box;
+	float: right;
+	cursor: pointer;
+}
+.popup-dialog .popup-body {
+	clear:both;
+	box-sizing: border-box;
+	padding: 5px;
+	width: 290px;
+	height: 50px;
+	font-size: 11px;
+	color: #333;	
+}
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript">
+
+
+
+</script>
+</head>
+<body>
+
+<div class="container">
+
+	<div class="board-title">
+	    <h3><span>|</span> 게시판</h3>
+	</div>
+
+	<table class="table">
+	   <tr>
+		  <td align="left" width="50%">
+		  	&nbsp;
+		  </td>
+		  <td align="right">
+			 <select name="rows" id="rows" class="form-select">
+				   <option value="5">5개씩 출력</option>
+				   <option value="10" selected="selected">10개씩 출력</option>
+				   <option value="20">20개씩 출력</option>
+				   <option value="30">30개씩 출력</option>
+				   <option value="50">50개씩 출력</option>
+			 </select>
+		  </td>
+	   </tr>
+	</table>
+
+	<form name="listForm" method="post">
+	<table class="table board-list">
+	  <tr> 
+        <th width="60">번호</th>
+        <th>제목</th>
+        <th width="100">작성자</th>
+        <th width="80">작성일</th>
+        <th width="60">조회수</th>
+	  </tr>
+	  
+	  <tr>
+		  <td>5</td>
+		  <td>
+			   <a href="">스프링 강좌...</a>
+		  </td>
+		  <td>스프링</td>
+		  <td>2021-05-03</td>
+		  <td>1</td>
+	  </tr>
+	  
+	  <tr>
+		  <td>4</td>
+		  <td>
+			   <a href="">오라클 강좌...</a>
+		  </td>
+		  <td>나디비</td>
+		  <td>2021-05-02</td>
+		  <td>1</td>
+	  </tr>
+
+	  <tr>
+		  <td>3</td>
+		  <td>
+			   <a href="">CSS 강좌...</a>
+		  </td>
+		  <td>홍길동</td>
+		  <td>2021-05-02</td>
+		  <td>1</td>
+	  </tr>
+	 
+	  <tr>
+		  <td>2</td>
+		  <td>
+			   <a href="">HTML 강좌...</a>
+		  </td>
+		  <td>홍길동</td>
+		  <td>2021-05-01</td>
+		  <td>1</td>
+	  </tr>
+
+	  <tr> 
+		  <td>1</td>
+		  <td>
+			   <a href="">자바 강좌...</a>
+		  </td>
+		  <td>김자바</td>
+		  <td>2021-05-01</td>
+		  <td>1</td>
+	  </tr>
+	</table>
+	</form>
+	
+	<div class="board-paging">
+		<a href="#">1</a>
+		<a href="#">2</a>
+    </div>
+
+	<table class="table">
+	   <tr>
+		  <td align="left" width="50%">
+			<form name="searchForm" action="" method="post">
+				<select name="condition" class="form-select">
+					  <option value="all">제목+내용</option>
+					  <option value="subject">제목</option>
+					  <option value="name">작성자</option>
+					  <option value="content">내용</option>
+					  <option value="created">등록일</option>
+				</select>
+				<input type="text" name="keyword" class="form-control">
+				<input type="button" value=" 검 색 " class="btn">
+			</form>
+		  </td>
+		  <td align="right">
+			  <input type="button" value=" 글올리기 " class="btn">
+		  </td>
+	   </tr>
+	</table>
+
+</div>
+
+<div class="popup-dialog">
+	<div class="popup-header">
+		<div class="popup-title">내용</div>
+		<div class="popup-close"><i class="fas fa-times" style="color: #999;"></i></div>
+	</div>
+	<div class="popup-body"></div>
+</div>
+
+</body>
+</html>

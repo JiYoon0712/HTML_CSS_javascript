@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<style type="text/css">
+* { padding: 0; margin: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+
+body {
+	font-family:"Malgun Gothic", "맑은 고딕", NanumGothic, 나눔고딕, 돋움, sans-serif;
+	font-size: 14px;
+	color: #222;
+}
+
+a { color: #222; text-decoration: none; cursor: pointer; }
+a:active, a:hover { color: #f28011; text-decoration: underline; }
+
+/* form-control */
+.btn {
+	color: #333;
+	border: 1px solid #999;
+	background-color: #fff;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-weight: 500;
+	cursor:pointer;
+	font-size: 14px;
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.btn:active, .btn:focus, .btn:hover {
+	background-color: #f8f9fa;
+	color:#333;
+}
+.btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: default;
+	opacity: .65;
+}
+
+.form-control {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 5px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-control[readonly] { background-color:#f8f9fa; }
+
+textarea.form-control { height: 170px; resize : none; }
+
+.form-select {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 4px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-select[readonly] { background-color:#f8f9fa; }
+
+textarea:focus, input:focus { outline: none; }
+input[type=checkbox], input[type=radio] { vertical-align: middle; }
+
+/* table */
+.table { width: 100%; border-spacing: 0; border-collapse: collapse; }
+.table th, .table td { padding-top: 10px; padding-bottom: 10px; }
+
+.table-border thead > tr { border-top: 2px solid #212529; border-bottom: 1px solid #ced4da; }
+.table-border tbody > tr { border-bottom: 1px solid #ced4da; }
+.table-border tfoot > tr { border-bottom: 1px solid #ced4da; }
+.td-border td { border: 1px solid #ced4da; }
+
+ul { list-style: none; }
+li { padding: 0; }
+p { line-height: 1.3; }
+
+
+h2 { margin: 30px; }
+
+.box { 
+	width: 350px; min-height: 50px;
+	padding: 15px; margin: 20px auto;
+	border: 3px dotted gray;
+}
+
+.container { width: 700px; margin: 30px auto; }
+
+.ps {
+	padding: 5px; margin-bottom: 5px;
+	font-size: 15px; color: #fff;
+	background: #333;
+}
+
+.inner-box {
+	width: 300px; min-height: 150px;
+	margin: 5px auto; padding: 15px; 
+	border: 3px dotted green;
+}
+
+.item{
+	cursor: pointer;
+	font-weight: bold;
+}
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	// 상위(아버지)
+	// $("label").parent().css("border","3px solid red");
+	
+	// span.item의 아버지
+	// $("span.item").parent().css("border","3px solid skyblue");
+	
+	// span.item의 아버지가 li인 경우
+	// $("span.item").parent("li").css("border","3px solid skyblue");
+	
+	// 적용 안됨. div는 조상이다.
+	// $("span.item").parent("div").css("background","yellow");	
+	
+	// 조상
+	// $("span.item").parents("div").css("background","yellow");	
+	
+	// 가장 가까운 조상
+	//$("span.item").parent().parent().parent("div").css("background","lightgreen");	
+	$("span.item").closest("div").css("background","lightgreen");
+});
+
+/*
+-- 상위(ancestor:조상) 요소의 탐색
+  .parent( [selector] ) : 선택한 요소의 부모(parent) 요소를 선택한다.
+  .parents( [selector] ) : 선택한 요소의 상위(ancestor) 요소를 모두 선택한다.
+  .parentsUntil( [selector] [,filter] ) : 선택한 요소의 상위 요소 중에서 지정한 선택자에 해당하는 요소 바로 이전까지의 요소를 모두 선택한다.
+  .closest( selector ) : 선택한 요소를 포함한 상위 요소 중에서 지정한 선택자에 해당하는 요소 중 가장 첫 번째 요소를 선택한다.
+*/
+</script>
+
+</head>
+<body>
+
+<h2>탐색(Traversing)</h2>
+
+<p>
+	<span class="item">탐색 예제</span>
+</p>
+
+<div class="box">
+	
+	<div class="inner-box">
+		<p class="ps" data-subject="프로그래밍">
+			<label>프로그래밍</label>
+		</p>
+		<ul>
+			<li>
+				<span class="item">자바</span>
+			</li>
+			<li>
+				<span class="item">스프링</span>
+			</li>
+			<li>
+				<span class="item">파이썬</span>
+			</li>
+		</ul>		
+		<ul>
+			<li>
+				<span class="item">C</span>
+			</li>
+			<li>
+				<span class="item">C++</span>
+			</li>
+			<li>
+				<span class="item">Unix C</span>
+			</li>
+		</ul>		
+	</div>
+	<div class="inner-box">
+		<p class="ps" data-subject="웹 프로그래밍">
+			<label>웹 프로그래밍</label>
+		</p>
+		<ul>
+			<li>
+				<span class="item">자바스크립트</span>
+			</li>
+			<li>
+				<span class="item">HTML</span>
+			</li>
+			<li>
+				<span class="item">CSS</span>
+			</li>
+			<li>
+				<span class="item">Node.js</span>
+			</li>
+		</ul>		
+		<ul>
+			<li>
+				<span class="item">JSP</span>
+			</li>
+			<li>
+				<span class="item">ASP.NET</span>
+			</li>
+			<li>
+				<span class="item">PHP</span>
+			</li>
+		</ul>		
+	</div>
+</div>
+
+</body>
+</html>
