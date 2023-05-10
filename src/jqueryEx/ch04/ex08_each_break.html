@@ -102,7 +102,27 @@ h2 { margin: 30px; }
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
 function sendOk() {
-
+	const f = document.boardForm;
+	
+	let returnNow = false;
+	let s;
+	
+	$("form input, form textarea").each(function(){
+		if(! $(this).val().trim()){
+			s = $(this).closest("tr").find("td:first-child").text();
+			s = s.replace(/(\s)/g , '');	 // >> td의 공백을 없애주기 위해. ex) 제  목 => 제목
+			alert(s + "을(를) 입력해라.");
+			
+			$(this).focus();
+			returnNow = true;
+			
+			return false;	// each()를 빠져나감. 반드시 return false
+		}
+	});
+	
+	if(returnNow) return;
+	
+	alert("ok");
 }
 </script>
 

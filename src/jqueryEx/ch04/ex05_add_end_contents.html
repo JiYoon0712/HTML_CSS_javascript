@@ -93,7 +93,19 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	// 클래스 item1과 item2
+	// $(".item1, .item2").css("border","1px solid tomato");
+	$(".item1").add(".item2").css("border","1px solid tomato");
+	
+	// ul#s2 과 자식 .item3
+	$("ul#s2").find(".item3").addBack().css("border","1px solid green");
+	
+	// p#p1
+	$("p#p1").find("label").end().css("border","1px solid tomato");		// >> 바로 앞 연산 취소
+	
+	$("ul#s2").contents().find(".item4").css("background","yellow");
+}); 
 
 /*
 -- 기타 탐색 메소드

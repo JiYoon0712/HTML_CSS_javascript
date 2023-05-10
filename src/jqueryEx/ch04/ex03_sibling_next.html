@@ -104,7 +104,22 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	// 모든 형제
+	// $(".item1").siblings().css("background","yellow");
+	
+	// 다음 형제 하나
+	// $(".item1").next().css("background","yellow");
+	
+	// 다음 형제 모두
+	// $(".item1").nextAll().css("background","yellow");
+	
+	// 다음 형제 중 마지막 li 제외한 요소
+	$(".item1").nextUntil("li:last-child").css("background","yellow");
+	
+	//
+	$(".item1").prev().css("border","1px solid red");
+});
 
 /*
 -- 형제(sibling) 요소의 선택

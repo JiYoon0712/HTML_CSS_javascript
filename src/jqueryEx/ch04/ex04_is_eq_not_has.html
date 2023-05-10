@@ -100,7 +100,47 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$(".btn").click(function(){
+		let isHidden = $(".layout").is(":hidden");
+		if(isHidden){
+			$(".layout").show(300);
+		} else {
+			$(".layout").hide(300);
+		}
+	});
+});
 
+$(function(){
+	// 처음 마지막
+	// $("#s1 li").first().css("background","#eee");
+	// $("#s1 li").last().css("background","yellow");
+	
+	// $("#s1 li").eq(0).css("background","#eee");
+	// $("#s1 li").eq(-1).css("background","yellow");	// 음수는 뒤에서부터
+	
+	// 홀수
+	// $("#s1 li").filter(':odd').css("background","#eee");
+	// $("#s1 li").not(':even').css("background","#eee");
+	
+	// li 요소중 클래스 item을 하위 요소로 가진 모든 li
+	// $("#s1 li").has('.item').css("background","#eee");
+	
+	if($("label").parents("p")){
+		$(".box1").text("<label> 요소의 조상으로 <p> 요소가 존재");
+	}
+	
+	let val = $("#s1 li").map(function(){
+		return $(this).html();
+	})
+	.get()
+	.join(",");
+	
+	$(".box2").html(val);
+	
+	$("#s2 li").slice(2).css("color","tomato");				// 인덱스가 2인 요소 
+	$("#s2 li").slice(1,3).css("border","1px solid #777");	// 인덱스가 1이상 3미만인 요소
+});
 
 /*
 -- 필터링 메소드

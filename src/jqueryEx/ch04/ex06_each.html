@@ -98,7 +98,14 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	$("table.cls td").each(function(index,item){
+		if(index !==0 && index%4===0){
+			$(this).css("color","tomato");
+		}
+	});
+	
+});
 
 /*
 -- 반복

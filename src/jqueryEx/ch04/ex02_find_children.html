@@ -104,7 +104,13 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	// div의 모든 자손
+	$("span.item").closest("div").children().css('color','blue');
+	
+	// div의 모든 자손 중 p 태그
+	$("span.item").closest("div").find('p').css('background','yellow');
+});
 
 /*
 -- 하위(descendant:자손) 요소의 탐색
