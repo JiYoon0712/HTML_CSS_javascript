@@ -100,10 +100,51 @@ input[type=checkbox], input[type=radio] { vertical-align: middle; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$("#itemLeft").append("<option value='lee'>이이이</option>");
+	$("#itemLeft").append("<option value='kim'>김김김</option>");
+	$("#itemLeft").append("<option value='hong'>홍홍홍</option>");
+	$("#itemLeft").append("<option value='no'>노노노</option>");
+	$("#itemLeft").append("<option value='ma'>마마마</option>");
+	$("#itemLeft").append("<option value='hi'>히히히</option>");
+});
 
+$(function(){
+	$("#btnRight").click(function(){
+		$("#itemLeft option:selected").each(function(){
+			$(this).appendTo("#itemRight");
+		});
+	});
+	
+	$("#btnAllRight").click(function(){
+		$("#itemLeft option").each(function(){
+			$(this).appendTo("#itemRight");
+		});
+	});
+
+	$("#btnLeft").click(function(){
+		$("#itemRight option:selected").each(function(){
+			$(this).appendTo("#itemLeft");
+		});
+	});
+
+	$("#btnAllLeft").click(function(){
+		$("#itemRight option").each(function(){
+			$(this).appendTo("#itemLeft");
+		});
+	});
+});
 
 function sendOk() {
-
+	if($("#itemRight option").length==0) {
+		alert("받는사람을 먼저 추가하세요...");
+		return;
+	}
+	
+	// select 박스안의 항목을 서버로 전송하기 위해서는 먼저 항목을 선택해야 한다.
+	//   즉, 선택된 항목만 서버로 전송된다.
+	$("#itemRight option").prop("selected", true);
+	
 	// 서버로 전송
 	alert('ok...');
 }

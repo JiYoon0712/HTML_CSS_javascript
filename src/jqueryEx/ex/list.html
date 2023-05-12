@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
 
 <style type="text/css">
 * { padding: 0; margin: 0; }
@@ -135,7 +135,24 @@ input[type=checkbox], input[type=radio] { vertical-align: middle; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function() {
+    $("#chkAll").click(function() {
+    	$("form input[name=nums]").prop("checked", $(this).is(":checked"));
+    });
+ 
+    $("#btnDeleteList").click(function(){
+		// let cnt = $("input[name=nums]:checkbox:checked").length;
+		let cnt = $("form input[name=nums]:checked").length;
 
+         if (cnt === 0) {
+        	 alert("삭제할 게시물을 먼저 선택 하세요 !!!");
+              return;
+         }
+         
+         alert("삭제.................");
+         
+    });
+}); 
 
 function searchList() {
 	const f = document.searchForm;
@@ -156,7 +173,7 @@ function searchList() {
 		  	<button type="button" class="btn" id="btnDeleteList">삭제</button>
 		  </td>
 		  <td align="right">
-			 <select name="rows" id="rows" class="form-select">
+			 <select name="size" id="size" class="form-select">
 				   <option value="5">5개씩 출력</option>
 				   <option value="10" selected="selected">10개씩 출력</option>
 				   <option value="20">20개씩 출력</option>

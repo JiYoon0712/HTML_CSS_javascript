@@ -60,9 +60,26 @@ function callback(){
 function printData(){
 	// XML
 	let xmlDoc = httpReq.responseXML;
-	console.log(xmlDoc);
+	// console.log(xmlDoc);
 	
-	// document.querySelector(".result-layout").innerHTML = result;
+	let root = xmlDoc.getElementsByTagName("guest")[0];
+	let dataCount = xmlDoc.getElementsByTagName("dataCount")[0].firstChild.nodeValue;
+	
+	let out = "<p>데이터 개수 : " + dataCount + "</p>";
+	
+	let records = root.getElementsByTagName("record");
+	for(let item of records){
+		let num = item.getAttribute("num");
+		let name = item.getElementsByTagName("name")[0].firstChild.nodeValue;
+		let content = item.getElementsByTagName("content")[0].firstChild.nodeValue;
+		
+		out += "<p>번호 : " + num + "<br>";
+		out += "<p>이름 : " + name + "<br>";
+		out += "<p>내용 : " + content + "</p>";
+		out += "<br>";
+	}
+	
+	document.querySelector(".result-layout").innerHTML = out;
 }
 </script>
 

@@ -87,7 +87,20 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	$(".btn").click(function(){
+		// var isVisible = $('selector').is(':visible');
+		// var isHidden = $('selector').is(':hidden');
+	    
+		$('.subject div').each(function(){
+		   if($(this).is(':visible')) {
+			   $(this).hide(500);
+		   } else {
+			   $(this).show(500);
+		   }
+	   });
+	});
+});
 
 /*
 -- 요소의 표시와 숨김

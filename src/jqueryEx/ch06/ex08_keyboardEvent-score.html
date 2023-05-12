@@ -92,7 +92,33 @@ table.score-body tr td:nth-child(2){ width: 400px; padding-left: 10px; text-alig
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	// 엔터를 입력하면 다음으로 포커스 이동
+	$("input").not($(":button")).keypress(function (evt) {	// >> keypress : a-z A-Z 0-9 엔터
+		if (evt.keyCode === 13) {
+			const fields = $(this).parents('form,body').find('button,input,textarea,select');
+			let index = fields.index(this);
+			// >> index가 0이상이고, 마지막이 아닐때
+			if ( index > -1 && ( index + 1 ) < fields.length ) {
+				fields.eq( index + 1 ).focus();
+			}
+			return false;
+		}
+	});
+});
 
+$(function() {
+	// maxlength 까지 입력하면 자동으로 다음으로 포커스 이동
+    $(".inputs").keyup(function () {
+    	let charLimit = $(this).attr("maxlength");	// >> 값이 없으면 undefined
+        if(! charLimit) return false;
+        
+        if ($(this).val().length >= charLimit) {
+            $(this).closest("tr").next().find('.inputs').focus();
+            return false;
+        }
+    });
+});
 
 /*
 -- 키보드 관련 이벤트

@@ -99,7 +99,26 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$(".btn1").click(function(){
+		$(".box1").animate({
+	        width: "250px",
+	        height: "250px",
+	        opacity: 0.5
+		},
+		1000,
+		function() {
+			console.log("애니메이션 효과 실행이 완료되었습니다.");
+		});	
+	});
 
+	$(".btn2").click(function(){
+		$(".box2").animate({
+			width: "toggle",
+			height: "toggle",
+		}, 1000);
+	});
+});
 
 /*
 -- 애니메이션 효과

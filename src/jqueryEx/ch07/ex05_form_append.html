@@ -89,7 +89,59 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+/*	
+	let s;
+	s = "<div>";
+	s += "<p><span>이름 : </span><input type='text' name='name'></p>";
+	s += "<p><span>나이 : </span><input type='text' name='age'></p>";
+	s += "</div>";
+	$("#boxLayout").html(s);
+*/
 
+/*
+	$("#boxLayout").append("<div>");
+	$("#boxLayout div").append("<p><span>이름 : </span><input type='text' name='name'></p>");
+	$("#boxLayout div").append("<p><span>나이 : </span><input type='text' name='age'></p>");
+*/	
+});
+
+$(function(){
+	let elements = createFormElement();
+	$("#boxLayout").html(elements);
+	
+	function createFormElement() {
+		let gender = "남자";
+		let label;
+		let input;
+		
+		let $layout = $("<div>");
+		
+		label = $("<span>", {html:"이름 : "});
+		input = $("<input>", {type:"text", name:"name", id:"name"});
+		$layout.append( $("<p>").append(label).append(input) );
+
+		label = $("<span>", {html:"나이 : "});
+		input = $("<input>", {type:"text", name:"age", id:"age"});
+		$layout.append( $("<p>").append(label).append(input) );
+		
+		var $p = $("<p>");
+		label = $("<span>", {html:"성별 : "});
+		$p.append(label);
+		
+		label = $("<span>", {html:" 남자 "});
+		input = $("<input>", {type:"radio", name:"gender", id:"gender1", value:"남자", checked:(gender=="남자")});
+		$p.append(label).append(input);
+		
+		label = $("<span>", {html:" 여자 "});
+		input = $("<input>", {type:"radio", name:"gender", id:"gender2", value:"여자", checked:(gender=="여자")});
+		$p.append(label).append(input);
+		
+		$layout.append($p);
+		
+		return $layout;
+	}
+});
 
 </script>
 </head>

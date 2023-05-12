@@ -90,8 +90,40 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$(".boxArea").click(function(e){
+		let x, y, s;
 
+		// Documet를 기준으로 한 엘리먼트의 위치 값. ".boxArea"의 document 기준으로 위치
+		x = $(this).offset().left;
+		y = $(this).offset().top;
+		s = "<p>offset().left, offset().top : " + x + ", " + y + "</p>";
+		
+		// 전체 문서를 기준으로 x,y 좌표를 반환. 스크롤된 영역(화면)을 포함해서 계산
+		x = e.pageX;
+		y = e.pageY;
+		s += "<p>pageX, pageY : " + x + ", " + y + "</p>";
 
+		// 클라이언트 영역 내의 x,y 좌표. 클라이언트 영역은 현재 보이는 브라우저 화면 기준
+		// 스크롤된 영역은 무시되고 해당 문서 상단이 0
+		x = e.clientX;
+		y = e.clientY;
+		s += "<p>clientX, clientY : " + x + ", " + y + "</p>";
+		
+		// 모니터 화면을 기준으로 하는 마우스 좌표
+		x = e.screenX;
+		y = e.screenY;
+		s += "<p>screenX, screenY : " + x + ", " + y + "</p>";
+
+		// 이벤트 대상이 기준. 전체 문서를 기준(스크롤 화면 포함)
+		// 화면 중간에 있는 박스 내부에서 클릭한 위치를 찾을 때 해당 박스의 왼쪽 모서리 좌표가 0
+		x = e.offsetX;
+		y = e.offsetY;
+		s += "<p>offsetX, offsetY : " + x + ", " + y + "</p>";
+		
+		$(".resultBox").html(s);
+	});
+});
 </script>
 </head>
 <body>

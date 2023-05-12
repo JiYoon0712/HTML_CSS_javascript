@@ -93,8 +93,21 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
-
+$(function(){
+	$(".box ul>li").click(function(){
+		let idx = $(this).index();
+		alert($(this).text() + " 인덱스 : " + idx);
+	});
+	
+	$(".btn").click(function(){
+		// let $item = $(".item");
+		// let $item = $(".box ul>.item");
+		let $item = $("#s1>.item");
+		
+		let idx = $("#s1>li").index($item);
+		alert(idx);
+	});
+});
 
 /*
 -- 인덱스

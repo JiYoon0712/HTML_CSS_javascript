@@ -151,8 +151,42 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$("body").click(function(e){
+		let $target = $(e.target);
+		if($target.attr("class") !== "popup-dialog") {
+			if($(".popup-dialog").is(':visible')) {
+				$(".popup-dialog").hide();
+			}
+		}
+	});
+});
 
+$(function(){
+	$(".board-list a").mouseover(function(e){
+		let top = e.pageY;	// 상단 좌표 위치 안맞을 시 e.clientY
+		let left = e.pageX;	// 좌측 좌표 위치 안맞을 시 e.clientX
+		
+		$('.popup-dialog').css({
+		     "top": (top+10),
+		     "left": (left+10),
+		     "position": "absolute",
+		     "z-index": "1000"
+		}).show();
+	});
+	
+	$(".board-list a").mouseleave(function(e){
+		if($(".popup-dialog").is(':visible')) {
+			$(".popup-dialog").hide();
+		}
+	});
 
+/*
+    $("body").on("click", ".popup-close", function(){
+    	$(".popup-dialog").fadeOut(300);
+    });
+*/
+});
 
 </script>
 </head>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
 <style type="text/css">
 * { padding: 0; margin: 0; }
 *, *::after, *::before { box-sizing: border-box; }
@@ -127,6 +127,112 @@ function isValidDateFormat(date) {
 	return true;
 }
 
+$(function() {
+	$("input").not($(":button")).not($(":reset")).keypress(function(e){
+		if(e.keyCode === 13) {
+			var fields = $(this).parents("form, body").find("button, input, textarea, select");
+			var index = fields.index(this);
+			
+			if(index > -1 && (index+1) < fields.length ) {
+				fields.eq( index+1 ).focus();
+			}
+			return false; // 이벤트 취소
+		}
+	});
+});
+
+$(function(){
+	$(".help-block").hide();
+	
+	// <input>, <button>, <select>, <textarea> 요소
+	$("form[name=memberForm] :input").css("border", "1px solid #aaa");
+
+	// <input> 만
+	$("form[name=memberForm] input").focus(function(){
+		$(this).css("border", "1px solid #f28011");
+		$(this).siblings(".help-block").show();
+		// next() 는 형제중 span이 하나인 경우는 가능하지만 두개이상에서 두번째는 siblings()를 사용 해야함  
+		// $(this).next("span").show(); // 
+	});
+
+	$("form[name=memberForm] input").blur(function(){
+		$(this).css("border", "1px solid #aaa");
+		$(this).siblings(".help-block").hide();
+		// $(this).next("span").hide();
+	});
+	
+});
+
+$(function(){
+	// 이메일 
+	$("form select[name=selectEmail]").change(function(){
+		let s = $(this).val();
+		if(s === "") {
+			$("form input[name=email2]").val("");
+			$("form input[name=email2]").prop("readonly",true);
+		} else if(s === "direct") {
+			$("form input[name=email2]").val("");
+			$("form input[name=email2]").prop("readonly",false);
+		} else {
+			$("form input[name=email2]").val(s);
+			$("form input[name=email2]").prop("readonly",true);
+		}
+		$("form input[name=email1]").focus();
+	});
+});
+
+$(function(){
+	// 약관 동의
+	$("form input[name=terms]").click(function(){
+		let c = $(this).is(":checked");
+		if( c ) {
+			$("#btnOk").prop("disabled", false);
+		} else {
+			$("#btnOk").prop("disabled", true);
+		}
+	});
+});
+
+$(function(){
+	$("#btnOk").click(function(){
+		
+		if(! isVaildInputs()) {
+			alert("필수 입력 사항 입니다. !");
+			return false;
+		}
+		
+		const f = document.memberForm;
+		
+		
+		alert("회원 가입...");
+	});
+	
+	function isVaildInputs() {
+		const inputs = $("form[name=memberForm]").find("input,select[name=tel1]");
+		let b = false;
+		
+		$(inputs).each(function(index) {
+	        let idx = $(this).closest("tr").find("td:first").text().indexOf("*");
+
+	        // let n = $(this).attr("name");
+	        // console.log(n);
+	        
+	        if(idx === -1) {
+	        	b = true;
+	        	return false; // each()에서의 break;
+	        	   // return false는 $.each()를 빠저나옴
+	        }
+	        
+	        if(! $(this).val().trim()) {
+	        	$(this).focus();
+	        	b = false;
+	        	return false;
+	        }
+	    });
+		
+		return b;
+	}
+});
 
 </script>
 

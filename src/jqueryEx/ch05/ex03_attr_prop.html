@@ -89,20 +89,65 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$(".btn1").click(function(){
+		$("form input[name=hak]").prop("readonly", true);
+		$("form input[name=name]").prop("disabled", true);
+		$("form input[name=receiveMail]").prop("checked", true);
+        
+		$("#photo").attr("src", "img.png");
 
-
+/*		
+        $("form input[name=hak]").attr("readonly","readonly");	
+        // $("form input[name=hak]").attr("readOnly", true); // 가능	
+        $("form input[name=name]").attr("disabled", "disabled");
+        // $("form input[name=name]").attr("disabled", true); // 디세이블드도 가능
+        $("form input[name=receiveMail]").attr("checked", true); // 크롬에서는 여러번 테스트 시 문제가 발생
+*/
+	});
+	
+	$(".btn2").click(function(){
+		let s1 = $("form input[name=hak]").prop("readonly"); // :readonly 필터는 없음
+		
+		let s2 = $("form input[name=name]").is(":disabled"); // input 필터
+		let s3 = $("form input[name=receiveMail]").is(":checked");
+		
+		let s4 = $("#photo").attr("src");
+		
+		let s = "<p>학번 : readonly - "+s1+"</p>";
+		s += "<p>이름 : disabled - "+s2+"</p>";
+		s += "<p>메일수신 : checked-"+s3+"</p>";
+		s += "<p>이미지 : src - "+s4+"</p>";
+		
+		$(".result-box").html(s);
+	});
+	
+	$(".btn3").click(function(){
+		$("form input[name=hak]").prop("readonly", false);
+		$("form input[name=name]").prop("disabled", false);
+		$("form input[name=receiveMail]").prop("checked", false);
+		
+		$("#photo").removeAttr("src");
+		
+/*
+		$("form input[name=hak]").removeAttr("readonly");
+		$("form input[name=name]").removeAttr("disabled");
+		$("form input[name=receiveMail]").removeAttr("checked");
+*/
+	});
+});
 
 /*
 -- 프로퍼티 설정 / 반환
 .attr() : 선택한 요소 집합의 첫 번째 요소의 지정된 속성(attribute)값을 반환하거나, 선택한 요소의 지정된 속성을 전달받은 값으로 설정한다.
-.prop() : 선택한 요소 집합의 첫 번째 요소의 지정된 프로퍼티(property)값을 반환하거나, 선택한 요소의 지정된 프로퍼티를 전달받은 값으로 설정한다.
+.prop() : 선택한 요소 집합의 첫 번째 요소의 지정된 프로퍼티(property)값을 반환하거나, 선택한 요소의 지정된 프로퍼티를 전달받은 값으로 설정한다.	
 .removeAttr() : 선택한 요소에서 지정된 속성(attribute)을 제거한다.
 .removeProp() : 선택한 요소에서 지정된 프로퍼티(property)를 제거한다.
 
 -- attr() 와 prop() 비교
-  var s = $("#chk").attr("checked"); => "checked"/undefined 반환 => HTML의 텍스트 적인 속성을 설정하거나 리턴
-  var s = $("#chk").prop("checked"); => true/false 반환 => 객체의 자바스크립트 속성을 설정하거나 리턴(Boolean)
-  var s = $("#chk").is(":checked"); => true/false 반환 => 선택여부 확인
+  let s = $("#chk").attr("checked"); => "checked"/undefined 반환 => HTML의 텍스트 적인 속성을 설정하거나 리턴
+  let s = $("#chk").prop("checked"); => true/false 반환 => 객체의 자바스크립트 속성을 설정하거나 리턴(Boolean)
+  let s = $("#chk").is(":checked"); => true/false 반환 => 선택여부 확인
 
 -- readonly, disabled 속성 설정은 .attr()로 가능 하지만 .prop()를 사용한다.
   $("form input[name=subject]").attr("readonly", "readonly");

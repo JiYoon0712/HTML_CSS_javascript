@@ -89,7 +89,24 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+  	$(".btn1").on("click", function(){
+        $(".box").scrollLeft(70);
+        $(".box").scrollTop(20);
+      
+        let left = $(".box").scrollLeft();
+        let top = $(".box").scrollTop();
+        
+      	$("#boxResult").html("<p>Left:" + left + ", Top:" + top + "</p>");
+    });
+  	
+  	// scroll 이벤트
+    $(".box").on('scroll', function(){
+    	let left = $(this).scrollLeft();
+    	let top = $(this).scrollTop();
+        $("#boxResult").html("<p>Left:" + left + ", Top:" + top + "</p>");
+      });
+});
 
 /*
 -- 요소의 스크롤 위치

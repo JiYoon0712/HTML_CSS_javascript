@@ -87,7 +87,32 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	// 스타일 설정
+	$("li").css("color", "blue");
+	
+	// 여러 스타일 동시 설정
+	/*
+	$("p").css({
+	    "fontSize": "17px",
+	    "color": "#fff",
+	    "background-color": "#333",
+	    "margin-bottom": "5px",
+	    "padding": "5px"
+	 });
+	*/
+	$("p").css({
+	    fontSize: "17px",
+	    color: "#fff",
+	    backgroundColor: "#333",
+	    marginBottom: "5px",
+	    padding: "5px"
+	 });
+	
+	// 스타일 반환
+	let c = $("p").css("backgroundColor");
+	console.log(c);
+});
 
 /*
 -- css

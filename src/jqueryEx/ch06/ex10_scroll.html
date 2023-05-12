@@ -102,7 +102,27 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	// $(".box").scrollTop(50);
+	// $(".box").scrollLeft(50);
+	
+	$(".box").scroll(function(){
+		let top = $(".box").scrollTop();
+		let left = $(".box").scrollLeft();
+		
+		let s = "<p>top:"+top+", left:"+left+"</p>";
+		$(".boxResult").html(s);
+	});
 
+	// 브라우저를 축소해서 테스트
+	$(document).scroll(function(){
+		let top = $(document).scrollTop();
+		let left = $(document).scrollLeft();
+		
+		let s = "<p>top:"+top+", left:"+left+"</p>";
+		$(".boxResult").html(s);
+	});
+});
 
 </script>
 

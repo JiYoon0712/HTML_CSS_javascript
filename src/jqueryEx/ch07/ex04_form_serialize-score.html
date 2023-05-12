@@ -100,10 +100,41 @@ table.table-form tr td:nth-child(2) {
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$(".btnSend1").click(function(){
+		/*
+		let hak = $("form input[name=hak]").val();
+		let name = $("form input[name=name]").val();
+		name = encodeURIComponent(name);
+		let birth = $("form input[name=birth]").val();
+		let kor = $("form input[name=kor]").val();
+		let eng = $("form input[name=eng]").val();
+		let mat = $("form input[name=mat]").val();
+		let query = "hak="+hak+"&name="+name+"&birth="+birth+
+				"&kor="+kor+"&eng="+eng+"&mat="+mat;
+		*/
 
+		// 폼 데이터를 시어리얼라이즈
+		let query = $('form[name=scoreForm]').serialize();
+        alert(query);
+	});
+
+	$(".btnSend2").click(function(){
+		let obj = $('form[name=scoreForm]').serializeArray();
+		let query = JSON.stringify(obj);
+        alert(query);
+	});
+	
+    $("form[name=scoreForm]").submit(function() {
+    	let query = $(this).serialize();
+        alert(query);
+        
+        return false; // false를 반환하면 서버로 전송되지 않음
+   });
+});
 
 /*
--- 직렬화
+-- 직렬화 >> 중요 ★
   직렬화 : 폼 자료를  "a=1&b=2&c=3&d=4&e=5" 처럼 결합
  .serialize() : 입력된 모든 Element(을)를 문자열의 데이터에 serialize 한다.
  .serializeArray() : serialize 메소드와 같이 Form(이)나 Element(을)를 serialize 하여 JSON 형식의 데이터 구조로 반환 값을 돌려준다.

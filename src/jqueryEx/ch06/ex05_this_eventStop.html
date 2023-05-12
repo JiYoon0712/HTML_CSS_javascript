@@ -88,7 +88,30 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$("#linkList1 a").on("click", function(event) {
+		event.preventDefault();		// >> preventDefault : 이벤트 취소
+		alert("이 링크는 동작하지 않습니다!");
+	});
+	$(".btn1").one("click", function() {
+		// 링크가 적용 됨
+		$("#linkList1").append('<li><a href="//www.naver.com">네이버</a></li>');
+	});
 
+	$("#linkList2").on("click", "a", function(event) {
+		event.preventDefault();
+		alert("이 링크는 동작하지 않습니다!");
+	});
+	$(".btn2").one("click", function() {
+		// 링크가 적용되지 않음
+		$("#linkList2").append('<li><a href="//www.naver.com">네이버</a></li>');
+	});
+	
+	$("#linkList3").on("click", "a", function(event) {
+		alert("이 링크는 동작하지 않습니다!");
+		return false;	// >> jquery에서 이벤트 취소하는 또 다른 방법
+	});
+});
 
 /*
 -- 이벤트 핸들러 함수 내부의 $(this)

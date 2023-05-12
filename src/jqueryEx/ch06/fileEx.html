@@ -100,8 +100,35 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
-
+$(function(){
+	$(".form .img-viewer").click(function(){
+		$("form[name=photoForm] input[name=selectFile]").trigger("click"); 
+	});
+	
+	$("form[name=photoForm] input[name=selectFile]").change(function(){
+		let img;
+		
+		let file = this.files[0];
+		if(! file) {
+			$(".form .img-viewer").empty();
+			img = "add_photo.png";
+			$(".form .img-viewer").css("background-image", "url("+img+")");
+			return false;
+		}
+		
+		if(! file.type.match("image.*")) {
+			this.focus();
+			return false;
+		}
+		
+		let reader = new FileReader();
+		reader.onload = function(e) {
+			$(".form .img-viewer").empty();
+			$(".form .img-viewer").css("background-image", "url("+e.target.result+")");
+		};
+		reader.readAsDataURL(file);
+	});
+});
 
 </script>
 

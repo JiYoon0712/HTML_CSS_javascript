@@ -87,7 +87,29 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	// >> btn1, btn2 같음. 이벤트 등록하는 2가지 방법
+	$(".btn1").click(function(){
+		alert("클릭했습니다. !!!");
+	});
+	
+	$(".btn2").on("click", function(){
+		alert("클릭했습니다. !!!");
+	});
+	
+	$(".btn4").click(function(){
+		$(".btn3").on("click", function(){
+			alert("클릭했습니다. !!!");
+		});
+		
+		$(".btn3").text("클릭 가능");
+	});
 
+	$(".btn5").click(function(){
+		$(".btn3").off("click")
+		$(".btn3").text("클릭 불가");
+	});
+});
 
 /*
 -- 이벤트의 연결(event binding)

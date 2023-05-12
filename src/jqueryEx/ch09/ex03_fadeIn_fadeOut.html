@@ -116,7 +116,18 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	$(".faq-body h3.question").click(function() {
+		let $answer = $(this).next(".faq-body div.answer");
+		let isVisible = $answer.is(':visible');
+		if(isVisible) {
+			$(this).next(".faq-body div.answer").fadeOut(100);
+		} else {
+			$(".faq-body div.answer").hide();
+			$(this).next(".faq-body div.answer").fadeIn(100);
+		}
+	});
+});
 
 /*
 -- 페이드(fade) 효과

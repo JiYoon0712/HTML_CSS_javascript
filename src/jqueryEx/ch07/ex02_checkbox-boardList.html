@@ -130,7 +130,48 @@ input[type=checkbox], input[type=radio] { vertical-align: middle; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function() {
+    $("#chkAll").click(function() {
+   	/*
+	   if($(this).is(":checked")) {
+		   $("input[name=nums]").prop("checked", true);
+        } else {
+		   $("input[name=nums]").prop("checked", false);
+        }
+   	*/
+    	$("form input[name=nums]").prop("checked", $(this).is(":checked"));
+    });
+ 
+    $("#btnDeleteList").click(function(){
+		// let cnt = $("input[name=nums]:checkbox:checked").length;
+		let cnt = $("input[name=nums]:checked").length;
 
+		if (cnt === 0) {
+			alert("삭제할 게시물을 먼저 선택 하세요 !!!");
+			return false;
+		}
+		
+/*		
+        let nums = $("input[name=nums]:checked");
+        let n = "";
+        for (let i = 0; i < nums.length; i++) {
+ 			n += $(nums[i]).val() + ",";
+        }
+        if(n.length>0) {
+        	n=n.substr(0, n.length-1);
+        }
+*/
+		// $("선택자").map() : 배열을 순회하며 각 요소에 대하여 인자로 주어진 콜백 함수의 
+		//   반환값(결과값)으로 새로운 유사배열을 생성하여 반환
+		// console.log($("input[name=nums]:checked"));
+    	let n = $("input[name=nums]:checked").map(function() {
+			return $(this).val();
+		})
+		.get()  // 선택한 모든 요소를 배열로 반환 
+		.join(", "); // 배열의 모든 요소를 쉼표(,)로 구분하여 문자열로 반환된다.
+		alert("선택된 게시글 : " + n);
+    });
+}); 
 
 </script>
 </head>

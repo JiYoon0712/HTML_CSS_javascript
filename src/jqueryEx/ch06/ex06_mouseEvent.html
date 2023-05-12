@@ -103,7 +103,39 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	/*
+	$("div.item").click(function(){
+		alert("클릭");
+	});
+	*/
+	// click과 dblclick이 동시에 바인딩되면 click만 처리 된다.
+	$("div.item").dblclick(function(){
+		alert("더블 클릭");
+	});
+	
+	$("div.item").contextmenu(function(){
+		alert("우측 버튼 클릭");
+	});
+	
+	// 마우스 포인터가 해당 영역 안으로 이동하면 실행. 지정된 요소 및 자식 요소에도 적용
+    $("#wrap1").mouseover(function () {
+        $("#wrap1 p").css("background", "#a1ffa4");
+    });
+	// 자식으로 들어가거나 자식(p)만 벗어나도 이벤트가 적용되므로 문제가 발생할수 있음
+    $("#wrap1").mouseout(function () {
+        $("#wrap1 p").css("border", "3px solid red");
+    });
 
+	// 마우스 포인터가 해당 영역 안으로 이동하면 실행. 지정된 요소만 적용되며 자식 요소는 적용되지 않음
+    $("#wrap2").mouseenter(function () {
+        $("#wrap2 p").css("background", "#a1ffa4");
+    });
+	// 마우스 리브는 마우스 포인터가 해당 영역 밖으로 이동하면 실행. 지정된 요소만 적용되며 자식 요소는 적용되지 않음
+    $("#wrap2").mouseleave(function () {
+        $("#wrap2 p").css("border", "3px solid red");
+    });
+});
 
 /*
 -- 마우스 관련 이벤트

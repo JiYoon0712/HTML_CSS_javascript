@@ -115,7 +115,17 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	$(".faq-body h3.question").click(function() {
+		let $answer = $(this).next(".faq-body div.answer");
+		let isVisible = $answer.is(':visible');
+		if(isVisible) {
+			$(this).next(".faq-body div.answer").slideUp(100);
+		} else {
+			$(this).next(".faq-body div.answer").slideDown(100);
+		}
+	});
+});
 
 /*
 -- 슬라이드(slide) 효과

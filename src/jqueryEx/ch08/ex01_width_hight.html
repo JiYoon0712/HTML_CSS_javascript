@@ -108,7 +108,31 @@ div > p {
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$(".btn1").click(function(){
+		let s;
+		s = "<p>너비:" + $("#boxLayout").width() + "px, 높이:" +  $("#boxLayout").height() + "px - 요소의 크기</p>"
+		s += "<p>너비:" + $("#boxLayout").innerWidth() + "px, 높이:" +  $("#boxLayout").innerHeight() + "px - 요소의 크기 + 패딩</p>";
+		s += "<p>너비:" + $("#boxLayout").outerWidth() + "px, 높이:" +  $("#boxLayout").outerHeight() + "px - 요소의 크기 + 패딩 + 테두리</p>";
+		s += "<p>너비:" + $("#boxLayout").outerWidth(true) + "px, 높이:" +  $("#boxLayout").outerHeight(true) + "px - 요소의 크기 + 패딩 + 테두리 + 마진</p>";		
+		
+		$("#boxResult").html(s);
+	});
+	
+	$(".btn2").click(function(){
+		$("#boxLayout").width(500);
+		$("#boxLayout").height(300);
+	});
+	
+	$(".btn3").click(function(){
+		let s;
+		// 브라우저 크기를 변경하여 확인
+		s = "<p>document 너비는 " + $(document).width() + "px, 높이는 " + $(document).height() + "px </p>";
+		s += "<p>window 너비는 " + $(window).width() + "px, 높이는 " + $(window).height() + "px </p>";
+		$("#boxResult").html(s);
+	});
 
+});
 
 /*
 -- 요소의 크기

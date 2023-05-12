@@ -89,7 +89,68 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	// form 아래의 <input> 태그
+	// $("form input").css("border", "1px solid blue");
+	
+	// form 아래의 input 요소(<input>, <button>, <select>, <textarea>)
+	$("form :input").css("border", "1px solid blue");
+	
+	$("form input[name=hak]").prop("readonly", true);
+	$(".btnSend").prop("disabled", true);
+	
+	// check box 선택 여부
+	// let b = $("form input[name=receiveMail]").is(":checked");
+	// console.log(b);
+	
+	$("form input[name=agree]").click(function(){
+		if($(this).is(":checked")) {
+			$(".btnSend").prop("disabled", false);
+		} else {
+			$(".btnSend").prop("disabled", true);
+		}
+	});
+	
+	$(".btnSend").click(function(){
+		let hak = $("form input[name=hak]").val();
+		let name = $("form input[name=name]").val();
+		
+		let gender = $(':radio[name="gender"]:checked').val();
+		
+		// let receiveMail = $("form input[name=receiveMail]").val(); // 선택하지 않아도 yes를 반환
+		let receiveMail = "no";
+		if($("form input[name=receiveMail]").is(":checked")) {
+			receiveMail = $("form input[name=receiveMail]").val();
+		}
 
+		let hobbys = $("form input[name=hobby]:checked");
+		let h = "";
+        /*
+        for (let i = 0; i < hobbys.length; i++) {
+ 			h += $(hobbys[i]).val() + ",";
+        }
+        if(h.length>0) {
+        	h=h.substr(0, h.length-1);
+        }
+        */
+        let hh = [];
+        // hobbys.each((index, item)  => { hh.push(item.value); }); // 순수 js
+        
+        $(hobbys).each(function(){
+			hh.push($(this).val());        	
+        });
+        h = hh.join();
+  
+        let result;
+        result = "<p> 학번 : " + hak + "</p>";
+        result += "<p> 이름 : " + name + "</p>";
+        result += "<p> 성별 : " + gender + "</p>";
+        result += "<p> 메일수신여부 : " + receiveMail + "</p>";
+        result += "<p> 취미 : " + h + "</p>";
+       
+        $(".result-box").html(result);
+	});
+});
 
 /*
 -- 특정 <input>요소를 선택할 수 있는 선택자

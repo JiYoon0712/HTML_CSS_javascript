@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<style type="text/css">
+* { padding: 0; margin: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+
+body {
+	font-family:"Malgun Gothic", "맑은 고딕", NanumGothic, 나눔고딕, 돋움, sans-serif;
+	font-size: 14px;
+	color: #222;
+}
+
+a { color: #222; text-decoration: none; cursor: pointer; }
+a:active, a:hover { color: #f28011; text-decoration: underline; }
+
+/* form-control */
+.btn {
+	color: #333;
+	border: 1px solid #999;
+	background-color: #fff;
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-weight: 500;
+	cursor:pointer;
+	font-size: 14px;
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.btn:active, .btn:focus, .btn:hover {
+	background-color: #f8f9fa;
+	color:#333;
+}
+.btn[disabled], fieldset[disabled] .btn {
+	pointer-events: none;
+	cursor: default;
+	opacity: .65;
+}
+
+.form-control {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 5px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-control[readonly] { background-color:#f8f9fa; }
+
+textarea.form-control { height: 170px; resize : none; }
+
+.form-select {
+	border: 1px solid #999; border-radius: 4px; background-color: #fff;
+	padding: 4px 5px; 
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+	vertical-align: baseline;
+}
+.form-select[readonly] { background-color:#f8f9fa; }
+
+textarea:focus, input:focus { outline: none; }
+input[type=checkbox], input[type=radio] { vertical-align: middle; }
+
+/* table */
+.table { width: 100%; border-spacing: 0; border-collapse: collapse; }
+.table th, .table td { padding-top: 10px; padding-bottom: 10px; }
+
+.table-border thead > tr { border-top: 2px solid #212529; border-bottom: 1px solid #ced4da; }
+.table-border tbody > tr { border-bottom: 1px solid #ced4da; }
+.table-border tfoot > tr { border-bottom: 1px solid #ced4da; }
+.td-border td { border: 1px solid #ced4da; }
+
+ul { list-style: none; }
+li { padding: 0; }
+p { line-height: 1.3; }
+
+h2 { margin: 30px; }
+
+.container { width: 700px; margin: 30px auto; }
+
+</style>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css" type="text/css"/>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.8.8/i18n/jquery.ui.datepicker-ko.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	// $("#date1").datepicker();	// >> 기본 : 5월 2023년
+	$("#date1").datepicker({	
+		showMonthAfterYear:true		// >> 연도가 먼저 나오도록. 2023년 5월
+	});
+});
+
+$(function(){
+	$("#date2").datepicker({
+		showMonthAfterYear:true
+		,defaultDate:"2021-05-03"
+		//,minDate:0, maxDate:"+5D"		
+		//,minDate:-5, maxDate:"+1M +5D"
+		,minDate:"2021-05-01", maxDate:"2021-05-10"		// >> 예약 등에 사용
+	});
+});
+
+$(function(){
+/*	
+	$("#date3").datepicker({
+	    dateFormat: 'yyyy-mm-dd',
+	    prevText: '이전 달',
+	    nextText: '다음 달',
+	    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+	    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+	    dayNames: ['일','월','화','수','목','금','토'],
+	    dayNamesShort: ['일','월','화','수','목','금','토'],
+	    dayNamesMin: ['일','월','화','수','목','금','토'],
+	    showMonthAfterYear: true,
+	    yearSuffix: '년'
+	});
+*/
+
+	$("#date3").datepicker({
+		showOn: "button"
+		,buttonImage: "calendar.gif"	// >> 그림 누르면 달력 선택되도록 설정
+		,buttonImageOnly: true
+
+	    ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
+	    ,monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
+
+	    ,showMonthAfterYear: true
+		,changeMonth: true
+		,changeYear: true
+	});
+	
+	$(".ui-datepicker-trigger").css({position: "relative", top:"3px"});
+});
+</script>
+
+</head>
+<body>
+
+<h2>datepicker 예제</h2>
+
+<div class="container">
+	<p><input type="text" readonly="readonly" id="date1"></p>
+	<p><input type="text" readonly="readonly" id="date2"></p>
+	<p><input type="text" style="margin-right: 3px;" readonly="readonly" id="date3"></p>
+</div>
+
+</body>
+</html>

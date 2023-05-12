@@ -88,8 +88,18 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$(".btn1").bind("click", function(){
+		alert("클릭 ...");	
+	});
+	
+	// 이벤트 해제
+	$(".btn2").one("click", function(){
+		$(".btn1").unbind("click");
+	});
+});
 
-
+// >> 옛날꺼... on 사용을 권장한다!
 /*
 -- 이벤트
   .bind()

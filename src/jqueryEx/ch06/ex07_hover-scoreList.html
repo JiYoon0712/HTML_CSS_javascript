@@ -92,8 +92,22 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
-
+$(function(){
+	$("table.tc tr:gt(0)").hover( // 마우스 hover 처리
+		function() {$(this).addClass("hover");},
+		function() {$(this).removeClass("hover");}
+	);
+	
+	$(".btnUpdate").click(function(){
+		let hak = $(this).attr("data-hak");
+		alert(hak + " 수정 !!!");
+	});
+	
+	$(".btnDelete").on("click", function(){
+		let hak = $(this).attr("data-hak");
+		alert(hak + " 삭제 !!!");
+	});	
+});
 </script>
 
 </head>

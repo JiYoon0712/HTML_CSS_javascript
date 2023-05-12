@@ -115,7 +115,11 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	$(".faq-body h3.question").click(function(){
+		$(this).next(".faq-body div.answer").toggle();
+	});
+});
 
 </script>
 </head>

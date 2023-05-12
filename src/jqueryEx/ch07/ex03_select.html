@@ -89,7 +89,54 @@ div > p { margin-bottom: 5px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	// 항목 선택
+	// $("#selectEmail").val("naver.com");
+	$("#selectEmail option:eq(1)").prop("selected", true);
+	
+	$("#selectEmail").change(function(){
+		if(! $(this).val()) return false;
+		
+		alert($(this).val());
+	});
+});
 
+$(function(){
+	$(".btnAdd").click(function(){
+		let s = $("#inputs").val().trim();
+		if(! s) return false;
+		
+		$("#subject").append("<option value='"+s+"'>"+s+"</option>");
+		// $("<option value='"+s+"'>"+s+"</option>").appendTo("#subject");
+		
+		$("#inputs").val("");
+		$("#inputs").focus();
+	});
+	
+	$(".btnSelect").click(function(){
+		let s;
+		
+		// s=$("#subject option:selected").text();
+		// s=$("#subject option:selected").val();
+		// s=$(":selected").val();
+		s=$("#subject").val(); // 하나도 없으면 null
+		
+		alert(s);
+	});
+	
+	$(".btnSelectDelete").click(function(){
+		// if(! $("#subject").val() ) return false;
+		let idx = $("#subject option").index($("#subject option:selected"));
+		if(idx === -1) return false;
+		
+		$("#subject option:selected").remove();
+		// $("#subject option:eq("+idx+")").remove();
+	});
+	
+	$(".btnAllDelete").click(function(){
+		$("#subject option").remove();
+	});
+});
 
 </script>
 

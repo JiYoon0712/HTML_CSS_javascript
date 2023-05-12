@@ -100,8 +100,73 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	var sel_files = [];
+	
+	$("body").on("click", ".form .img-add", function(event){
+		$("form[name=photoForm] input[name=selectFile]").trigger("click"); 
+	});
+	
+	$("form[name=photoForm] input[name=selectFile]").change(function(){
+		if(! this.files) {
+			let dt = new DataTransfer();
+			for(file of sel_files) {
+				dt.items.add(file);
+			}
+			document.photoForm.selectFile.files = dt.files;
+			
+	    	return false;
+	    }
+	    
+        const fileArr = Array.from(this.files);
 
+		fileArr.forEach((file, index) => {
+			sel_files.push(file);
+			
+			const reader = new FileReader();
+			const $img = $("<img>", {class:"item img-item"});
+			$img.attr("data-filename", file.name);
+            reader.onload = e => {
+            	$img.attr("src", e.target.result);
+            };
+            
+            reader.readAsDataURL(file);
+            
+            $(".img-grid").append($img);
+        });
+		
+		let dt = new DataTransfer();
+		for(file of sel_files) {
+			dt.items.add(file);
+		}
+		document.photoForm.selectFile.files = dt.files;		
+	    
+	});
+	
+	$("body").on("click", ".form .img-item", function(event) {
+		if(! confirm("선택한 파일을 삭제 하시겠습니까 ?")) {
+			return false;
+		}
+		
+		let filename = $(this).attr("data-filename");
+		
+	    for(let i = 0; i < sel_files.length; i++) {
+	    	if(filename === sel_files[i].name){
+	    		sel_files.splice(i, 1);
+	    		break;
+			}
+	    }
 
+	    let dt = new DataTransfer();
+		for(file of sel_files) {
+			dt.items.add(file);
+		}
+		document.photoForm.selectFile.files = dt.files;
+		
+		$(this).remove();
+	});
+	
+});
 </script>
 
 </head>

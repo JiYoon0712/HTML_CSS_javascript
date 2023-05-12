@@ -109,8 +109,25 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$(".no-stop li").hover(
+		function(){
+			$(this).animate({width:"200px"}, 500);
+		}, 
+		function(){
+			$(this).animate({width:"50px"}, 500);
+		}
+	);
 
-
+	$(".stop li").hover(
+		function(){
+			$(this).stop().animate({width:"200px"}, 500);
+		}, 
+		function(){
+			$(this).stop().animate({width:"50px"}, 500);
+		}
+	);
+});
 </script>
 </head>
 <body>

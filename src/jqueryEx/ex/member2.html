@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
 <style type="text/css">
 * { padding: 0; margin: 0; }
 *, *::after, *::before { box-sizing: border-box; }
@@ -111,7 +111,64 @@ input[type=checkbox], input[type=radio] { vertical-align: middle; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+    $(".schoolRemoveBtn").hide();
+    $(".licenseRemoveBtn").hide();
+    
+    $(".schoolAddBtn").click(function(){
+        $(".schoolRemoveBtn").show();
+        
+        // const p = $(this).parent().parent().find("div:first-child  :first").html();
+        // const p = $(this).parent().parent().find("div:first-child").children("p").html();
+        // $(this).parent().parent().find("div:first").append("<p>"+p+"</p>");
+        
+        // 자신의 html : 첫번째 p태그를 복제하여 div로 감싼후 div안의 html요소가져 오기
+        // const p = $(this).parent().parent().find("div:first-child  :first").clone().wrapAll("<div>").parent().html();
+        // $(this).parent().parent().find("div:first").append(p);
 
+        const p = $(this).parent().parent().find("div:first-child  :first").clone();
+        $(p).find("input").each(function(){
+        	$(this).val("");
+        });
+        $(this).parent().parent().find("div:first").append(p);
+    });
+    
+    $("body").on("click", ".schoolRemoveBtn", function(){
+        if($(this).closest("div").find("p").length<=1) { // closest("태그") : 가장가까운 부모태그
+            return;
+        }
+        
+        $(this).parent().remove();
+        
+        if($(".schoolRemoveBtn").closest("div").find("p").length<=1) {
+            $(".schoolRemoveBtn").hide();
+        }
+    });
+});
+
+$(function(){
+    $(".licenseAddBtn").click(function(){
+        $(".licenseRemoveBtn").show();
+        const p = $(this).parent().parent().find("div:first-child  :first").clone().wrapAll("<div>").parent().html();
+        $(p).find("input").each(function(){
+        	$(this).val("");
+        });
+
+        $(this).parent().parent().find("div:first").append(p);
+    });
+    
+    $("body").on("click", ".licenseRemoveBtn", function(){
+        if($(this).closest("div").find("p").length<=1) {
+            return;
+        }
+        
+        $(this).parent().remove();
+        
+        if($(".licenseRemoveBtn").closest("div").find("p").length<=1) {
+            $(".licenseRemoveBtn").hide();
+        }
+    });
+});
 
 </script>
 

@@ -88,7 +88,20 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	var n = 0;
+	$(".btn1").click(function(){
+		let s = "<p> 추가 - " + (++n) + "</p>";
+		$(".box").append(s);
+	});
+	
+	// 실행함과 동시에 click 이벤트를 발생시킨다.
+	$(".btn1").trigger("click"); 
+	
+	$(".btn2").one("click", function() { 	// >> on이 아니라 one임.
+		alert("한번만 클릭 가능합니다.");
+	});
+});
 
 /*
 -- 이벤트

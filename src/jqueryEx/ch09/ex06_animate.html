@@ -94,8 +94,21 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$(".btn1").click(function(){
+		// stop() : 현재 동작중인 애니메이션은 즉시 동작이 중지
+		$(".bar").stop().animate({
+			width:"400px"
+		}, 2000, "linear");
+	});
 
+	$(".btn2").click(function(){
+		$(".bar").stop().animate({
+			width:"1px"
+		}, 2000, "swing");
+	});
 
+});
 </script>
 </head>
 <body>

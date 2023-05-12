@@ -93,7 +93,27 @@ div > p {
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$(".btn1").click(function(){
+		let p = $("p:first").offset();
+		let s = "<div>top: " + p.top + "px, left: " + p.left + "px</div>";
+		$("#boxResult").html(s);
+	});  
+    
+	$(".btn2").click(function(){
+		$("p").offset({ top: 200, left: 30 });
+	}); 
 
+	$(".btn3").click(function(){
+		let p1 = $("p").position();
+		let s1 = "<div>position - top: " + p1.top + "xp, left: " + p1.left + "xp</div>";
+
+		let p2 = $("p").offset();
+		let s2 = "<div>offset - top: " + p2.top + "xp, left: " + p2.left + "xp</div>";	
+	    
+		$("#boxResult").html(s1+s2);
+	});  
+});
 
 /*
 -- 요소의 위치

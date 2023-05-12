@@ -87,8 +87,31 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
-
+$(function(){
+	$(".btn1").click(function(){
+		$(".box").append("<button type='button' class='btn btn2'>클릭</button> ");
+	});
+	
+	/* 
+	// .btn1 를 눌러 추가된 버튼은 이벤트가 등록되지 않는다.
+	$(".btn2").on("click", function(){
+		alert("클릭했습니다. !!!");
+	});
+	*/
+	
+	// >> body한테 click 이벤트 줌.  
+	// .btn1 를 눌러 추가된 버튼도 이벤트가 등록된다.
+	$("body").on("click", ".btn2", function(event){
+		alert("클릭했습니다. !!!");
+	});
+	
+	/*
+	// >> 범위를 줄여주려면 .box 사용해도 가능
+	$(".box").on("click", ".btn2", function(event){
+		alert("클릭했습니다. !!!");
+	});
+	*/
+});
 </script>
 
 </head>

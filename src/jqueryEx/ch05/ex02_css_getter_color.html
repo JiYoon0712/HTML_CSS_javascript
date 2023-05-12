@@ -93,8 +93,13 @@ h2 { margin: 30px; }
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
-
-
+$(function(){
+	$(".item").click(function(){
+		 let color = $( this ).css( "background-color" ); //  모두 rgb(255, 255, 0) 형식으로 반환
+		 let color2 = this.style.backgroundColor; // rgb나 #523456는 rgb로, red는 red로 
+		 $("#resultLayout").html( "div color : " + color + ", " + color2);
+	});
+});
 </script>
 
 </head>

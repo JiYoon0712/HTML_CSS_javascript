@@ -98,8 +98,49 @@ table.score-body tr td:nth-child(2){ width: 400px; padding-left: 10px; text-alig
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	// form 안의 input 형제 요소중 바로 다음에 오는 span
+	$("form input + span").hide();
+	
+	$("form input[type=text]").css("border", "1px solid #aaa");
+	
+/*
+    // input를 클릭해도 부모인 td에서 이벤트 감지
+	$( "td" ).focusin(function() {
+		$( this ).find( "span" ).css( "display", "inline" ).fadeOut( 2000 );
+	});
+*/
 
+/*
+ 	// 아무런 반응도 일어 나지 않음
+	$( "td" ).focus(function() {
+		$( this ).find( "span" ).css( "display", "inline" ).fadeOut( 2000 );
+	});
+*/
 
+	// focus 이벤트 처리. button 제외
+	$("form input").not($(":button")).focus(function(){
+		$(this).css("border", "1px solid #f28011");
+		// 이벤트를 발생시킨 바로 다음 형제
+		$(this).next("span").show();
+	});
+	
+	// blur 이벤트(포커스를 잃었을 때) 처리. button 제외
+	$("form input").not($(":button")).blur(function(){
+		$(this).css("border", "1px solid #aaa");
+		$(this).next("span").hide();
+	});
+
+});
+
+$(function(){
+	$("form[name=scoreForm]").submit(function(){
+		alert("등록하기 버튼을 클릭했습니다.");
+		
+		// submit 이벤트 중지(false를 반환하면 서버로 전송되지 않음)
+		return false;
+	});
+});
 
 /*
 -- 키보드 관련 이벤트
