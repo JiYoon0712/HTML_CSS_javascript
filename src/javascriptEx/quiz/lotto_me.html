@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<style type="text/css">
+button { border:1px solid gray; border-radius: 5px; padding:7px; width:60px; }
+#inputNum { border:1px solid gray; border-radius: 5px; padding:7px; }
+#box{ text-align: center;}
+#resultNum{ text-align: left; width: 250px; margin: 0 auto;}
+</style>
+
+</head>
+<body>
+<div style="margin: 30px; text-align: center;">
+	<input type="text" id="inputNum">
+	<button type="button" onclick="viewRandom();">구매</button>
+</div>
+<hr>
+<div id="box" style="margin: 30px;"><p id="resultNum"></p></div>
+
+<script type="text/javascript">
+
+// 로또 번호 추출
+function viewRandom(){
+	var num = [];
+	const inputNum = document.querySelector('#inputNum');
+	if( ! isFinite(inputNum.value) || ! inputNum.value ){
+		inputNum.focus();
+		return;
+	}
+	
+	let out ="";
+	let number;
+	for(let i=1; i<=inputNum.value; i++){
+		out += i + "번째 : "
+		for(let j=0; j<6; j++){
+			number = Math.floor(Math.random()*45 + 1) +" ";
+		
+		}
+		out += "<br>";
+	}
+	document.querySelector('#resultNum').innerHTML = out;
+}
+
+</script>
+</body>
+</html>
